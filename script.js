@@ -3,3 +3,10 @@
 
 // prints "hi" in the browser's dev tools console
 console.log("hi");
+
+var waypoint = new Waypoint({
+  element: document.getElementById('article'),
+  handler: function(direction) {
+    console.log('Scrolled to article!')
+  }
+})
