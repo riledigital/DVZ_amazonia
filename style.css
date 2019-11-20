@@ -9,11 +9,12 @@ body {
 
 h1 {
   font-weight: bold;
-  color: #373fff;
+  color: white;
 }
 
 .introduction {
   background: rgba(255, 255, 255, 0.5);
+  padding: 3rem;
 }
 
 .story {
