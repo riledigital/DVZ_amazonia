@@ -1,7 +1,7 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: 'Inter', helvetica, arial, sans-serif;
+  font-family: "Inter", helvetica, arial, sans-serif;
   margin: 2em;
 }
 
@@ -13,7 +13,13 @@ h1 {
 .landmark {
   background: black;
   color: white;
-/*   border: 10px solid red; */
+  /*   border: 10px solid red; */
   margin: 80vh 0;
   padding: 3rem;
 }
+
+.map-background-fixed {
+  font-size: 1rem;
+}
+
+#mapid { height: 100vh; }
