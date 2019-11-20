@@ -14,8 +14,16 @@ var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all
 }).addTo(mymap);
 
 var waypoint = new Waypoint({
-  element: document.getElementById('article'),
+  element: document.getElementById('scrollstory'),
   handler: function(direction) {
-    console.log('Scrolled to article!')
+    console.log('Scrolled to ' + direction);
   }
 })
+
+var waypoint2 = new Waypoint({
+  element:  document.getElementsByClassName("example"),
+  handler: function(direction) {
+    console.log('Scrolled to ' + direction);
+  }
+})
+

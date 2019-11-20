@@ -13,19 +13,18 @@ h1 {
 }
 
 .introduction {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   padding: 3rem;
 }
 
 .story {
-  background: black;
   color: white;
 }
 
 .landmark {
   background: black;
   color: white;
-  font-size: 0.75rem;
+  font-size: 1rem;
   /*   border: 10px solid red; */
   margin: 80vh 0;
   padding: 3rem;
