@@ -17,6 +17,10 @@ h1 {
   padding: 3rem;
 }
 
+.landmark {
+  transform: skew(-3deg, -2.5deg);
+}
+
 .story {
   color: white;
 }

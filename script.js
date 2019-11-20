@@ -21,9 +21,9 @@ var waypoint = new Waypoint({
 })
 
 var waypoint2 = new Waypoint({
-  element:  document.getElementsByClassName("example"),
+  element: document.getElementsByClassName("landmark"),
   handler: function(direction) {
-    console.log('Scrolled to ' + direction);
+    console.log('Scrolled to ' + this);
   }
 })
 
