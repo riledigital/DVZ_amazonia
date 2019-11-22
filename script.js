@@ -1,8 +1,8 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
-const d3 = require("d3");
-const waypoints = require("waypoints");
-const bootstrap = require("bootstrap");
+// const d3 = require("d3");
+// const waypoints = require("waypoints");
+// const bootstrap = require("bootstrap");
 
 // prints "hi" in the browser's dev tools console
 console.log("hi");

@@ -7,7 +7,7 @@ Mix of Bootstrap + custom css stuff
 
 - use CDN's to pull in libraries—we can use a proper NPM package.json later
 
-- it is possible to embed Observable notebooks!
+- it is possible to embed Observable notebooks! [Yes you can here is a working ex](https://observablehq.com/@observablehq/downloading-and-embedding-notebooks)
 
 
 Welcome to Glitch
