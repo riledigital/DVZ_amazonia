@@ -1,9 +1,0 @@
-{
-  "name": "amazonia-viz",
-  "version": "0.1.0",
-  "dependencies": {
-    "d3": "^5.14.2",
-    "waypoints": "^4.0.1",
-    "bootstrap": "^4.3.1"
-  }
-}
