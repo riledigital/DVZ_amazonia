@@ -1,0 +1,262 @@
+dependencies:
+  bootstrap: 4.3.1
+  d3: 5.14.2
+  waypoints: 4.0.1
+packages:
+  /bootstrap/4.3.1:
+    dev: false
+    engines:
+      node: '>=6'
+    peerDependencies:
+      jquery: 1.9.1 - 3
+      popper.js: ^1.14.7
+    resolution:
+      integrity: sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
+  /commander/2.20.3:
+    dev: false
+    resolution:
+      integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+  /d3-array/1.2.4:
+    dev: false
+    resolution:
+      integrity: sha512-KHW6M86R+FUPYGb3R5XiYjXPq7VzwxZ22buHhAEVG5ztoEcZZMLov530mmccaqA1GghZArjQV46fuc8kUqhhHw==
+  /d3-axis/1.0.12:
+    dev: false
+    resolution:
+      integrity: sha512-ejINPfPSNdGFKEOAtnBtdkpr24c4d4jsei6Lg98mxf424ivoDP2956/5HDpIAtmHo85lqT4pruy+zEgvRUBqaQ==
+  /d3-brush/1.1.5:
+    dependencies:
+      d3-dispatch: 1.0.6
+      d3-drag: 1.2.5
+      d3-interpolate: 1.4.0
+      d3-selection: 1.4.1
+      d3-transition: 1.3.2
+    dev: false
+    resolution:
+      integrity: sha512-rEaJ5gHlgLxXugWjIkolTA0OyMvw8UWU1imYXy1v642XyyswmI1ybKOv05Ft+ewq+TFmdliD3VuK0pRp1VT/5A==
+  /d3-chord/1.0.6:
+    dependencies:
+      d3-array: 1.2.4
+      d3-path: 1.0.9
+    dev: false
+    resolution:
+      integrity: sha512-JXA2Dro1Fxw9rJe33Uv+Ckr5IrAa74TlfDEhE/jfLOaXegMQFQTAgAw9WnZL8+HxVBRXaRGCkrNU7pJeylRIuA==
+  /d3-collection/1.0.7:
+    dev: false
+    resolution:
+      integrity: sha512-ii0/r5f4sjKNTfh84Di+DpztYwqKhEyUlKoPrzUFfeSkWxjW49xU2QzO9qrPrNkpdI0XJkfzvmTu8V2Zylln6A==
+  /d3-color/1.4.0:
+    dev: false
+    resolution:
+      integrity: sha512-TzNPeJy2+iEepfiL92LAAB7fvnp/dV2YwANPVHdDWmYMm23qIJBYww3qT8I8C1wXrmrg4UWs7BKc2tKIgyjzHg==
+  /d3-contour/1.3.2:
+    dependencies:
+      d3-array: 1.2.4
+    dev: false
+    resolution:
+      integrity: sha512-hoPp4K/rJCu0ladiH6zmJUEz6+u3lgR+GSm/QdM2BBvDraU39Vr7YdDCicJcxP1z8i9B/2dJLgDC1NcvlF8WCg==
+  /d3-dispatch/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-fVjoElzjhCEy+Hbn8KygnmMS7Or0a9sI2UzGwoB7cCtvI1XpVN9GpoYlnb3xt2YV66oXYb1fLJ8GMvP4hdU1RA==
+  /d3-drag/1.2.5:
+    dependencies:
+      d3-dispatch: 1.0.6
+      d3-selection: 1.4.1
+    dev: false
+    resolution:
+      integrity: sha512-rD1ohlkKQwMZYkQlYVCrSFxsWPzI97+W+PaEIBNTMxRuxz9RF0Hi5nJWHGVJ3Om9d2fRTe1yOBINJyy/ahV95w==
+  /d3-dsv/1.2.0:
+    dependencies:
+      commander: 2.20.3
+      iconv-lite: 0.4.24
+      rw: 1.3.3
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-9yVlqvZcSOMhCYzniHE7EVUws7Fa1zgw+/EAV2BxJoG3ME19V6BQFBwI855XQDsxyOuG7NibqRMTtiF/Qup46g==
+  /d3-ease/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-SZ/lVU7LRXafqp7XtIcBdxnWl8yyLpgOmzAk0mWBI9gXNzLDx5ybZgnRbH9dN/yY5tzVBqCQ9avltSnqVwessQ==
+  /d3-fetch/1.1.2:
+    dependencies:
+      d3-dsv: 1.2.0
+    dev: false
+    resolution:
+      integrity: sha512-S2loaQCV/ZeyTyIF2oP8D1K9Z4QizUzW7cWeAOAS4U88qOt3Ucf6GsmgthuYSdyB2HyEm4CeGvkQxWsmInsIVA==
+  /d3-force/1.2.1:
+    dependencies:
+      d3-collection: 1.0.7
+      d3-dispatch: 1.0.6
+      d3-quadtree: 1.0.7
+      d3-timer: 1.0.10
+    dev: false
+    resolution:
+      integrity: sha512-HHvehyaiUlVo5CxBJ0yF/xny4xoaxFxDnBXNvNcfW9adORGZfyNF1dj6DGLKyk4Yh3brP/1h3rnDzdIAwL08zg==
+  /d3-format/1.4.2:
+    dev: false
+    resolution:
+      integrity: sha512-gco1Ih54PgMsyIXgttLxEhNy/mXxq8+rLnCb5shQk+P5TsiySrwWU5gpB4zen626J4LIwBxHvDChyA8qDm57ww==
+  /d3-geo/1.11.9:
+    dependencies:
+      d3-array: 1.2.4
+    dev: false
+    resolution:
+      integrity: sha512-9edcH6J3s/Aa3KJITWqFJbyB/8q3mMlA9Fi7z6yy+FAYMnRaxmC7jBhUnsINxVWD14GmqX3DK8uk7nV6/Ekt4A==
+  /d3-hierarchy/1.1.9:
+    dev: false
+    resolution:
+      integrity: sha512-j8tPxlqh1srJHAtxfvOUwKNYJkQuBFdM1+JAUfq6xqH5eAqf93L7oG1NVqDa4CpFZNvnNKtCYEUC8KY9yEn9lQ==
+  /d3-interpolate/1.4.0:
+    dependencies:
+      d3-color: 1.4.0
+    dev: false
+    resolution:
+      integrity: sha512-V9znK0zc3jOPV4VD2zZn0sDhZU3WAE2bmlxdIwwQPPzPjvyLkd8B3JUVdS1IDUFDkWZ72c9qnv1GK2ZagTZ8EA==
+  /d3-path/1.0.9:
+    dev: false
+    resolution:
+      integrity: sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==
+  /d3-polygon/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-k+RF7WvI08PC8reEoXa/w2nSg5AUMTi+peBD9cmFc+0ixHfbs4QmxxkarVal1IkVkgxVuk9JSHhJURHiyHKAuQ==
+  /d3-quadtree/1.0.7:
+    dev: false
+    resolution:
+      integrity: sha512-RKPAeXnkC59IDGD0Wu5mANy0Q2V28L+fNe65pOCXVdVuTJS3WPKaJlFHer32Rbh9gIo9qMuJXio8ra4+YmIymA==
+  /d3-random/1.1.2:
+    dev: false
+    resolution:
+      integrity: sha512-6AK5BNpIFqP+cx/sreKzNjWbwZQCSUatxq+pPRmFIQaWuoD+NrbVWw7YWpHiXpCQ/NanKdtGDuB+VQcZDaEmYQ==
+  /d3-scale-chromatic/1.5.0:
+    dependencies:
+      d3-color: 1.4.0
+      d3-interpolate: 1.4.0
+    dev: false
+    resolution:
+      integrity: sha512-ACcL46DYImpRFMBcpk9HhtIyC7bTBR4fNOPxwVSl0LfulDAwyiHyPOTqcDG1+t5d4P9W7t/2NAuWu59aKko/cg==
+  /d3-scale/2.2.2:
+    dependencies:
+      d3-array: 1.2.4
+      d3-collection: 1.0.7
+      d3-format: 1.4.2
+      d3-interpolate: 1.4.0
+      d3-time: 1.1.0
+      d3-time-format: 2.2.2
+    dev: false
+    resolution:
+      integrity: sha512-LbeEvGgIb8UMcAa0EATLNX0lelKWGYDQiPdHj+gLblGVhGLyNbaCn3EvrJf0A3Y/uOOU5aD6MTh5ZFCdEwGiCw==
+  /d3-selection/1.4.1:
+    dev: false
+    resolution:
+      integrity: sha512-BTIbRjv/m5rcVTfBs4AMBLKs4x8XaaLkwm28KWu9S2vKNqXkXt2AH2Qf0sdPZHjFxcWg/YL53zcqAz+3g4/7PA==
+  /d3-shape/1.3.7:
+    dependencies:
+      d3-path: 1.0.9
+    dev: false
+    resolution:
+      integrity: sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==
+  /d3-time-format/2.2.2:
+    dependencies:
+      d3-time: 1.1.0
+    dev: false
+    resolution:
+      integrity: sha512-pweL2Ri2wqMY+wlW/wpkl8T3CUzKAha8S9nmiQlMABab8r5MJN0PD1V4YyRNVaKQfeh4Z0+VO70TLw6ESVOYzw==
+  /d3-time/1.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-Xh0isrZ5rPYYdqhAVk8VLnMEidhz5aP7htAADH6MfzgmmicPkTo8LhkLxci61/lCB7n7UmE3bN0leRt+qvkLxA==
+  /d3-timer/1.0.10:
+    dev: false
+    resolution:
+      integrity: sha512-B1JDm0XDaQC+uvo4DT79H0XmBskgS3l6Ve+1SBCfxgmtIb1AVrPIoqd+nPSv+loMX8szQ0sVUhGngL7D5QPiXw==
+  /d3-transition/1.3.2:
+    dependencies:
+      d3-color: 1.4.0
+      d3-dispatch: 1.0.6
+      d3-ease: 1.0.6
+      d3-interpolate: 1.4.0
+      d3-selection: 1.4.1
+      d3-timer: 1.0.10
+    dev: false
+    resolution:
+      integrity: sha512-sc0gRU4PFqZ47lPVHloMn9tlPcv8jxgOQg+0zjhfZXMQuvppjG6YuwdMBE0TuqCZjeJkLecku/l9R0JPcRhaDA==
+  /d3-voronoi/1.1.4:
+    dev: false
+    resolution:
+      integrity: sha512-dArJ32hchFsrQ8uMiTBLq256MpnZjeuBtdHpaDlYuQyjU0CVzCJl/BVW+SkszaAeH95D/8gxqAhgx0ouAWAfRg==
+  /d3-zoom/1.8.3:
+    dependencies:
+      d3-dispatch: 1.0.6
+      d3-drag: 1.2.5
+      d3-interpolate: 1.4.0
+      d3-selection: 1.4.1
+      d3-transition: 1.3.2
+    dev: false
+    resolution:
+      integrity: sha512-VoLXTK4wvy1a0JpH2Il+F2CiOhVu7VRXWF5M/LroMIh3/zBAC3WAt7QoIvPibOavVo20hN6/37vwAsdBejLyKQ==
+  /d3/5.14.2:
+    dependencies:
+      d3-array: 1.2.4
+      d3-axis: 1.0.12
+      d3-brush: 1.1.5
+      d3-chord: 1.0.6
+      d3-collection: 1.0.7
+      d3-color: 1.4.0
+      d3-contour: 1.3.2
+      d3-dispatch: 1.0.6
+      d3-drag: 1.2.5
+      d3-dsv: 1.2.0
+      d3-ease: 1.0.6
+      d3-fetch: 1.1.2
+      d3-force: 1.2.1
+      d3-format: 1.4.2
+      d3-geo: 1.11.9
+      d3-hierarchy: 1.1.9
+      d3-interpolate: 1.4.0
+      d3-path: 1.0.9
+      d3-polygon: 1.0.6
+      d3-quadtree: 1.0.7
+      d3-random: 1.1.2
+      d3-scale: 2.2.2
+      d3-scale-chromatic: 1.5.0
+      d3-selection: 1.4.1
+      d3-shape: 1.3.7
+      d3-time: 1.1.0
+      d3-time-format: 2.2.2
+      d3-timer: 1.0.10
+      d3-transition: 1.3.2
+      d3-voronoi: 1.1.4
+      d3-zoom: 1.8.3
+    dev: false
+    resolution:
+      integrity: sha512-Ccipa9XrYW5N0QkP6u0Qb8kU6WekIXBiDenmZm1zLvuq/9pBBhRCJLCICEOsH5Og4B0Xw02bhqGkK5VN/oPH0w==
+  /iconv-lite/0.4.24:
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
+  /rw/1.3.3:
+    dev: false
+    resolution:
+      integrity: sha1-P4Yt+pGrdmsUiF700BEkv9oHT7Q=
+  /safer-buffer/2.1.2:
+    dev: false
+    resolution:
+      integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  /waypoints/4.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-CZeaBXOBCylifLpDZqKEoGLsacg=
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  bootstrap: ^4.3.1
+  d3: ^5.14.2
+  waypoints: ^4.0.1
