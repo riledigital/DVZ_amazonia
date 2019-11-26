@@ -1,5 +1,5 @@
 Data Viz Amazonia
-================== 
+==================
 
 [See the Notion board for to-do and progress](https://www.notion.so/riledigital/DVZ-Final-AMAZONIA-09fd57d1b9334b6f9c947bdf2bb3df92)
 
@@ -9,9 +9,7 @@ Mix of Bootstrap + custom css stuff
 
 - it is possible to embed Observable notebooks! [Yes you can here is a working ex](https://observablehq.com/@observablehq/downloading-and-embedding-notebooks)
 
-
-Welcome to Glitch
-=================
+# Welcome to Glitch
 
 Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
 
@@ -19,9 +17,7 @@ Click `Show` in the header to see your app live. Updates to your code will insta
 
 Find out more [about Glitch](https://glitch.com/about).
 
-
-Your Project
-------------
+## Your Project
 
 ### ← README.md
 
@@ -29,7 +25,7 @@ That's this file, where you can tell people what your cool website does and how 
 
 ### ← index.html
 
-Where you'll write the content of your website. 
+Where you'll write the content of your website.
 
 ### ← style.css
 
@@ -43,7 +39,6 @@ If you're feeling fancy you can add interactivity to your site with JavaScript.
 
 Drag in `assets`, like images or music, to add them to your project
 
-Made by [Glitch](https://glitch.com/)
--------------------
+## Made by [Glitch](https://glitch.com/)
 
-\ ゜o゜)ノ
+\ ゜ o ゜)ノ
