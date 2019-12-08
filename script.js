@@ -7,7 +7,7 @@ console.log("hi");
 // Leaflet maps //
 // --------------------------------------------------------------- //
 // FIRST declare the options
-mapOptions = {
+var mapOptions = {
   preferCanvas: true,
   zoomControl: false,
   renderer: L.Canvas,
@@ -28,7 +28,19 @@ point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
 point_burbank = L.latLng(34.18539, -118.364295);
 point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
 
+// assuming this changes the base layer theme or whatever
+var CartoDB_Positron = L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+  {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: "abcd",
+    maxZoom: 15
+  }
+).addTo(mymap);
 
+// D3 stuff 
+// --------------------------------------------------------------- //
 
 // I keep getting stuff like "L is not defined" or "d3 is not defined or w/e"
 // doing shit from bostock tutorial https://bost.ocks.org/mike/leaflet/
@@ -46,26 +58,15 @@ function projectPoint(x, y) {
   var point = mymap.latLngToLayerPoint(new L.LatLng(y, x));
   this.stream.point(point.x, point.y);
 }
-// // console.log(point);
-// var transform = d3.geo.transform({point: projectPoint}),
-//     path = d3.geo.path().projection(transform);
+// console.log(point);
+var transform = d3.geoTransform({point: projectPoint}),
+    path = d3.geoPath().projection(transform);
 
 var feature = g.selectAll("path")
     .data(collection.features)
   .enter().append("path");
 
 feature.attr("d", path); 
-
-// assuming this changes the base layer theme or whatever
-var CartoDB_Positron = L.tileLayer(
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: "abcd",
-    maxZoom: 15
-  }
-).addTo(mymap);
 
 // WAYPOINTS //
 // --------------------------------------------------------------- //
