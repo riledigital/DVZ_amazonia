@@ -7,6 +7,17 @@ console.log("hi");
 // Leaflet maps //
 // --------------------------------------------------------------- //
 
+// Declare our zoom points on the map
+// Make them with geojson.io but note that its flipped
+// http://geojson.io/#map=19/40.80805/-73.96041
+point_home = L.latLng(-5.309766, -58.139648);
+point_1 = L.latLng(50.5, 30.5);
+point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
+point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
+point_burbank = L.latLng(34.18539, -118.364295);
+point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
+
+
 mapOptions = {
   preferCanvas: true,
   zoomControl: false,
@@ -14,7 +25,7 @@ mapOptions = {
   dragging: false
 };
 
-var mymap = L.map("mapid", mapOptions).setView([-62.2159, 3.4653], 13);
+var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
 
 // var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 // 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -36,15 +47,6 @@ var CartoDB_Positron = L.tileLayer(
 // --------------------------------------------------------------- //
 // http://imakewebthings.com/waypoints/guides/getting-started/
 
-// Declare our zoom points on the map
-// Make them with geojson.io but note that its flipped
-// http://geojson.io/#map=19/40.80805/-73.96041
-point_home = L.latLng(-5.309766171943678, -58.13964843749999);
-point_1 = L.latLng(50.5, 30.5);
-point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
-point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
-point_burbank = L.latLng(34.18539, -118.364295);
-point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
 
 // This is a callback function
 // it changes locations for us
@@ -53,11 +55,11 @@ zoomToLocation = (point, zoom) => {
   // mymap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
+make_waypoint = (selector, triggerpoint, zoomLevel, offsety, callbacky= x=>{}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 14);
+      zoomToLocation(triggerpoint, zoomLevel);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -68,10 +70,10 @@ make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
   });
 };
 
-make_waypoint("#introduction", point_home, -20);
-make_waypoint("#hollywood", point_hollywood, 50,x => {player.seekTo(3); player.playVideo(); return console.log('lolol')});
-make_waypoint("#burbank", point_burbank, 50);
-make_waypoint("#appendix", point_nyc, 900);
+make_waypoint("#introduction", point_home, 3, -20);
+make_waypoint("#hollywood", point_home, 7, 50, x => {return console.log('lolol')});
+make_waypoint("#burbank", point_home, 5, 50);
+make_waypoint("#appendix", point_home, 5 ,900);
 make_waypoint("#koreatown", point_koreatown, 50);
 
 // mymap.panTo(point_1);
