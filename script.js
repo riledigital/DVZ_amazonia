@@ -6,18 +6,7 @@ console.log("hi");
 
 // Leaflet maps //
 // --------------------------------------------------------------- //
-
-// Declare our zoom points on the map
-// Make them with geojson.io but note that its flipped
-// http://geojson.io/#map=19/40.80805/-73.96041
-point_home = L.latLng(-5.309766, -58.139648);
-point_1 = L.latLng(50.5, 30.5);
-point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
-point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
-point_burbank = L.latLng(34.18539, -118.364295);
-point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
-
-
+// FIRST declare the options
 mapOptions = {
   preferCanvas: true,
   zoomControl: false,
@@ -25,24 +14,49 @@ mapOptions = {
   dragging: false
 };
 
+// declare home first (PHONE HOME)
+point_home = L.latLng(-5.309766, -58.139648);
+// make the map
 var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
 
+// Declare our zoom points on the map
+// Make them with geojson.io but note that its flipped
+// http://geojson.io/#map=19/40.80805/-73.96041
+point_parque = L.latLng(-50.2458091667028, -50.2455555197316); 
+point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
+point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
+point_burbank = L.latLng(34.18539, -118.364295);
+point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
+
+
+
+// I keep getting stuff like "L is not defined" or "d3 is not defined or w/e"
 // doing shit from bostock tutorial https://bost.ocks.org/mike/leaflet/
 var svg = d3.select(mymap.getPanes().overlayPane).append("svg"),
     g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
+// gross ass geojson data import 
 d3.json("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828", function(error, collection) {
   if (error) throw error;
   console.log("not loaded lol");
   // code here
 });
 
-// var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-// 	subdomains: 'abcd',
-// 	maxZoom: 19
-// }).addTo(mymap);
+function projectPoint(x, y) {
+  var point = mymap.latLngToLayerPoint(new L.LatLng(y, x));
+  this.stream.point(point.x, point.y);
+}
+// // console.log(point);
+// var transform = d3.geo.transform({point: projectPoint}),
+//     path = d3.geo.path().projection(transform);
 
+var feature = g.selectAll("path")
+    .data(collection.features)
+  .enter().append("path");
+
+feature.attr("d", path); 
+
+// assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   {
