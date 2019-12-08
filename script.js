@@ -17,12 +17,15 @@ var mapOptions = {
 // declare home first (PHONE HOME)
 var point_home = L.latLng(-5.309766, -58.139648);
 // make the map
-var mymap = L.map("mapid", mapOptions).setView([point_home.lng, point_home.lat], 5);
+var mymap = L.map("mapid", mapOptions).setView(
+  [point_home.lng, point_home.lat],
+  5
+);
 
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-var point_parque = L.latLng(-50.2458091667028, -50.2455555197316); 
+var point_parque = L.latLng(-50.2458091667028, -50.2455555197316);
 var point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
 var point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
 var point_burbank = L.latLng(34.18539, -118.364295);
@@ -39,28 +42,29 @@ var CartoDB_Positron = L.tileLayer(
   }
 ).addTo(mymap);
 
-// D3 stuff 
+// D3 stuff
 // --------------------------------------------------------------- //
 
 // I keep getting stuff like "L is not defined" or "d3 is not defined or w/e"
 // doing shit from bostock tutorial https://bost.ocks.org/mike/leaflet/
 var svg = d3.select(mymap.getPanes().overlayPane).append("svg"),
-    g = svg.append("g").attr("class", "leaflet-zoom-hide");
+  g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-var geoitem = "https://raw.githubusercontent.com/simonepri/geo-maps/master/previews/countries-land.geo.json"
-// gross ass geojson data import 
-
-
+var geoitem =
+  "https://raw.githubusercontent.com/simonepri/geo-maps/master/previews/countries-land.geo.json";
+// gross ass geojson data import
 
 d3.json(geoitem, function(error, collection) {
   if (error) throw error;
 
-  var transform = d3.geo.transform({point: projectPoint}),
-      path = d3.geo.path().projection(transform);
+  var transform = d3.geo.transform({ point: projectPoint }),
+    path = d3.geo.path().projection(transform);
 
-  var feature = g.selectAll("path")
-      .data(collection.features)
-    .enter().append("path");
+  var feature = g
+    .selectAll("path")
+    .data(collection.features)
+    .enter()
+    .append("path");
 
   mymap.on("viewreset", reset);
   reset();
@@ -68,15 +72,16 @@ d3.json(geoitem, function(error, collection) {
   // Reposition the SVG to cover the features.
   function reset() {
     var bounds = path.bounds(collection),
-        topLeft = bounds[0],
-        bottomRight = bounds[1];
+      topLeft = bounds[0],
+      bottomRight = bounds[1];
 
-    svg .attr("width", bottomRight[0] - topLeft[0])
-        .attr("height", bottomRight[1] - topLeft[1])
-        .style("left", topLeft[0] + "px")
-        .style("top", topLeft[1] + "px");
+    svg
+      .attr("width", bottomRight[0] - topLeft[0])
+      .attr("height", bottomRight[1] - topLeft[1])
+      .style("left", topLeft[0] + "px")
+      .style("top", topLeft[1] + "px");
 
-    g   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+    g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
     feature.attr("d", path);
   }
@@ -88,10 +93,8 @@ d3.json(geoitem, function(error, collection) {
   }
 });
 
-
-
 // emma::
-// var collection = d3.json(geoitem, 
+// var collection = d3.json(geoitem,
 //         function(error, collection) {
 //   if (error) throw error;
 //   console.log("loaded lol");
@@ -110,25 +113,29 @@ d3.json(geoitem, function(error, collection) {
 //     .data(collection.features)
 //   .enter().append("path");
 
-// feature.attr("d", path); 
+// feature.attr("d", path);
 
 // WAYPOINTS //
 // --------------------------------------------------------------- //
 // http://imakewebthings.com/waypoints/guides/getting-started/
 
-
 // This is a callback function
 // it changes locations for us
-var zoomToLocation = (point, zoom) => {
-  mymap.flyTo(point, zoom, { animate: true, duration: 2, easeLinearity: 0.1 });
+var zoomToLocation = (point) => {
+  mymap.flyTo(point, 5, {animate: true, duration: 2, easeLinearity: 0.1 });
   // mymap.setZoom(zoom);
 };
 
-var make_waypoint = (selector, triggerpoint, zoomLevel, offsety, callbacky= x=>{}) => {
+var make_waypoint = (
+  selector,
+  triggerpoint,
+  offsety,
+  callbacky = x => {}
+) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, zoomLevel);
+      zoomToLocation(triggerpoint);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -139,11 +146,12 @@ var make_waypoint = (selector, triggerpoint, zoomLevel, offsety, callbacky= x=>{
   });
 };
 
-make_waypoint("#introduction", point_home, 6, -20);
-make_waypoint("#hollywood", point_home, 6, 50, x => {return console.log('lolol')});
-make_waypoint("#burbank", point_home, 6, 50);
-make_waypoint("#appendix", point_home, 6 ,900);
-make_waypoint("#koreatown", point_koreatown, 6, 50);
+make_waypoint("#introduction", point_home, -10);
+make_waypoint("#parque", point_home, x => {
+  return console.log("we did parque");
+});
+make_waypoint("#burbank", point_home, 50);
+make_waypoint("#appendix", point_home, 900);
+make_waypoint("#koreatown", point_koreatown, 50);
 
 mymap.panTo(point_1);
-
