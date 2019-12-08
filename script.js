@@ -14,7 +14,7 @@ mapOptions = {
   dragging: false
 };
 
-var mymap = L.map("mapid", mapOptions).setView([34.0522, -118.2437], 13);
+var mymap = L.map("mapid", mapOptions).setView([-62.2159, 3.4653], 13);
 
 // var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 // 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -39,7 +39,7 @@ var CartoDB_Positron = L.tileLayer(
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-point_home = L.latLng(34.0522, -118.2437);
+point_home = L.latLng(-5.309766171943678, -58.13964843749999);
 point_1 = L.latLng(50.5, 30.5);
 point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
 point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
