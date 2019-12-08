@@ -16,20 +16,13 @@ var mapOptions = {
 
 // declare home first (PHONE HOME)
 var point_home = L.latLng(-5.309766, -58.139648);
+
 // make the map
 var mymap = L.map("mapid", mapOptions).setView(
   [point_home.lng, point_home.lat],
   5
 );
 
-// Declare our zoom points on the map
-// Make them with geojson.io but note that its flipped
-// http://geojson.io/#map=19/40.80805/-73.96041
-var point_parque = L.latLng(-50.2458091667028, -50.2455555197316);
-var point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
-var point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
-var point_burbank = L.latLng(34.18539, -118.364295);
-var point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
 
 // assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(
@@ -41,6 +34,53 @@ var CartoDB_Positron = L.tileLayer(
     maxZoom: 15
   }
 ).addTo(mymap);
+
+
+// WAYPOINTS //
+// --------------------------------------------------------------- //
+// http://imakewebthings.com/waypoints/guides/getting-started/
+// Declare our zoom points on the map
+// Make them with geojson.io but note that its flipped
+// http://geojson.io/#map=19/40.80805/-73.96041
+var point_parque = L.latLng(-50.2458091667028, -50.2455555197316);
+var point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
+var point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
+var point_burbank = L.latLng(34.18539, -118.364295);
+var point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
+
+// This is a callback function
+// it changes locations for us
+var zoomToLocation = (point, zoomLevel) => {
+  mymap.flyTo(point, zoomLevel, {animate: false, duration: 2, easeLinearity: 0.1 });
+  // mymap.setZoom(zoom);
+};
+
+var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
+  new Waypoint({
+    element: document.querySelector(selector),
+    handler: function(direction) {
+      zoomToLocation(triggerpoint, 8);
+      // callbacky = typeof callbacky !== undefined ? null: callbacky();
+      callbacky();
+      console.log(
+        "Triggered a waypoint with params: " + selector + triggerpoint
+      );
+    },
+    offset: offsety
+  });
+};
+
+
+// make_waypoint("#introduction", point_home, -10);
+make_waypoint("#parque", point_home, x => {
+  return console.log("we did parque");
+});
+make_waypoint("#burbank", point_burbank, 0, x => {console.log('burbank')});
+// make_waypoint("#appendix", point_home, 900);
+// make_waypoint("#koreatown", point_koreatown, 50);
+
+// mymap.panTo(point_1);
+
 
 // D3 stuff
 // --------------------------------------------------------------- //
@@ -66,8 +106,8 @@ d3.json(geoitem, function(error, collection) {
     .enter()
     .append("path");
 
-  mymap.on("viewreset", reset);
-  reset();
+//   mymap.on("viewreset", reset);
+//   reset();
 
   // Reposition the SVG to cover the features.
   function reset() {
@@ -114,40 +154,3 @@ d3.json(geoitem, function(error, collection) {
 //   .enter().append("path");
 
 // feature.attr("d", path);
-
-// WAYPOINTS //
-// --------------------------------------------------------------- //
-// http://imakewebthings.com/waypoints/guides/getting-started/
-
-// This is a callback function
-// it changes locations for us
-var zoomToLocation = (point) => {
-  mymap.flyTo(point, 5, {animate: true, duration: 2, easeLinearity: 0.1 });
-  // mymap.setZoom(zoom);
-};
-
-var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
-  new Waypoint({
-    element: document.querySelector(selector),
-    handler: function(direction) {
-      zoomToLocation(triggerpoint, 14);
-      // callbacky = typeof callbacky !== undefined ? null: callbacky();
-      callbacky();
-      console.log(
-        "Triggered a waypoint with params: " + selector + triggerpoint
-      );
-    },
-    offset: offsety
-  });
-};
-
-
-make_waypoint("#introduction", point_home, -10);
-make_waypoint("#parque", point_home, x => {
-  return console.log("we did parque");
-});
-make_waypoint("#burbank", point_home, 50);
-make_waypoint("#appendix", point_home, 900);
-make_waypoint("#koreatown", point_koreatown, 50);
-
-mymap.panTo(point_1);
