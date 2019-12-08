@@ -18,9 +18,8 @@ var mapOptions = {
 var point_home = L.latLng(-5.309766, -58.139648);
 
 // make the map
-var mymap = L.map("mapid", mapOptions).setView(
-  [point_home.lng, point_home.lat],
-  5
+var mymap = L.map("mapid", mapOptions)
+  .setView(point_home, 4
 );
 
 
@@ -59,7 +58,7 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 8);
+      zoomToLocation(triggerpoint, 5);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -72,7 +71,7 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
 
 
 // make_waypoint("#introduction", point_home, -10);
-make_waypoint("#parque", point_home, x => {
+make_waypoint("#parque", point_home, offsety=-100, x => {
   return console.log("we did parque");
 });
 make_waypoint("#burbank", point_burbank, 0, x => {console.log('burbank')});
