@@ -126,16 +126,11 @@ var zoomToLocation = (point) => {
   // mymap.setZoom(zoom);
 };
 
-var make_waypoint = (
-  selector,
-  triggerpoint,
-  offsety,
-  callbacky = x => {}
-) => {
+var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint);
+      zoomToLocation(triggerpoint, 14);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -145,6 +140,7 @@ var make_waypoint = (
     offset: offsety
   });
 };
+
 
 make_waypoint("#introduction", point_home, -10);
 make_waypoint("#parque", point_home, x => {
