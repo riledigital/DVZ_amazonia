@@ -65,8 +65,13 @@ h5 {
 #introduction {
   background: rgba(255, 255, 255, 1);
   height: 250vh;
+  border:4px solid red;
   /*   padding: 3rem; */
   margin: 0;
+}
+
+#introduction * {
+  max-width: 38rem;
 }
 
 .landmark {
