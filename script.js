@@ -27,6 +27,16 @@ mapOptions = {
 
 var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
 
+// doing shit from bostock tutorial https://bost.ocks.org/mike/leaflet/
+var svg = d3.select(mymap.getPanes().overlayPane).append("svg"),
+    g = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+d3.json("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828", function(error, collection) {
+  if (error) throw error;
+  console.log("not loaded lol");
+  // code here
+});
+
 // var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 // 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 // 	subdomains: 'abcd',
