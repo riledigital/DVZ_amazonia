@@ -12,7 +12,7 @@
 // ;)
 var linegraph = function(data) {
   return {
-    width: "1000",
+    width: "600",
     height: "300",
     data: {
       url: data,

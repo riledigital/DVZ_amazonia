@@ -68,14 +68,16 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 };
 
 // make_waypoint("#introduction", point_home, -10);
+
+offsetValue = 300;
 make_waypoint("#parque", point_parque, (offsety = -100), x => {
   return console.log("we did parque");
 });
-make_waypoint("#ara", point_ara, 0, x => {
+make_waypoint("#ara", point_ara, offsetValue, x => {
   console.log("ara");
 });
-make_waypoint("#marai", point_marai, 50);
-make_waypoint("#appendix", point_home, 900);
+make_waypoint("#marai", point_marai, offsetValue);
+make_waypoint("#appendix", point_home, offsetValue);
 
 // mymap.panTo(point_1);
 var parqueGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";

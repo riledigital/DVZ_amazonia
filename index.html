@@ -42,19 +42,41 @@
     <div id="mapid"></div>
 
     <div class="scrollstory" id="scrollstory">
-      <article id="introduction" class="container-fluid">
+      <article id="introduction" class="box-shadow container-fluid">
         <div class="container">
-          <h1 class="title">
-            Flames of Amazonia
-          </h1>
-          <h3>
-            Mapping fires in indigenous lands in the Amazon rainforest
-          </h3>
+          <div class="row">
+            <div class="col">
+              <h1 class="title">
+                Flames of Amazonia
+              </h1>
+              <p class="lead subtitle">
+                Mapping fires within indigenous lands of the Amazon rainforest
+              </p>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col">
+              <p class="lead">
+                The Amazon plays a massive role in the Earth’s ecosystem and is
+                a symbol of environmental vulnerability, indigeneity, and
+                international cooperation. Though fires in the Amazon are
+                seasonal, fire intensity (based on records dating back to 2003)
+                spiked this past summer, correlating with a relatively recent
+                increase in deforestation efforts. In August 2019 alone, the
+                Amazon is said to have had 80,000 fires – the highest ever
+                recorded in a month — making this issue highly prevalent.
+              </p>
+              <p>
+                Mainstream media coverage tends to focus on the environmental damage of the Amazon forest fires (eg: loss of wildlife/biodiversity, emissions into the atmosphere, local air pollution etc.) much more so than the consequential displacement of indigenous groups residing in the Amazon. Despite this, indigenous groups are currently at the forefront of the movement to protect the rainforest against further deforestation. 
+              </p>
+            </div>
+          </div>
         </div>
       </article>
 
       <!-- START ARTICLE -->
-      <article id="parque" class="container landmark">
+      <article id="parque" class="container landmark box-shadow">
         <div class="row">
           <div class="col">
             <!-- NOTE: Every area is an "article" that will contain the viz's...  -->
@@ -86,13 +108,13 @@
         <div class="row viz-row">
           <div class="col viz-col">
             <figure class="viz-figure">
-              <div id="parque_linegraph"></div>
+              <div id="parque_linegraph img-fluid"></div>
             </figure>
           </div>
         </div>
       </article>
       <!-- END ARTICLE -->
-      
+
       <!-- START ARTICLE -->
       <article id="marai" class="container landmark">
         <div class="row">
@@ -132,7 +154,7 @@
         </div>
       </article>
       <!-- END ARTICLE -->
-      
+
       <!-- START ARTICLE -->
       <article id="ara" class="container landmark">
         <div class="row">
@@ -173,9 +195,21 @@
       </article>
       <!-- END ARTICLE -->
 
-      <article id="appendix">
+      <section id="appendix">
         <div class="container">
+          
           <h1>Appendix</h1>
+          <article>
+          <h2>
+            What is Fire Radiative Power?
+          </h2>
+            <blockquote>
+> The Fire Radiative Power (FRP) is a measure of the rate of radiant heat output from a fire. It has been demonstrated in small-scale experimental fires that the FRP of a fire is related to the rate at which fuel is being consumed (Wooster et al., 2005) and smoke emissions released (Freeborn et al., 2008).
+[](http://cedadocs.ceda.ac.uk/770/1/SEVIRI_FRP_documentdesc.pdf)
+          </blockquote>
+          </article>
+          
+          <article>
           <h2>
             Methodology and data sources
           </h2>
@@ -189,10 +223,12 @@
 
           <p>
             This web story was built on Web technology: HTML/CSS/JS, Waypoints,
-            D3, and Leaflet, Glitch.
+            Vega-Lite, D3, and Leaflet, Glitch.
           </p>
         </div>
-      </article>
+          </article>
+        
+      </section>
     </div>
     <!-- Optional JavaScript -->
     <script
@@ -230,7 +266,6 @@
     <!-- BEHOLD for these are our custom scripts  -->
     <script src="script.js"></script>
     <script src="plots.js"></script>
-      <script src="leaflet_maps.js"></script>
-
+    <script src="leaflet_maps.js"></script>
   </body>
 </html>
