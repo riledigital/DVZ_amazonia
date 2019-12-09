@@ -81,27 +81,3 @@ make_waypoint("#appendix", point_home, 900);
 var parqueGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
 var araGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
 var maraiGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
-
-
-var parqueChart = {   
-  $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-  width: "400",
-  height: "400",
-  data: {
-    url: "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_linegraph.csv?v=1575833062445v"
-  },
-  mark: "bar",
-  encoding: {
-    x: {
-      bin: false,
-      field: "price",
-      type: "quantitative"
-    },
-    y: {
-      aggregate: "count",
-      type: "quantitative"
-    }
-  }
-};
-
-vegaEmbed("#parque", parqueChart);
