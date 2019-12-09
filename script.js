@@ -39,7 +39,7 @@ var CartoDB_Positron = L.tileLayer(
 // http://geojson.io/#map=19/40.80805/-73.96041
 var point_parque = L.latLng(-11.119117380425525, -50.28442382812499);
 var point_ara = L.latLng(-5.077265294455729, -46.454315185546875);
-var marai = L.latLng(-11.745025146562764, -51.6632080078125);
+var point_marai = L.latLng(-11.745025146562764, -51.6632080078125);
 
 // This is a callback function
 // it changes locations for us
@@ -71,11 +71,11 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 make_waypoint("#parque", point_parque, (offsety = -100), x => {
   return console.log("we did parque");
 });
-// make_waypoint("#burbank", point_burbank, 0, x => {
-//   console.log("burbank");
-// });
-// make_waypoint("#appendix", point_home, 900);
-// make_waypoint("#koreatown", point_koreatown, 50);
+make_waypoint("#ara", point_ara, 0, x => {
+  console.log("ara");
+});
+make_waypoint("#marai", point_marai, 50);
+make_waypoint("#appendix", point_home, 900);
 
 // mymap.panTo(point_1);
 
@@ -166,7 +166,7 @@ fetch(
   })
   .then(function(data) {
     // i wasn't sure how to deal with projection. this is copied over
-    // var projection = d3.geoAlbersUsa();
+    // var projection = d3.geoMercator();
 
     // Set up the path-drawing function
     // var path = d3.geoPath().projection(projection);
