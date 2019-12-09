@@ -12,8 +12,8 @@
 // ;)
 var parque_linegraph = {   
   $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-  width: "400",
-  height: "400",
+  width: "800",
+  height: "300",
   data: {
     url: "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_linegraph.csv?v=1575833062445v"
   },
@@ -25,7 +25,7 @@ var parque_linegraph = {
       type: "quantitative"
     },
     y: {
-      aggregate: "count",
+      field: "count",
       type: "quantitative"
     }
   }
