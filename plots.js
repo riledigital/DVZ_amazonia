@@ -20,20 +20,71 @@ var parque_linegraph = {
       type: "csv"
     }
   },
-  layer: [{}]
-  mark: "line",
-  encoding: {
-    x: {
-      bin: false,
-      timeUnit: "year",
-      field: "acq_year",
-      type: "temporal"
+  layer: [
+    {
+      encoding: {
+        x: {field: "acq_year", type: "temporal"},
+        y: {field: "count", type: "quantitative"}
+      },
+      layer: [
+        {mark: "line"},
+        {
+          selection: {
+            label: {
+              type: "single",
+              nearest: true,
+              on: "mouseover",
+              encodings: ["x"],
+              empty: "none"
+            }
+          },
+          mark: "point",
+          encoding: {
+            opacity: {
+              condition: {selection: "label", value: 1},
+              value: 0
+            }
+          }
+        }
+      ]
     },
-    y: {
-      field: "count",
-      type: "quantitative"
+    {
+      transform: [{filter: {selection: "label"}}],
+      layer: [
+        {
+          mark: {type: "rule", color: "gray"},
+          encoding: {
+            x: {type: "temporal", field: "acq_year"}
+          }
+        },
+        {
+          encoding: {
+            text: {type: "quantitative", field: "count"},
+            "x": {"type": "temporal", field: "acq_year"},
+            "y": {"type": "quantitative", field: "count"}
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "text",
+                "stroke": "white",
+                "strokeWidth": 2,
+                "align": "left",
+                "dx": 5,
+                "dy": -5
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
+              "encoding": {
+                "color": {"type": "nominal", "field": "symbol", "legend": null}
+              }
+            }
+          ]
+        }
+      ]
     }
-  }
+  ]
 };
 
 vegaEmbed("#parque_linegraph", parque_linegraph);
