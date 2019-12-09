@@ -45,7 +45,7 @@ var marai = L.latLng(-11.745025146562764, -51.6632080078125);
 // it changes locations for us
 var zoomToLocation = (point, zoomLevel) => {
   mymap.flyTo(point, zoomLevel, {
-    animate: false,
+    animate: true,
     duration: 2,
     easeLinearity: 0.1
   });
@@ -71,9 +71,9 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 make_waypoint("#parque", point_home, (offsety = -100), x => {
   return console.log("we did parque");
 });
-make_waypoint("#burbank", point_burbank, 0, x => {
-  console.log("burbank");
-});
+// make_waypoint("#burbank", point_burbank, 0, x => {
+//   console.log("burbank");
+// });
 // make_waypoint("#appendix", point_home, 900);
 // make_waypoint("#koreatown", point_koreatown, 50);
 
