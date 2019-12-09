@@ -84,7 +84,19 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // D3 stuff
 // --------------------------------------------------------------- //
 
+fetch('https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828')
+  .then(function (response) {
+    // Read data as JSON
+    return response.json();
+  })
+  .then(function (data) {
+    // Set up the projection. We're using a version of Albers for the US.
+    // var projection = d3.geoAlbersUsa();
 
+    // Set up the path-drawing function
+    // var path = d3.geoPath().projection(projection);
+  
+    
 
 
 
