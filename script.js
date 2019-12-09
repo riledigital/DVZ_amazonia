@@ -108,7 +108,6 @@ fetch(
     // var path = d3.geoPath().projection(projection);
     var transform = d3.geoTransform({ point: projectPoint }),
       path = d3.geoPath().projection(transform);
-
     var feature = g
       .selectAll("circle")
       .attr("class", "fire-points")
@@ -132,6 +131,7 @@ fetch(
           ]).y
       )
       .attr("r", 5);
+    console.log(feature);
       
     // mymap.on("viewreset", reset);
     // reset();
