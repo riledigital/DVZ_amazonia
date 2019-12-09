@@ -84,16 +84,23 @@ make_waypoint("#burbank", point_burbank, 0, x => {console.log('burbank')});
 // D3 stuff
 // --------------------------------------------------------------- //
 
-// I keep getting stuff like "L is not defined" or "d3 is not defined or w/e"
-// doing shit from bostock tutorial https://bost.ocks.org/mike/leaflet/
-var svg = d3.select(mymap.getPanes().overlayPane).append("svg"),
-  g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
 var geoitem =
   "https://raw.githubusercontent.com/simonepri/geo-maps/master/previews/countries-land.geo.json";
 // gross ass geojson data import
 
-d3.json(geoitem, function(error, collection) {
+console.log(geoitem);
+
+
+
+
+
+
+
+
+
+
+// old stuff from bostock tutorial
+/* d3.json(geoitem, function(error, collection) {
   if (error) throw error;
 
   var transform = d3.geo.transform({ point: projectPoint }),
@@ -130,7 +137,7 @@ d3.json(geoitem, function(error, collection) {
     var point = mymap.latLngToLayerPoint(new L.LatLng(y, x));
     this.stream.point(point.x, point.y);
   }
-});
+});*/
 
 // emma::
 // var collection = d3.json(geoitem,
