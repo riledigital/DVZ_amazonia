@@ -18,10 +18,7 @@ var mapOptions = {
 var point_home = L.latLng(-5.309766, -58.139648);
 
 // make the map
-var mymap = L.map("mapid", mapOptions)
-  .setView(point_home, 4
-);
-
+var mymap = L.map("mapid", mapOptions).setView(point_home, 4);
 
 // assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(
@@ -33,7 +30,6 @@ var CartoDB_Positron = L.tileLayer(
     maxZoom: 15
   }
 ).addTo(mymap);
-
 
 // WAYPOINTS //
 // --------------------------------------------------------------- //
@@ -50,11 +46,15 @@ var point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
 // This is a callback function
 // it changes locations for us
 var zoomToLocation = (point, zoomLevel) => {
-  mymap.flyTo(point, zoomLevel, {animate: false, duration: 2, easeLinearity: 0.1 });
+  mymap.flyTo(point, zoomLevel, {
+    animate: false,
+    duration: 2,
+    easeLinearity: 0.1
+  });
   // mymap.setZoom(zoom);
 };
 
-var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
+var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
@@ -69,35 +69,29 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
   });
 };
 
-
 // make_waypoint("#introduction", point_home, -10);
-make_waypoint("#parque", point_home, offsety=-100, x => {
+make_waypoint("#parque", point_home, (offsety = -100), x => {
   return console.log("we did parque");
 });
-make_waypoint("#burbank", point_burbank, 0, x => {console.log('burbank')});
+make_waypoint("#burbank", point_burbank, 0, x => {
+  console.log("burbank");
+});
 // make_waypoint("#appendix", point_home, 900);
 // make_waypoint("#koreatown", point_koreatown, 50);
 
 // mymap.panTo(point_1);
 
-
 // D3 stuff
 // --------------------------------------------------------------- //
 
-var geoitem =
-  "https://raw.githubusercontent.com/simonepri/geo-maps/master/previews/countries-land.geo.json";
-// gross ass geojson data import
+var geoitem = await d3.json(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828",
+  function(error, data) {
+    if (error) throw error;
+  }
+);
 
 console.log(geoitem);
-
-
-
-
-
-
-
-
-
 
 // old stuff from bostock tutorial
 /* d3.json(geoitem, function(error, collection) {
@@ -108,8 +102,7 @@ console.log(geoitem);
 
   var feature = g
     .selectAll("path")
-    .data(collection.features)
-    .enter()
+    .data(collection.features)ro    .enter()
     .append("path");
 
 //   mymap.on("viewreset", reset);
