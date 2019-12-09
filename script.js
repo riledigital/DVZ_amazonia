@@ -16,11 +16,9 @@ var mapOptions = {
 
 // declare home first (PHONE HOME)
 var point_home = L.latLng(-5.309766, -58.139648);
-var point_parque = L.latLng(-14.916919445133201, -51.81976318359375,
-);
 
 // make the map
-var mymap = L.map("mapid", mapOptions).setView(point_parque, 7);
+var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
 
 // assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(
@@ -39,10 +37,9 @@ var CartoDB_Positron = L.tileLayer(
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-var point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
-var point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
-var point_burbank = L.latLng(34.18539, -118.364295);
-var point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
+var point_parque = L.latLng(-11.119117380425525, -50.28442382812499);
+var point_ara = L.latLng(-5.077265294455729, -46.454315185546875);
+var marai = L.latLng(-11.745025146562764, -51.6632080078125);
 
 // This is a callback function
 // it changes locations for us
@@ -81,8 +78,6 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // make_waypoint("#koreatown", point_koreatown, 50);
 
 // mymap.panTo(point_1);
-
-
 
 // D3 stuff
 // --------------------------------------------------------------- //
@@ -163,7 +158,7 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // this is anti-DRY but i'm trying to rough draft this right now so i copied and pasted the code :'(
 // ideally make this into one function that takes cdn/geojson and path or point parameter so it knows what to draw
 fetch(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828"
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821"
 )
   .then(function(response) {
     // Read data as JSON
@@ -177,8 +172,8 @@ fetch(
     // var path = d3.geoPath().projection(projection);
     var transform = d3.geoTransform({ point: projectPoint }),
       path = d3.geoPath().projection(transform);
-  
-    console.log(data)
+
+    console.log(data);
     // actual point drawing, just regular d3 stuff
     var feature = g
       .selectAll("circle")
