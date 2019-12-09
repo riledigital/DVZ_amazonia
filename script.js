@@ -8,9 +8,9 @@ console.log("hi");
 // --------------------------------------------------------------- //
 // FIRST declare the options
 var mapOptions = {
-  preferCanvas: true,
   zoomControl: false,
-  renderer: L.Canvas,
+  // preferCanvas: true, // More issues
+  // renderer: L.Canvas, // this causes serious problems??? im gonna file a bug report
   dragging: false
 };
 
