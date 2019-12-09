@@ -84,12 +84,7 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // D3 stuff
 // --------------------------------------------------------------- //
 
-var geoitem = await d3.json(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828",
-  function(error, data) {
-    if (error) throw error;
-  }
-);
+var geoitem = FileAttachment("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828").json();
 
 console.log(geoitem);
 
