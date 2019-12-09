@@ -84,9 +84,20 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // D3 stuff
 // --------------------------------------------------------------- //
 
-var geoitem = FileAttachment("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828").json();
+var geoitem = d3.json("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828").then(function(data) {
+  return(data);
+});
 
 console.log(geoitem);
+
+
+
+
+
+
+
+
+
 
 // old stuff from bostock tutorial
 /* d3.json(geoitem, function(error, collection) {
