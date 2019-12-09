@@ -1,8 +1,8 @@
-// This is where you should declare your (vega) plots 
+// This is where you should declare your (vega) plots
 
 // README!
 // Syntax for the plots
-// 
+//
 // FOR CSS selectors also!
 // <div id="parque_linegraph"> </div>
 // FOR JS variables,:
@@ -10,7 +10,7 @@
 // EG: parque_linegraph
 
 // ;)
-var linegraph = function (data) {   
+var linegraph = function(data) {
   return {
     width: "1000",
     height: "300",
@@ -23,11 +23,19 @@ var linegraph = function (data) {
     layer: [
       {
         encoding: {
-          x: {field: "acq_year", type: "temporal", axis: {title: "Acquisition year"}},
-          y: {field: "count", type: "quantitative", axis: {title: "Total fire count"}}
+          x: {
+            field: "acq_year",
+            type: "temporal",
+            axis: { title: "Acquisition year" }
+          },
+          y: {
+            field: "count",
+            type: "quantitative",
+            axis: { title: "Total fire count" }
+          }
         },
         layer: [
-          {mark: "line"},
+          { mark: "line" },
           {
             selection: {
               label: {
@@ -41,7 +49,7 @@ var linegraph = function (data) {
             mark: "point",
             encoding: {
               opacity: {
-                condition: {selection: "label", value: 1},
+                condition: { selection: "label", value: 1 },
                 value: 0
               }
             }
@@ -49,19 +57,19 @@ var linegraph = function (data) {
         ]
       },
       {
-        transform: [{filter: {selection: "label"}}],
+        transform: [{ filter: { selection: "label" } }],
         layer: [
           {
-            mark: {type: "rule", color: "gray"},
+            mark: { type: "rule", color: "gray" },
             encoding: {
-              x: {type: "temporal", field: "acq_year"}
+              x: { type: "temporal", field: "acq_year" }
             }
           },
           {
             encoding: {
-              text: {type: "quantitative", field: "count"},
-              x: {type: "temporal", field: "acq_year"},
-              y: {type: "quantitative", field: "count"}
+              text: { type: "quantitative", field: "count" },
+              x: { type: "temporal", field: "acq_year" },
+              y: { type: "quantitative", field: "count" }
             },
             layer: [
               {
@@ -75,9 +83,9 @@ var linegraph = function (data) {
                 }
               },
               {
-                mark: {type: "text", align: "left", dx: 5, dy: -5},
+                mark: { type: "text", align: "left", dx: 5, dy: -5 },
                 encoding: {
-                  color: {type: "nominal", field: "symbol", legend: null}
+                  color: { type: "nominal", field: "symbol", legend: null }
                 }
               }
             ]
@@ -88,9 +96,15 @@ var linegraph = function (data) {
   };
 };
 
-var parque_linegraph = linegraph("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_linegraph.csv?v=1575833062445");
-var ara_linegraph = linegraph("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_linegraph.csv?v=1575833062680");
-var marai_linegraph = linegraph("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_linegraph.csv?v=1575833062211");
+var parque_linegraph = linegraph(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_linegraph.csv?v=1575833062445"
+);
+var ara_linegraph = linegraph(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_linegraph.csv?v=1575833062680"
+);
+var marai_linegraph = linegraph(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_linegraph.csv?v=1575833062211"
+);
 vegaEmbed("#parque_linegraph", parque_linegraph);
 vegaEmbed("#ara_linegraph", ara_linegraph);
 vegaEmbed("#marai_linegraph", marai_linegraph);
