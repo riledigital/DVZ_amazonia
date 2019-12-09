@@ -16,9 +16,11 @@ var mapOptions = {
 
 // declare home first (PHONE HOME)
 var point_home = L.latLng(-5.309766, -58.139648);
+var point_parque = L.latLng(-14.916919445133201, -51.81976318359375,
+);
 
 // make the map
-var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
+var mymap = L.map("mapid", mapOptions).setView(point_parque, 7);
 
 // assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(
@@ -37,7 +39,6 @@ var CartoDB_Positron = L.tileLayer(
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-var point_parque = L.latLng(-50.2458091667028, -50.2455555197316);
 var point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
 var point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
 var point_burbank = L.latLng(34.18539, -118.364295);
@@ -89,8 +90,8 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // a mix of bostock (https://bost.ocks.org/mike/leaflet/) and this tutorial (https://observablehq.com/@sfu-iat355/introduction-to-leaflet-and-d3)
 
 // drawing borders
-fetch(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533"
+/*fetch(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709"
 )
   .then(function(response) {
     // Read data as JSON
@@ -157,7 +158,7 @@ fetch(
 
       feature.attr("d", path);
     }
-  });
+  });*/
 
 // this is anti-DRY but i'm trying to rough draft this right now so i copied and pasted the code :'(
 // ideally make this into one function that takes cdn/geojson and path or point parameter so it knows what to draw
