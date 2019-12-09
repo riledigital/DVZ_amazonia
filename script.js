@@ -84,31 +84,58 @@ make_waypoint("#burbank", point_burbank, 0, x => {
 // D3 stuff
 // --------------------------------------------------------------- //
 
-fetch('https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828')
-  .then(function (response) {
+// leaflet projection for d3 transform?? taken from bostock
+function projectPoint(x, y) {
+  var point = mymap.latLngToLayerPoint(new L.LatLng(y, x));
+  this.stream.point(point.x, point.y);
+}
+
+var svg = d3.select(mymap.getPanes().overlayPane).append("svg"),
+    g = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+fetch(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson?v=1575832072828"
+)
+  .then(function(response) {
     // Read data as JSON
     return response.json();
   })
-  .then(function (data) {
+  .then(function(data) {
     // Set up the projection. We're using a version of Albers for the US.
     // var projection = d3.geoAlbersUsa();
 
     // Set up the path-drawing function
     // var path = d3.geoPath().projection(projection);
-  
-    
+    var transform = d3.geoTransform({ point: projectPoint }),
+      path = d3.geoPath().projection(transform);
 
-
-
-
-
-
-
-
-
-
-
-
+    var feature = g
+      .selectAll("circle")
+      .attr("class", "fire-points")
+      .data(data.features)
+      .join("circle")
+      .attr("fill", "red")
+      .attr(
+        "cx",
+        d =>
+          mymap.latLngToLayerPoint([
+            d.geometry.coordinates[1],
+            d.geometry.coordinates[0]
+          ]).x
+      )
+      .attr(
+        "cy",
+        d =>
+          mymap.latLngToLayerPoint([
+            d.geometry.coordinates[1],
+            d.geometry.coordinates[0]
+          ]).y
+      )
+      .attr("r", 5);
+      
+    // mymap.on("viewreset", reset);
+    // reset();
+  });
 
 // not sure if this is right LOL!
 /* function getGeoJSON() {
@@ -120,16 +147,6 @@ fetch('https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque
 var geoitem = getGeoJSON();
 
 console.log(geoitem);*/
-
-
-
-
-
-
-
-
-
-
 
 // old stuff from bostock tutorial
 /* d3.json(geoitem, function(error, collection) {
