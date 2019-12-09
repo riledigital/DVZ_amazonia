@@ -69,7 +69,7 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 
 // make_waypoint("#introduction", point_home, -10);
 
-offsetValue = 300;
+offsetValue = 400;
 make_waypoint("#parque", point_parque, (offsety = -100), x => {
   return console.log("we did parque");
 });
