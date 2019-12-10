@@ -12,8 +12,8 @@
 // ;)
 var linegraph = function(data) {
   return {
-    width: 300,
-    height: 250,
+    width: 960,
+    height: 540,
     data: {
       url: data,
       format: {
@@ -78,13 +78,13 @@ var linegraph = function(data) {
                   type: "text",
                   stroke: "white",
                   strokeWidth: 2,
-                  align: "left",
-                  dx: 5,
-                  dy: -5
+                  align: "center",
+                  dx: 0,
+                  dy: -8
                 }
               },
               {
-                mark: { type: "text", align: "left", dx: 5, dy: -5 },
+                mark: { type: "text", align: "center", dx: 0, dy: -8 },
                 encoding: {
                   color: { type: "nominal", field: "symbol", legend: null }
                 }
