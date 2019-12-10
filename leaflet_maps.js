@@ -66,6 +66,9 @@ const addPointsLayer = (url) => {
       var myLayer = L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng, firePoints);
+        },
+        filter: function(feature, layer) {
+          return feature.properties.ACQ_DATE > "2019-01-01" ? feature
         }
       }).addTo(mymap);
 //       ,
