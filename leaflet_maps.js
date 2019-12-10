@@ -16,6 +16,7 @@ geojsonFocusStyle = {
   opacity: 1
 };
 
+// not named properly, but this adds borders
 addGeoJSONToMap = (url, styleOptions) => {
   // this is a helper function that adds the geojsons to the map
   try {
@@ -50,6 +51,8 @@ const firePoints = {
   // renderer: L.Canvas
 };
 
+var layerGroupByDate = [];
+// adding points
 const addPointsLayer = (url) => {
   fetch(url)
     .then(function(response) {
