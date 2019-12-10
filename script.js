@@ -94,5 +94,5 @@ fetch(parqueGeoJSON)
       .key(function(d) {return d.properties.ACQ_DATE})
       .entries(data.features);
 
-   console.log(JSON.stringify(nest, null, 2));
+   console.log(JSON.stringify(nest, null));
 });
