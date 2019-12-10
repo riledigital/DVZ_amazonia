@@ -28,7 +28,7 @@ const addGeoJSONToMap = (url, styleOptions) => {
       .then(function(data) {
         // Add data to the map
         var myLayer = L.geoJSON(data, styleOptions).addTo(mymap);
-        console.log(data);
+        // console.log(data);
       });
   } catch {
     // # nothing
@@ -79,7 +79,7 @@ const addPointsLayer = (url) => {
 
 addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
 addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-var maraiPoints = addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
+addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
 
 // var sliderControl = L.control.sliderControl({
 //   position: "center",
