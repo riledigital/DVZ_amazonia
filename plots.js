@@ -78,13 +78,13 @@ var linegraph = function(data) {
                   type: "text",
                   stroke: "white",
                   strokeWidth: 2,
-                  align: "center",
-                  dx: 0,
-                  dy: -8
+                  align: "right",
+                  dx: -8,
+                  dy: 0
                 }
               },
               {
-                mark: { type: "text", align: "center", dx: 0, dy: -8 },
+                mark: { type: "text", align: "right", dx: -8, dy: 0 },
                 encoding: {
                   color: { type: "nominal", field: "symbol", legend: null }
                 }
