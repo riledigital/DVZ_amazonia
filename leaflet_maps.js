@@ -50,11 +50,11 @@ const addPointsLayer = (url) => {
       // sorts geoJSON features by acquisition date, ascending order
       var sorted = data.features.sort((a, b) => a.properties.ACQ_DATE < b.properties.ACQ_DATE ? -1 : ((a.properties.ACQ_DATE > b.properties.ACQ_DATE) ? 1 : 0));
       // Add data to the map
-      var myLayer = L.geoJSON(data, {
+      var myLayer = L.geoJSON(sorted, {
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng, firePoints);
         }
-      }).addTo(mymap);
+      });
       console.log(sorted);
     return myLayer;
     });
