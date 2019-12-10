@@ -66,7 +66,7 @@ const addPointsLayer = (url, startDateString, endDateString) => {
       var myLayer = L.geoJSON(data, {
         filter: function(feature, layer) {
           // console.log(feature.properties.ACQ_DATE);
-          var f = feature.properties.ACQ_DATE > startfeature.properties.ACQ_DATE < endDateString; // testing the filter
+          var f = feature.properties.ACQ_DATE > startDateString && feature.properties.ACQ_DATE < endDateString; // testing the filter
           // console.log(f);
           return f;
         },
@@ -79,22 +79,24 @@ const addPointsLayer = (url, startDateString, endDateString) => {
 
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821", "2004-01-01");
+addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821", "2001-01-01", "2006-01-01");
+addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821", "2006-01-01", "2011-01-01");
+// layerGroupByDate.addTo(mymap);
 
 // console.log(layerGroupByDate);
-// var sliderControl = L.control.sliderControl({
-//   position: "center",
-//   layer: layerGroupByDate,
-//   range: true,
-//   timeAttribute: "ACQ_DATE",
-//   follow: true,
-// });
+var sliderControl = L.control.sliderControl({
+  position: "bottomright",
+  layer: layerGroupByDate,
+  range: true,
+  timeAttribute: "ACQ_DATE",
+  follow: true,
+});
 
-// //add sliderControl to the map
-// mymap.addControl(sliderControl);
+//add sliderControl to the map
+mymap.addControl(sliderControl);
 
-// // initialize sliderControl
-// sliderControl.startSlider();
+// initialize sliderControl
+sliderControl.startSlider();
 
 // README Article on using assets lib
 // https://glitch.com/~assets-lib
