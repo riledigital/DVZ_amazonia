@@ -55,7 +55,7 @@ const addPointsLayer = (url) => {
           return L.circleMarker(latlng, firePoints);
         }
       });
-      console.log(sorted);
+      console.log(myLayer);
     return myLayer;
     });
 };
@@ -67,7 +67,7 @@ addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMa
 //Create sliderControl
 var sliderControl = L.control.sliderControl({
     position: "bottomright",
-    layer: addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519"),
+    layer: addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609"),
     range: true,
     timeAttribute: "ACQ_DATE",
     follow: true,
