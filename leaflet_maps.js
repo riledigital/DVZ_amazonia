@@ -53,7 +53,7 @@ const firePoints = {
 
 var layerGroupByDate = L.layerGroup([]);
 // adding points
-const addPointsLayer = (url) => {
+const addPointsLayer = (url, dateString) => {
   fetch(url)
     .then(function(response) {
       // Read data as JSON
@@ -66,7 +66,7 @@ const addPointsLayer = (url) => {
       var myLayer = L.geoJSON(data, {
         filter: function(feature, layer) {
           // console.log(feature.properties.ACQ_DATE);
-          var f = feature.properties.ACQ_DATE < "2004-01-01"; // testing the filter
+          var f = feature.properties.ACQ_DATE < dateString; // testing the filter
           // console.log(f);
           return f;
         },
@@ -74,12 +74,12 @@ const addPointsLayer = (url) => {
           // console.log(feature);
           return L.circleMarker(latlng, firePoints);
         }
-      }).addTo(mymap);
+      }).addTo(layerGroupByDate);
 })};
 
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
+addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821", "2004-01-01");
 
 // console.log(layerGroupByDate);
 // var sliderControl = L.control.sliderControl({
