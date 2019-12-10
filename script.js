@@ -15,14 +15,14 @@ var mapOptions = {
 };
 
 // declare home first (PHONE HOME)
-var point_home = L.latLng(-5.309766, -58.139648);
+var point_home = L.latLng(-10.250059987303004, -49.46044921875);
 
 // make the map
-var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
+var mymap = L.map("mapid", mapOptions).setView(point_home, 8);
 
 // assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
   {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
