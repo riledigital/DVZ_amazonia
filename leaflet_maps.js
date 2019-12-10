@@ -63,15 +63,18 @@ const addPointsLayer = (url) => {
       // sorts geoJSON features by acquisition date, ascending order
       // var sorted = data.features.sort((a, b) => a.properties.ACQ_DATE < b.properties.ACQ_DATE ? -1 : ((a.properties.ACQ_DATE > b.properties.ACQ_DATE) ? 1 : 0));
       // Add data to the map
-      var myLayer = L.geoJSON(data, {
-        pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng, firePoints);
-        },
+      var pastDataLayer = L.geoJSON(data, {
         filter: function(feature, layer) {
-          console.log(feature.properties.ACQ_DATE);
-          // var f = feature.properties.ACQ_DATE > "2019-01-01";
-          // console.log(f);
+          // console.log(feature.properties.ACQ_DATE);
+          var f = feature.properties.ACQ_DATE < "2002-01-01"; // testing the filter
+          console.log(f);
+          return f;
+        },
+        pointToLayer: function(feature, latlng) {
+          console.log(feature);
+          return L.circleMarker(latlng, firePoints);
         }
+      // var currentYearLayer = L.
       }).addTo(mymap);
 //       ,
 //       sliderControl = L.control.sliderControl({
