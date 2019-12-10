@@ -3,8 +3,9 @@ geojsonStyle = {
   color: "#fff",
   weight: 1,
   fillOpacity: 0.1,
+  strokeOpacity: 0.5,
   // dashArray: "10",
-  opacity: 1
+  opacity: 0.5
 };
 
 geojsonFocusStyle = {
