@@ -233,10 +233,10 @@ var areagraph = function(data) {
       },
 
       x: {
-        type: "quantitative",
+        type: "temporal",
         axis: { title: "acquisition year" },
-        field: "acq_year",
-        timeUnit: "year"
+        field: "acq_year"
+        // timeUnit: "year"
       },
       y: {
         aggregate: "sum",
