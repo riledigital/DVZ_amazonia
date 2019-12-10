@@ -83,3 +83,12 @@ make_waypoint("#appendix", point_home, offsetValue);
 var parqueGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
 var araGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
 var maraiGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
+
+fetch(parqueGeoJSON)
+  .then(function(response) {
+    // Read data as JSON
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data.sort((a, b) => b.features.properties.ACQ_DATE - a.features.properties.ACQ_DATE));
+  });

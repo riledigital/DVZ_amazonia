@@ -52,8 +52,7 @@ var linegraph = function(data) {
               opacity: {
                 condition: { selection: "label", value: 1 },
                 value: 0
-              },
-              
+              }
             }
           }
         ]
