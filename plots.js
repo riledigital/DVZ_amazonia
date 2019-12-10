@@ -22,7 +22,6 @@ var linegraph = function(data) {
     },
     layer: [
       {
-        
         encoding: {
           x: {
             field: "acq_year",
@@ -85,9 +84,20 @@ var linegraph = function(data) {
                 }
               },
               {
-                mark: { type: "text", fontSize: 18, align: "right", dx: -8, dy: 2 },
+                mark: {
+                  type: "text",
+                  fontSize: 18,
+                  align: "right",
+                  dx: -8,
+                  dy: 2
+                },
                 encoding: {
-                  color: { type: "nominal", field: "groupname", title: "indigenous land", legend: null }
+                  color: {
+                    type: "nominal",
+                    field: "groupname",
+                    title: "indigenous land",
+                    legend: null
+                  }
                 }
               }
             ]
@@ -97,7 +107,6 @@ var linegraph = function(data) {
     ]
   };
 };
-
 
 var multi_linegraph = function(data) {
   return {
@@ -111,7 +120,6 @@ var multi_linegraph = function(data) {
     },
     layer: [
       {
-        
         encoding: {
           x: {
             field: "acq_year",
@@ -123,7 +131,11 @@ var multi_linegraph = function(data) {
             type: "quantitative",
             axis: { title: "total fire count" }
           },
-          "color": {"field": "groupname", "title": "indigenous land", "type": "nominal"}
+          color: {
+            field: "groupname",
+            title: "indigenous land",
+            type: "nominal"
+          }
         },
         layer: [
           { mark: "line" },
@@ -175,7 +187,13 @@ var multi_linegraph = function(data) {
                 }
               },
               {
-                mark: { type: "text", fontSize: 18, align: "right", dx: -8, dy: 2 },
+                mark: {
+                  type: "text",
+                  fontSize: 18,
+                  align: "right",
+                  dx: -8,
+                  dy: 2
+                },
                 encoding: {
                   color: { type: "nominal", field: "symbol", legend: null }
                 }
@@ -188,62 +206,47 @@ var multi_linegraph = function(data) {
   };
 };
 
-/*
-
-{
 var areagraph = function(data) {
   return {
-      "width": 800,
-      "height": 600
-    }
-  },
-  "data": {
-    "url": "https://raw.githubusercontent.com/nshay13/dataset/master/top_10_firecount.csv",
-    "format": {
-      "type": "csv"
-    }
-  },
-  "mark": "area",
-  "selection": {
-    "area": {
-      "type": "single",
-      "on": "mouseover"
-    }
-  },
-  "encoding": {
-    "color": {
-      "condition": {
-        "selection": "area",
-        "field": "groupname",
-        "title": "indigenous land",
-        "type": "nominal",
-        "scale": {
-          "scheme": "plasma"
-        }
-      },
-      "value": "black"
+    config: { view: { width: 700, height: 600 } },
+    data: {
+      url:
+        data,
+      format: { type: "csv" }
     },
-    "x": {
-      "type": "quantitative",
-      "axis": {
-        "title": "acquisition year"
-      },
-      "field": "acq_year",
-      "timeUnit": "year"
+    mark: { type: "area", tooltip: true },
+
+    selection: {
+      area: { type: "single", on: "mouseover" }
     },
-    "y": {
-      "aggregate": "sum",
-      "field": "count",
-      "type": "quantitative",
-      "axis": {
-        "title": "total fire count"
+
+    encoding: {
+      color: {
+        condition: {
+          selection: "area",
+          field: "groupname",
+          title: "indigenous land",
+          type: "nominal",
+          scale: { scheme: "plasma", reverse: true }
+        },
+        value: "black"
+      },
+
+      x: {
+        type: "quantitative",
+        axis: { title: "acquisition year" },
+        field: "acq_year",
+        timeUnit: "year"
+      },
+      y: {
+        aggregate: "sum",
+        field: "count",
+        type: "quantitative",
+        axis: { title: "total fire count" }
       }
     }
   };
 };
-
-*/
-
 
 var focus_regions_linegraph = multi_linegraph(
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Ffocus_regions_linegraph.csv?v=1575991690328"
@@ -258,18 +261,13 @@ var ara_linegraph = linegraph(
 var marai_linegraph = linegraph(
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_linegraph.csv?v=1575833062211"
 );
-/*
-var top10_areagraph = areagraph(
-  " "
-);
-*/
 
+var top10_areagraph = areagraph(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Ftop_10_firecount.csv?v=1576012894766"
+);
 
 vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph);
 vegaEmbed("#parque_linegraph", parque_linegraph);
 vegaEmbed("#ara_linegraph", ara_linegraph);
 vegaEmbed("#marai_linegraph", marai_linegraph);
-
-/*
 vegaEmbed("#top10_areagraph", top10_areagraph);
-*/
