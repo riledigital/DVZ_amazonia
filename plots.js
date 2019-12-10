@@ -110,3 +110,4 @@ var marai_linegraph = linegraph(
 vegaEmbed("#parque_linegraph", parque_linegraph);
 vegaEmbed("#ara_linegraph", ara_linegraph);
 vegaEmbed("#marai_linegraph", marai_linegraph);
+

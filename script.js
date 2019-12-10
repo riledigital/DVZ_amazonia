@@ -84,15 +84,16 @@ var parqueGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e
 var araGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
 var maraiGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
 
-fetch(parqueGeoJSON)
-  .then(function(response) {
-    // Read data as JSON
-    return response.json();
-  })
-  .then(function(data) {
-   var nest = d3.nest()
-      .key(function(d) {return d.properties.ACQ_DATE})
-      .entries(data.features);
+// just messing around with d3 nesting
+// fetch(parqueGeoJSON)
+//   .then(function(response) {
+//     // Read data as JSON
+//     return response.json();
+//   })
+//   .then(function(data) {
+//    var nest = d3.nest()
+//       .key(function(d) {return d.properties.ACQ_DATE})
+//       .entries(data.features);
 
-   console.log(JSON.stringify(nest, null));
-});
+//    console.log(JSON.stringify(nest, null));
+// });
