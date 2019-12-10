@@ -29,6 +29,35 @@ addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fp
 addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234");
 addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709");
 
+const firePoints = {
+  radius: 3,
+  fillColor: red,
+  color: red,
+  weight: 0,
+  opacity: 1,
+  fillOpacity: .55,
+  preferCanvas: true
+  // renderer: L.Canvas
+};
+
+const addPointsLayer = (url) => {
+  fetch(url)
+    .then(function(response) {
+      // Read data as JSON
+      return response.json();
+    })
+    .then(function(data) {
+      // Add data to the map
+      var myLayer = L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+          return L.circleMarker(latlng, firePoints);
+        }
+      }).addTo(myMap);
+      console.log(data);
+    });
+};
+
+addPointsLayer
 
 // README Article on using assets lib
 // https://glitch.com/~assets-lib
