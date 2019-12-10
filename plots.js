@@ -52,7 +52,8 @@ var linegraph = function(data) {
               opacity: {
                 condition: { selection: "label", value: 1 },
                 value: 0
-              }
+              },
+              
             }
           }
         ]
@@ -106,6 +107,7 @@ var ara_linegraph = linegraph(
 var marai_linegraph = linegraph(
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_linegraph.csv?v=1575833062211"
 );
+
 vegaEmbed("#parque_linegraph", parque_linegraph);
 vegaEmbed("#ara_linegraph", ara_linegraph);
 vegaEmbed("#marai_linegraph", marai_linegraph);
