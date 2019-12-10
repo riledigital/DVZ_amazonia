@@ -121,6 +121,9 @@ var summary_streamgraph = {
         type: "csv"
       }
     },
+  transform: {
+    
+  }
   "mark": "area",
   "selection": {
     "Name": {
