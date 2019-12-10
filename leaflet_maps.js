@@ -53,7 +53,7 @@ const firePoints = {
 
 var layerGroupByDate = L.layerGroup([]);
 // adding points
-const addPointsLayer = (url, dateString) => {
+const addPointsLayer = (url, startDateString, endDateString) => {
   fetch(url)
     .then(function(response) {
       // Read data as JSON
@@ -66,7 +66,7 @@ const addPointsLayer = (url, dateString) => {
       var myLayer = L.geoJSON(data, {
         filter: function(feature, layer) {
           // console.log(feature.properties.ACQ_DATE);
-          var f = feature.properties.ACQ_DATE < dateString; // testing the filter
+          var f = feature.properties.ACQ_DATE > startfeature.properties.ACQ_DATE < endDateString; // testing the filter
           // console.log(f);
           return f;
         },
