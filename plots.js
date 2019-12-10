@@ -12,8 +12,8 @@
 // ;)
 var linegraph = function(data) {
   return {
-    width: 960,
-    height: 540,
+    width: 480,
+    height: 270,
     data: {
       url: data,
       format: {
