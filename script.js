@@ -18,7 +18,7 @@ var mapOptions = {
 var point_home = L.latLng(-10.250059987303004, -49.46044921875);
 
 // make the map
-var mymap = L.map("mapid", mapOptions).setView(point_home, 7.3);
+var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
 
 // assuming this changes the base layer theme or whatever
 var CartoDB_Positron = L.tileLayer(

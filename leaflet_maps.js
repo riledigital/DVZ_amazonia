@@ -1,5 +1,5 @@
 // Use this file to load geojson layers
-geojsonStyle = {
+const geojsonStyle = {
   color: "#fff",
   weight: 1,
   fillOpacity: 0.1,
@@ -8,7 +8,7 @@ geojsonStyle = {
   opacity: 0.5
 };
 
-geojsonFocusStyle = {
+const geojsonFocusStyle = {
   color: "#50e3eb",
   weight: 2,
   fillOpacity: 0.5,
@@ -17,7 +17,7 @@ geojsonFocusStyle = {
 };
 
 // not named properly, but this adds borders
-addGeoJSONToMap = (url, styleOptions) => {
+const addGeoJSONToMap = (url, styleOptions) => {
   // this is a helper function that adds the geojsons to the map
   try {
     fetch(url)
@@ -68,7 +68,9 @@ const addPointsLayer = (url) => {
           return L.circleMarker(latlng, firePoints);
         },
         filter: function(feature, layer) {
-          return feature.properties.ACQ_DATE > "2019-01-01" ? feature
+          console.log(feature.properties.ACQ_DATE);
+          // var f = feature.properties.ACQ_DATE > "2019-01-01";
+          // console.log(f);
         }
       }).addTo(mymap);
 //       ,
@@ -90,7 +92,7 @@ const addPointsLayer = (url) => {
 
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-// addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
+addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
 
 //Create sliderControl
 // var sliderControl = L.control.sliderControl({
