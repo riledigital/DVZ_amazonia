@@ -110,7 +110,7 @@ var linegraph = function(data) {
 
 var multi_linegraph = function(data) {
   return {
-    width: 960,
+    width: 700,
     height: 540,
     data: {
       url: data,
