@@ -27,12 +27,12 @@ var linegraph = function(data) {
           x: {
             field: "acq_year",
             type: "temporal",
-            axis: { title: "Acquisition year" }
+            axis: { title: "acquisition year" }
           },
           y: {
             field: "count",
             type: "quantitative",
-            axis: { title: "Total fire count" }
+            axis: { title: "total fire count" }
           }
         },
         layer: [
@@ -87,7 +87,7 @@ var linegraph = function(data) {
               {
                 mark: { type: "text", fontSize: 18, align: "right", dx: -8, dy: 2 },
                 encoding: {
-                  color: { type: "nominal", field: "groupname", legend: null }
+                  color: { type: "nominal", field: "groupname", title: "indigenous land", legend: null }
                 }
               }
             ]
@@ -206,3 +206,5 @@ vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph);
 vegaEmbed("#parque_linegraph", parque_linegraph);
 vegaEmbed("#ara_linegraph", ara_linegraph);
 vegaEmbed("#marai_linegraph", marai_linegraph);
+vegaEmbed("#marai_linegraph", marai_linegraph);
+
