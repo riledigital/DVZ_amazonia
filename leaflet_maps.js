@@ -63,50 +63,38 @@ const addPointsLayer = (url) => {
       // sorts geoJSON features by acquisition date, ascending order
       // var sorted = data.features.sort((a, b) => a.properties.ACQ_DATE < b.properties.ACQ_DATE ? -1 : ((a.properties.ACQ_DATE > b.properties.ACQ_DATE) ? 1 : 0));
       // Add data to the map
-      var pastDataLayer = L.geoJSON(data, {
-        filter: function(feature, layer) {
-          // console.log(feature.properties.ACQ_DATE);
-          var f = feature.properties.ACQ_DATE < "2002-01-01"; // testing the filter
-          console.log(f);
-          return f;
-        },
+      var myLayer = L.geoJSON(data, {
+        // filter: function(feature, layer) {
+        //   // console.log(feature.properties.ACQ_DATE);
+        //   var f = feature.properties.ACQ_DATE < "2002-01-01"; // testing the filter
+        //   console.log(f);
+        //   return f;
+        // },
         pointToLayer: function(feature, latlng) {
           console.log(feature);
           return L.circleMarker(latlng, firePoints);
         }
-      // var currentYearLayer = L.
-      }).addTo(mymap);
-//       ,
-//       sliderControl = L.control.sliderControl({
-//         position: "bottomright",
-//         layer: myLayer,
-//         range: true,
-//         timeAttribute: "ACQ_DATE",
-//         follow: true,
-//       });
-//       console.log(myLayer);
-//     //add sliderControl to the map
-//     mymap.addControl(sliderControl);
-
-//     //initialize sliderControl
-//     sliderControl.startSlider()
-//     });
+      });
 })};
 
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
+var maraiPoints = addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
 
-//Create sliderControl
-// var sliderControl = L.control.sliderControl({
-//     position: "bottomright",
-//     layer: addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609"),
-//     range: true,
-//     timeAttribute: "ACQ_DATE",
-//     follow: true,
-// });
+sliderControl = L.control.sliderControl({
+  position: "bottomright",
+  layer: maraiPoints,
+  range: true,
+  timeAttribute: "ACQ_DATE",
+  follow: true,
+});
 
+console.log(maraiPoints);
+//add sliderControl to the map
+mymap.addControl(sliderControl);
 
+//initialize sliderControl
+sliderControl.startSlider();
 
 // README Article on using assets lib
 // https://glitch.com/~assets-lib
