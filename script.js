@@ -90,5 +90,9 @@ fetch(parqueGeoJSON)
     return response.json();
   })
   .then(function(data) {
-    console.log(data.sort((a, b) => b.features.properties.ACQ_DATE - a.features.properties.ACQ_DATE));
-  });
+   var nest = d3.nest()
+      .key(function(d) {return d.properties.ACQ_DATE})
+      .entries(data.features);
+
+   console.log(JSON.stringify(nest, null, 2));
+});
