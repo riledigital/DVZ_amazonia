@@ -63,6 +63,21 @@ addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fpa
 addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
 addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821");
 
+//Create sliderControl
+var sliderControl = L.control.sliderControl({
+    position: "bottomright",
+    layer: SaoPaulo,
+    range: true,
+    timeAttribute: "Timestrg",
+    follow: true,
+});
+
+//add sliderControl to the map
+map.addControl(sliderControl);
+
+//initialize sliderControl
+sliderControl.startSlider()
+
 // README Article on using assets lib
 // https://glitch.com/~assets-lib
 // var assets = require("./assets");
