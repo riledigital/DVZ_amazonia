@@ -312,7 +312,7 @@ vegaEmbed("#parque_linegraph", parque_linegraph)
           // console.log(name);
           // console.log(date.getFullYear());
           // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-          updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
+          updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
         } catch (error) {
           console.log("error opops");
         }
@@ -328,7 +328,7 @@ vegaEmbed("#ara_linegraph", ara_linegraph)
           // console.log(name);
           // console.log(date.getFullYear());
           // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-          updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
+          updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
         } catch (error) {
           console.log("error opops");
         }
@@ -344,7 +344,7 @@ vegaEmbed("#marai_linegraph", marai_linegraph)
           // console.log(name);
           // console.log(date.getFullYear());
           // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-          updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
+          updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
         } catch (error) {
           console.log("error opops");
         }
