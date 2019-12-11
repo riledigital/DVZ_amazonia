@@ -16,20 +16,21 @@ const plotHeight = 400;
 
   const globalPlotConfig = {
     axis: {
-      labelFont: "monospace",
+      labelFont: "Source Serif Pro Bold",
       titleFont: "Source Serif Pro",
+    },
+    legend: {
+      
     },
     title: {
       font: "Source Serif Pro"
     },
     background: "rgba(0,0,0,0)",
-    mark: {
-      fill: "#FF5A5F"
-    }
   };
 
 var linegraph = function(data) {
   return {
+    config: globalPlotConfig,
     width: 960,
     height: 540,
     data: {
@@ -128,7 +129,9 @@ var linegraph = function(data) {
 
 var multi_linegraph = function(data) {
   return {
-    width: 700,
+    config: globalPlotConfig,
+    autofit: "fit", 
+    width: "container",
     height: 540,
     data: {
       url: data,
@@ -226,7 +229,7 @@ var multi_linegraph = function(data) {
 
 var areagraph = function(data) {
   return {
-    config: { view: { width: 700, height: 600 } },
+    config: globalPlotConfig,
     title: "Indigenous Region Fire Count (2001–2019)",
     data: {
       url:
