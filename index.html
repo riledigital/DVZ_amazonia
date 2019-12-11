@@ -9,11 +9,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       crossorigin="anonymous"
     />
@@ -38,9 +33,7 @@
   </head>
   <body>
     <div class="map-background-fixed position-fixed">
-      <p>
-        
-      </p>
+      <p></p>
     </div>
 
     <!--     This is where the leaflet goes -->
@@ -59,138 +52,144 @@
               </p>
             </div>
           </div>
-          
+
           <div class="row">
             <div class="col">
               <p class="lead">
                 The Amazon plays a massive role in the Earth’s ecosystem and is
                 a symbol of environmental vulnerability, indigeneity, and
-                international cooperation. Though fires in the Amazon are seasonal, 
-                fire intensity (based on records dating back to 2001) have spiked 
-                this past summer, correlating with a relatively recent increase 
-                in deforestation efforts. In August 2019 alone, the
-                Amazon is said to have had 80,000 fires—the highest ever
+                international cooperation. Though fires in the Amazon are
+                seasonal, fire intensity (based on records dating back to 2001)
+                have spiked this past summer, correlating with a relatively
+                recent increase in deforestation efforts. In August 2019 alone,
+                the Amazon is said to have had 80,000 fires—the highest ever
                 recorded in a month—making this a highly pertinent issue.
               </p>
-                         
-             <div class="row viz-row">
-          <div class="col viz-col">
-            <figure class="viz-figure img-fluid">
-              
-              
-          
-            <div id="observablehq-7a46ba7e"></div>
-            <script type="module">
-            
-            import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-            import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
-            const inspect = Inspector.into("#observablehq-7a46ba7e");
-            const runtime = new Runtime(Object.assign(new Library, {width: 700}));
-            const main = runtime.module(define, name => (name === "chart") && inspect());
-            
-              function go(){}
-              
-            </script>
-              
-              <style>
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 15px;
-  padding: 10px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+              <div class="row viz-row">
+                <div class="col viz-col">
+                  <figure class="viz-figure img-fluid">
+                    <div id="observablehq-7a46ba7e"></div>
+                    <script type="module">
+                      import {
+                        Runtime,
+                        Inspector,
+                        Library
+                      } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+                      import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
+                      const inspect = Inspector.into("#observablehq-7a46ba7e");
+                      const runtime = new Runtime(
+                        Object.assign(new Library(), { width: 700 })
+                      );
+                      const main = runtime.module(
+                        define,
+                        name => name === "chart" && inspect()
+                      );
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+                      function go() {}
+                    </script>
 
-.button:hover span {
-  padding-right: 25px;
-}
+                    <style>
+                      .button {
+                        display: inline-block;
+                        border-radius: 4px;
+                        background-color: #f4511e;
+                        border: none;
+                        color: #FFFFFF;
+                        text-align: center;
+                        font-size: 15px;
+                        padding: 10px;
+                        width: 100px;
+                        transition: all 0.5s;
+                        cursor: pointer;
+                        margin: 5px;
+                      }
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-</style>
+                      .button span {
+                        cursor: pointer;
+                        display: inline-block;
+                        position: relative;
+                        transition: 0.5s;
+                      }
 
+                      .button span:after {
+                        content: "\00bb";
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        right: -20px;
+                        transition: 0.5s;
+                      }
 
+                      .button:hover span {
+                        padding-right: 25px;
+                      }
 
-<button onclick="go()" class="button" style="vertical-align:middle"><span>Reset </span></button>
-              
-             
-      </figure>
-          </div>
-        
-        </div>
+                      .button:hover span:after {
+                        opacity: 1;
+                        right: 0;
+                      }
+                    </style>
+
+                    <button
+                      onclick="go()"
+                      class="button"
+                      style="vertical-align:middle"
+                    >
+                      <span>Reset </span>
+                    </button>
+                  </figure>
+                </div>
+              </div>
               <p>
-                Mainstream media coverage tends to focus on the environmental damage of the Amazon forest fires (eg: loss of wildlife and biodiversity, 
-                emissions into the atmosphere, local air pollution etc.) much more so than the consequential displacement of indigenous groups residing 
-                in the Amazon. According to ScienceDaily, approximately 3,000 indigenous regions have been identified within the Amazon. With increasing
-                plans for economic development and infrastructure, a vast majority of indigenous lands alongside protected areas in the Brazillian Amazon
-                are at high risk of experiencing disaster. Despite this, indigenous groups are currently at the forefront of the movement to protect the 
-                rainforest against further deforestation, illegal logging, and other human invested harmful environmental activities. 
+                Mainstream media coverage tends to focus on the environmental
+                damage of the Amazon forest fires (eg: loss of wildlife and
+                biodiversity, emissions into the atmosphere, local air pollution
+                etc.) much more so than the consequential displacement of
+                indigenous groups residing in the Amazon.
+                <br>
+                According to
+                ScienceDaily, approximately 3,000 indigenous regions have been
+                identified within the Amazon. With increasing plans for economic
+                development and infrastructure, a vast majority of indigenous
+                lands alongside protected areas in the Brazillian Amazon are at
+                high risk of experiencing disaster. Despite this, indigenous
+                groups are currently at the forefront of the movement to protect
+                the rainforest against further deforestation, illegal logging,
+                and other human invested harmful environmental activities.
               </p>
-              
+
               <h2>
-                1960's policy
+                Historical Background: How did we get to where we are today?
               </h2>
               <p>
-                Deforestation via the agricultural, infrastructural etc. development of the Amazon roughly begins to accelerate in the 1960s 
-                beginning with Brazil's military regime, which ends in the mid 1980s. Histories of settler colonialism, indigenous genocide, 
-                enslavement (eg: rubber tapping industries, haciendas, etc.), and displacement begin long before actual development and clearing of 
-                Amazon land and thus, although not the primary focal point of this data story, remain a part of the essential background context for 
-                effect on indigenous rights by Brazilian policy. ***[IN PROGRESS]***
+                With the exception of 
               </p>
-                </div>
+            </div>
           </div>
-  
 
-              
-          
           <div class="row viz-row">
-          <div class="col viz-col">
-            <figure class="viz-figure img-fluid">
-              <div id="top10_areagraph"></div>
-            </figure>
+            <div class="col viz-col">
+              <figure class="viz-figure img-fluid">
+                <div id="top10_areagraph"></div>
+              </figure>
+            </div>
           </div>
-        
-        </div>
-              <p>
-          ***[IN PROGRESS]*** Describe information leading into viz condensing area stack graph of top 10 firecount
-              in indigenous regions 
-            </p>
+          <p>
+            ***[IN PROGRESS]*** Describe information leading into viz condensing
+            area stack graph of top 10 firecount in indigenous regions
+          </p>
           <div class="row viz-row">
-          <div class="col viz-col">
-            <figure class="viz-figure img-fluid">
-              <div id="focus_regions_linegraph"></div>
-            </figure>
+            <div class="col viz-col">
+              <figure class="viz-figure img-fluid">
+                <div id="focus_regions_linegraph"></div>
+              </figure>
+            </div>
           </div>
-        </div>
-            <p>
-          ***[IN PROGRESS]*** Describe information leading into viz condensing area stack graph of top 10 firecount
-              in indigenous regions 
-            </p>
+          <p>
+            ***[IN PROGRESS]*** Describe information leading into viz condensing
+            area stack graph of top 10 firecount in indigenous regions
+          </p>
         </div>
       </article>
 
@@ -199,24 +198,29 @@
         <div class="row">
           <div class="col">
             <!-- NOTE: Every area is an "article" that will contain the viz's...  -->
-            
-              <h2>
-                Parque do Araguaia: Brazil's Beloved National Park
-              </h2>
-            
+
+            <h2>
+              Parque do Araguaia: Brazil's Beloved National Park
+            </h2>
 
             <p class="lead">
-Parque Estadual do Araguaia (English: The Araguaia State Park) is a highly biodiverse state park located in the state of Mato Grosso, Brazil. 
-              It protects an area of the annually flooded, tropical savanna ecoregion known as the <i>Cerrado</i>.
+              Parque Estadual do Araguaia (English: The Araguaia State Park) is
+              a highly biodiverse state park located in the state of Mato
+              Grosso, Brazil. It protects an area of the annually flooded,
+              tropical savanna ecoregion known as the <i>Cerrado</i>.
             </p>
             <p>
-              On 27 June 2011 the state government published a law authorizing an "exchange" with the Fundação Nacional do Índio (Funai) that would bring the Xavante people of the Maraiwatsede Indigenous Territory (TI) into the park, and regularize ownership by squatters in the TI. Funai responded that it had no interest in the exchange, which was unconstitutional since indigenous territory is inalienable.[9][a]
+              On 27 June 2011 the state government published a law authorizing
+              an "exchange" with the Fundação Nacional do Índio (Funai) that
+              would bring the Xavante people of the Maraiwatsede Indigenous
+              Territory (TI) into the park, and regularize ownership by
+              squatters in the TI. Funai responded that it had no interest in
+              the exchange, which was unconstitutional since indigenous
+              territory is inalienable.[9][a]
             </p>
           </div>
         </div>
-        <p>
-          
-          </p>
+        <p></p>
         <div class="row viz-row">
           <div class="col viz-col">
             <figure class="viz-figure img-fluid">
@@ -232,24 +236,22 @@ Parque Estadual do Araguaia (English: The Araguaia State Park) is a highly biodi
         <div class="row">
           <div class="col">
             <!-- NOTE: Every area is an "article" that will contain the viz's...  -->
-            
-              <h2>
-                Marãiwatséde
-              </h2>
-            
+
+            <h2>
+              Marãiwatséde
+            </h2>
 
             <p class="lead">
-Marãiwatséde is a traditional territory located in the state of Mato Grosso, Brazil. It was recognized as land belonging to the Xavante people of 
-the southern Amazon in 1998, but continued to be illegally invaded by external parties. The name of the region means "high forest" or "dangerous forest" 
-in the native language of the Xavante. 
+              Marãiwatséde is a traditional territory located in the state of
+              Mato Grosso, Brazil. It was recognized as land belonging to the
+              Xavante people of the southern Amazon in 1998, but continued to be
+              illegally invaded by external parties. The name of the region
+              means "high forest" or "dangerous forest" in the native language
+              of the Xavante.
             </p>
           </div>
 
-          <p>
-       
-            
-            
-          </p>
+          <p></p>
         </div>
         <div class="row viz-row">
           <div class="col viz-col">
@@ -266,26 +268,22 @@ in the native language of the Xavante.
         <div class="row">
           <div class="col">
             <!-- NOTE: Every area is an "article" that will contain the viz's...  -->
-            
-              <h2>
-                Araribóia
-              </h2>
-            
+
+            <h2>
+              Araribóia
+            </h2>
 
             <p class="lead">
-            Araribóia is an indigenous territory sizing at 1,600 square miles. 
-            The vast, humid region is located in northeast Brazil in the Maranhao state. 
-            It is home to Gujara and Awa tribes. 
-              
-            The Awa people belong to one of the rare uncontacted tribes of the world
-            making them highly vulnerable to deforestation, fires and encroachment efforts.
-            </p> 
+              Araribóia is an indigenous territory sizing at 1,600 square miles.
+              The vast, humid region is located in northeast Brazil in the
+              Maranhao state. It is home to Gujara and Awa tribes. The Awa
+              people belong to one of the rare uncontacted tribes of the world
+              making them highly vulnerable to deforestation, fires and
+              encroachment efforts.
+            </p>
           </div>
 
-          <p>
-          
-            
-          </p>
+          <p></p>
         </div>
         <div class="row viz-row">
           <div class="col viz-col">
@@ -299,40 +297,39 @@ in the native language of the Xavante.
 
       <section id="appendix">
         <article>
-        <div class="container">
-          
-          <h1>Appendix</h1>
-          
-          <h2>
-            What is Fire Radiative Power?
-          </h2>
+          <div class="container">
+            <h1>Appendix</h1>
+
+            <h2>
+              What is Fire Radiative Power?
+            </h2>
             <blockquote>
-The Fire Radiative Power (FRP) is a measure of the rate of radiant heat output from a fire. 
-It has been demonstrated in small-scale experimental fires that the FRP of a fire is related 
-to the rate at which fuel is being consumed (Wooster et al., 2005) and smoke emissions released 
-(Freeborn et al., 2008). (http://cedadocs.ceda.ac.uk/770/1/SEVIRI_FRP_documentdesc.pdf)
-          </blockquote>
-          
-          
-          
-          <h2>
-            Methodology and data sources
-          </h2>
+              The Fire Radiative Power (FRP) is a measure of the rate of radiant
+              heat output from a fire. It has been demonstrated in small-scale
+              experimental fires that the FRP of a fire is related to the rate
+              at which fuel is being consumed (Wooster et al., 2005) and smoke
+              emissions released (Freeborn et al., 2008).
+              (http://cedadocs.ceda.ac.uk/770/1/SEVIRI_FRP_documentdesc.pdf)
+            </blockquote>
 
-          <h2>Credits</h2>
-          <p>
-            This data story was created by Ri Le, Emma Lu, Nishat Chowdhury, and Anavi Lohia 
-            for the course Introduction to Data Visualization during 2019 Fall taught by 
-            Professor Anges Chang at Columbia University.
-          </p>
+            <h2>
+              Methodology and data sources
+            </h2>
 
-          <p>
-            This web story was built on web technology: HTML/CSS/JS, Waypoints,
-            Vega-Lite, D3, Leaflet, and Glitch.
-          </p>
-        </div>
-          </article>
-        
+            <h2>Credits</h2>
+            <p>
+              This data story was created by Ri Le, Emma Lu, Nishat Chowdhury,
+              and Anavi Lohia for the course Introduction to Data Visualization
+              during 2019 Fall taught by Professor Anges Chang at Columbia
+              University.
+            </p>
+
+            <p>
+              This web story was built on web technology: HTML/CSS/JS,
+              Waypoints, Vega-Lite, D3, Leaflet, and Glitch.
+            </p>
+          </div>
+        </article>
       </section>
     </div>
     <!-- Optional JavaScript -->
@@ -340,22 +337,12 @@ to the rate at which fuel is being consumed (Wooster et al., 2005) and smoke emi
       src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
       crossorigin="anonymous"
     ></script>
-    <!--<script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/d3-geo/1.9.1/d3-geo.js"
-      charset="utf-8"
-    ></script> -->
-    
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-			  src="https://code.jquery.com/jquery-3.4.1.min.js"
-			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			  crossorigin="anonymous"
-    ></script>
-    <script
-			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-			  crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -375,10 +362,8 @@ to the rate at which fuel is being consumed (Wooster et al., 2005) and smoke emi
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
     <!-- BEHOLD for these are our custom scripts  -->
-    <script src="SliderControl.js"></script>
     <script src="script.js"></script>
     <script src="plots.js"></script>
     <script src="leaflet_maps.js"></script>
-    
   </body>
 </html>
