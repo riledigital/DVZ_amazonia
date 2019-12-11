@@ -9,11 +9,13 @@ const mapBounds = L.latLngBounds(boundOne, boundTwo);
 // FIRST declare the options
 var mapOptions = {
   center: point_home,
-  mapBounds: mapBounds,
+  maxBounds: mapBounds,
+  minZoom: 5,
   zoomControl: false,
   preferCanvas: true,
   // renderer: L.Canvas, // this causes serious problems??? im gonna file a bug report
-  dragging: true
+  dragging: true,
+  scrollWheelZoom: false
 };
 // make the map
 var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
