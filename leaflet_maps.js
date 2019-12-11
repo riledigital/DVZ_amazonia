@@ -1,8 +1,8 @@
 // adding geoJSON layers through leaflet
 // --------------------------------------------------------------- //
 const colorFireOrange = "#ff7800";
+const colorActiveBlue = "blue";
 
-// Use this file to load geojson layers
 const territoryBoundsStyle = {
   color: "#fff",
   weight: 2,
@@ -36,6 +36,28 @@ const firePointsStyle = {
   weight: 0,
   opacity: 0.2,
   fillOpacity: 0.2,
+  preferCanvas: true
+  // renderer: L.Canvas
+};
+
+const styleActiveYear = {
+  radius: 1,
+  fillColor: colorActiveBlue,
+  color: colorActiveBlue,
+  weight: 0,
+  opacity: 0.8,
+  fillOpacity: 0.8,
+  preferCanvas: true
+  // renderer: L.Canvas
+};
+
+const styleInactiveYear = {
+  radius: 1,
+  fillColor: colorFireOrange,
+  color: colorFireOrange,
+  weight: 0,
+  opacity: .2,
+  fillOpacity: .2,
   preferCanvas: true
   // renderer: L.Canvas
 };
@@ -155,15 +177,6 @@ console.log(loadOrder);
 //    console.log(JSON.stringify(nest, null));
 // });
 
-const styleActiveYear = {
-  fillColor: "blue",
-  fillOpacity: 1
-};
-
-const styleInactiveYear = {
-  fillColor: "yellow",
-  fillOpacity: 0.2
-};
 
 // we probably don't need this anymore, i guess it costs a lot of memory
 // const layerIsName = (testIndex, areaName) => {
@@ -187,13 +200,13 @@ const updateHighlightedYearPoints = (areaIndex, year) => {
 
   geoPointsArray[areaIndex].eachLayer(layer => {
     tempYear = new Date(layer.feature.properties.ACQ_DATE);
-    // console.log(tempYear);
+    console.log("Updating style: " + layer);
     if (year == tempYear.getFullYear()) {
       layer.setStyle(styleActiveYear);
     } else {
       layer.setStyle(styleInactiveYear);
     }
-    console.log("please don't break");
+    console.log("Successfully styled");
   });
   // var i = 0;
   // while (i < geoPointsArray.length) {
