@@ -1,16 +1,20 @@
 // Setup the first leaflet map
 // --------------------------------------------------------------- //
+
+// declare home first (PHONE HOME)
+const point_home = L.latLng(-10.250059987303004, -49.46044921875);
+const boundOne = L.latLng( 0.21972602392080884, -65.126953125);
+const boundTwo = L.latLng(-31.203404950917385, -35.15625);
+const mapBounds = L.latLngBounds(boundOne, boundTwo);
 // FIRST declare the options
 var mapOptions = {
+  center: point_home,
+  mapBounds: mapBounds,
   zoomControl: false,
   preferCanvas: true,
   // renderer: L.Canvas, // this causes serious problems??? im gonna file a bug report
-  dragging: false
+  dragging: true
 };
-
-// declare home first (PHONE HOME)
-var point_home = L.latLng(-10.250059987303004, -49.46044921875);
-
 // make the map
 var mymap = L.map("mapid", mapOptions).setView(point_home, 5);
 
