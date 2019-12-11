@@ -70,8 +70,9 @@ addTerritoryBounds(
   territoryBoundsStyleFocus
 );
 
-// P
+// POINTS POINTS POINTS POINTS POINTS POINTS
 // --------------------------------------------------------------- //
+
 var parqueGeoJSON =
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
 var araGeoJSON =
@@ -81,8 +82,11 @@ var maraiGeoJSON =
 
 // Let's load the GEOJSON as a layer for Leaflet. No d3 in this try.
 
-// Adds geojsons to leaflet
+// Adds geoJSON points/markers to leaflet
 // using leaflet features
+
+geoPointsArray = [];
+loadOrder = [];
 const addGeoJSONPoints = url => {
   fetch(url)
     .then(function(response) {
@@ -99,20 +103,29 @@ const addGeoJSONPoints = url => {
         fillOpacity: 0.8
       };
 
+      loadOrder.push(data.features[0].properties.Name);
       firePointsLayer = L.geoJSON(data, {
+        // onEachFeature: function(feature, layer) {
+        //   var tempYear = new Date(feature.properties.ACQ_DATE).getFullYear();
+        //   console.log(tempYear);
+        //   feature.set("ACQ_YEAR", tempYear);
+        // },
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng, geojsonMarkerOptions);
         }
       });
-      firePointsLayer.addTo(mymap);
 
-      console.log(JSON.stringify(nest, null));
+      firePointsLayer.addTo(mymap);
+      geoPointsArray.push(firePointsLayer);
+      // console.log(JSON.stringify(nest, null));
     });
 };
 
 addGeoJSONPoints(parqueGeoJSON);
 addGeoJSONPoints(araGeoJSON);
 addGeoJSONPoints(maraiGeoJSON);
+
+console.log(loadOrder);
 
 // just messing around with d3 nesting
 // fetch(parqueGeoJSON)
@@ -128,26 +141,54 @@ addGeoJSONPoints(maraiGeoJSON);
 //    console.log(JSON.stringify(nest, null));
 // });
 
-// README Article on using assets lib
-// https://glitch.com/~assets-lib
-// var assets = require("./assets");
-// var express = require("express");
-// var app = express();
-// app.use("/assets", assets);
+const styleActiveYear = {
+  fillColor: "blue"
+};
 
+const styleInactiveYear = {
+  fillColor: "yellow"
+};
 
-// Enable zoom with hold?
-// interact('.tap-target')
-//   .on('tap', function (event) {
-//     event.currentTarget.classList.toggle('switch-bg')
-//     event.preventDefault()
-//   })
-//   .on('doubletap', function (event) {
-//     event.currentTarget.classList.toggle('large')
-//     event.currentTarget.classList.remove('rotate')
-//     event.preventDefault()
-//   })
-//   .on('hold', function (event) {
-//     event.currentTarget.classList.toggle('rotate')
-//     event.currentTarget.classList.remove('large')
-//   })
+// we probably don't need this anymore, i guess it costs a lot of memory
+// const layerIsName = (testIndex, areaName) => {
+//   // figures out if we're selecting the right thing
+//   var dicty = geoPointsArray[testIndex]._layers;
+//   var thisKey = Object.keys(dicty)[0]; // get the key of the first thing
+//   return dicty[thisKey].feature.properties.Name == areaName;
+// };
+
+// grab name of area from vega event listener
+// return index in loadOrder
+// index in loadOrder should correspond to index in geoPointsArray
+const getAreaLoadIndex = (areaName) => {
+  return loadOrder.indexOf(areaName);
+}
+
+var tempYear = new Date;
+const updateHighlightedYearPoints = (areaIndex, year) => {
+  // console.log("updating index " + areaIndex);
+  // console.log("passed thru update function: " + year);
+  
+  geoPointsArray[areaIndex].eachLayer(layer => {
+    tempYear = new Date(layer.feature.properties.ACQ_DATE);
+    // console.log(tempYear);
+    if (year == tempYear.getFullYear()) {
+      layer.setStyle(styleActiveYear);
+    }
+    console.log("please don't break");
+  });
+  // var i = 0;
+  // while (i < geoPointsArray.length) {
+  //   console.log("i value: " + i);
+  //   if (layerIsName(i, area)) {
+  //     console.log("cond is TRUE on " + i + ", " + area);
+  //     //do stuff
+  //     geoPointsArray[i].onEachFeature(layer => {
+  //        console.log("Changing the layer style woo");
+  //       layer.setStyle(styleActiveYear);
+  //     });
+  //   } else {
+  //     i++;
+  //   }
+  // }
+};

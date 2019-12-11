@@ -31,7 +31,7 @@ var CartoDB_Positron = L.tileLayer(
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-var point_parque = L.latLng(-11.22959236688476, -50.1580810546875);
+var point_parque = L.latLng(-11.6388, -50.4877);
 var point_ara = L.latLng(-5.077265294455729, -46.454315185546875);
 var point_marai = L.latLng(-11.745025146562764, -51.6632080078125);
 
@@ -46,7 +46,16 @@ var zoomToLocation = (point, zoomLevel) => {
   // mymap.setZoom(zoom);
 };
 
-var make_waypoint = (selector, triggerpoint, offsety, zoomLevel = 8, callbacky = x => {}) => {
+
+const globalZoomLevel = 8.5;
+const globalOffsetValue = 450;
+
+var make_waypoint = 
+(selector, 
+  triggerpoint, 
+  offsety, 
+  zoomLevel = globalZoomLevel, 
+  callbacky = x => {}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
@@ -62,16 +71,16 @@ var make_waypoint = (selector, triggerpoint, offsety, zoomLevel = 8, callbacky =
 };
 
 // make_waypoint("#introduction", point_home, -10);
-globalZoomLevel = 8;
-offsetValue = 400;
+
 make_waypoint("#parque", point_parque, (offsety = -100), globalZoomLevel, x => {
   return console.log("we did parque");
 });
-make_waypoint("#ara", point_ara, offsetValue,  x => {
+make_waypoint("#marai", point_marai, globalOffsetValue, 11);
+
+make_waypoint("#ara", point_ara, globalOffsetValue, 10.5,  x => {
   console.log("ara");
 });
-make_waypoint("#marai", point_marai, offsetValue, globalZoomLevel);
-make_waypoint("#appendix", point_home, offsetValue, globalZoomLevel);
+make_waypoint("#appendix", point_home, globalOffsetValue, globalZoomLevel);
 
 
 
