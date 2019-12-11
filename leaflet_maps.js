@@ -1,13 +1,14 @@
 // adding geoJSON layers through leaflet
 // --------------------------------------------------------------- //
+const colorFireOrange = "#ff7800"
 
 // Use this file to load geojson layers
 const territoryBoundsStyle = {
   color: "#fff",
-  weight: 1,
+  weight: 2,
   fillOpacity: 0,
   strokeOpacity: 0.5,
-  // dashArray: "10",
+  dashArray: "10",
   opacity: 0.5
 };
 
@@ -16,17 +17,17 @@ const territoryBoundsStyleFocus = {
   weight: 2,
   fillOpacity: 0,
   strokeOpacity: 1,
-  // dashArray: "10",
+  dashArray: "10",
   opacity: 1
 };
 
 const firePointsStyle = {
   radius: 1,
-  fillColor: "#f00",
-  color: "#f00",
+  fillColor: colorFireOrange,
+  color: colorFireOrange,
   weight: 0,
-  opacity: .25,
-  fillOpacity: 0.4,
+  opacity: .2,
+  fillOpacity: 0.2,
   preferCanvas: true
   // renderer: L.Canvas
 };
@@ -85,6 +86,7 @@ var maraiGeoJSON =
 // Adds geoJSON points/markers to leaflet
 // using leaflet features
 
+
 geoPointsArray = [];
 loadOrder = [];
 const addGeoJSONPoints = url => {
@@ -94,14 +96,14 @@ const addGeoJSONPoints = url => {
       return response.json();
     })
     .then(function(data) {
-      var geojsonMarkerOptions = {
-        radius: 2,
-        fillColor: "#ff7800",
-        color: "#000",
-        weight: 0,
-        opacity: 0.8,
-        fillOpacity: 0.8
-      };
+      // var geojsonMarkerOptions = {
+      //   radius: 2,
+      //   fillColor: colorFireOrange,
+      //   color: "#000",
+      //   weight: 0,
+      //   opacity: 0.8,
+      //   fillOpacity: 0.8
+      // };
 
       loadOrder.push(data.features[0].properties.Name);
       firePointsLayer = L.geoJSON(data, {
@@ -111,7 +113,7 @@ const addGeoJSONPoints = url => {
         //   feature.set("ACQ_YEAR", tempYear);
         // },
         pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng, geojsonMarkerOptions);
+          return L.circleMarker(latlng, firePointsStyle);
         }
       });
 

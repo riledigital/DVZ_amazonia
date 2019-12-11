@@ -72,8 +72,8 @@ var make_waypoint =
 
 
 make_waypoint("#introduction", point_home, (-800), 7, x => {
-  console.log('Resetting the lineplot...')
-  resetLinePlot();
+  console.log('IF we can talk to that lineplot module from Observable embed, we can automatically reset the plot')
+  // resetLinePlot();
 });
 
 make_waypoint("#parque", point_parque, (offsety = -100), 9.25, x => {
