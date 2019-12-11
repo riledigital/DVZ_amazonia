@@ -13,9 +13,9 @@
 }
 
 @font-face {
-  font-family: "Libertinus Serif";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-Regular.otf")
-    format("otf");
+  font-family: "Libertinus";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-Regular.woff")
+    format("woff");
 }
 @font-face {
   font-family: "Libertinus Serif Italic";
@@ -40,7 +40,7 @@ h5 {
 
 h1 {
   /*   font-family: "WremenaLight"; */
- 
+
   font-weight: bold;
   /*   color: white; */
   font-size: calc(2.56 * 1rem);
@@ -75,8 +75,8 @@ h5 {
   padding: 5rem;
 }
 
-#introduction>* {
-    max-width: 45rem;
+#introduction > * {
+  max-width: 45rem;
 }
 
 .landmark {
