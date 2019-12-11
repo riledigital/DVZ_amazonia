@@ -1,3 +1,5 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.23, autoprefixer: v9.7.3) */
+
 body {
   /*   background: black; */
   /*   color: white; */
@@ -79,8 +81,17 @@ h5 {
 }
 
 #introduction {
-  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px); 
   background: rgb(247,255,243);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)),
+  color-stop(50%, rgba(247,255,243,.95)),
+   color-stop(75%, rgba(252,255,250,.87)),
+    to(rgba(255,255,255,0)));
+  background: -o-linear-gradient(top, rgba(0,0,0,1) 0%,
+  rgba(247,255,243,.95) 50%,
+   rgba(252,255,250,.87) 75%,
+    rgba(255,255,255,0) 100%);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%,
   rgba(247,255,243,.95) 50%,
    rgba(252,255,250,.87) 75%,
@@ -109,7 +120,8 @@ h5 {
 .scrollstory {
   /*   border: 100px solid red; */
   /*   z-index: 1000; */
-  scroll-snap-type: y proximity;
+  -ms-scroll-snap-type: y proximity;
+      scroll-snap-type: y proximity;
 }
 
 .scrollstory > * {
@@ -141,8 +153,12 @@ h5 {
   width: 100vw;
   /*   background: rgba(0, 0, 0, 0.8); */
   height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 #appendix .container {
@@ -163,6 +179,8 @@ h5 {
   font-size: 1em;
   padding: 10px;
   width: 100px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -172,6 +190,8 @@ h5 {
   cursor: pointer;
   display: inline-block;
   position: relative;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -181,6 +201,8 @@ h5 {
   opacity: 0;
   top: 0;
   right: -20px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -202,11 +224,44 @@ h5 {
 	font-size: 5em;
 	font-weight: 300;
 	text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
-	animation: 2s Blazing infinite alternate linear;
+	-webkit-animation: 2s Blazing infinite alternate linear;
+	        animation: 2s Blazing infinite alternate linear;
 }
 
 /* Blazing anim by Brian Purgert */
 /* Lifted from https://codepen.io/BrianPurgert/pen/VwYvgJe */
+@-webkit-keyframes Blazing {
+	0%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 0 10px orange,
+		0 0 0 yellow,
+		0 0 5px yellow,
+		-2px -5px 5px yellow,
+		4px -10px 10px yellow; }
+	25%   { text-shadow: 0 3px 20px red, 0 0 30px red,
+		0 0 20px orange,
+		0 0 5px yellow,
+		-2px -5px 5px yellow,
+		3px -10px 10px yellow,
+		-4px -15px 20px yellow; }
+	50%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 -5px 10px orange,
+		-2px -5px 5px yellow,
+		3px -10px 10px yellow,
+		-4px -15px 20px yellow,
+		2px -20px 30px rgba(255,255,0,0.5); }
+	75%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 -5px 10px orange,
+		3px -5px 5px yellow,
+		-4px -10px 10px yellow,
+		2px -20px 30px rgba(255,255,0,0.5),
+		0px -25px 40px rgba(255,255,0,0)}
+	100%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 0 10px orange,
+		0 0 0 yellow,
+		0 0 5px yellow,
+		-2px -5px 5px yellow,
+		4px -10px 10px yellow; }
+}
 @keyframes Blazing {
 	0%   { text-shadow: 0 3px 20px red, 0 0 20px red,
 		0 0 10px orange,

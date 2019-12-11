@@ -1,6 +1,6 @@
 // adding geoJSON layers through leaflet
 // --------------------------------------------------------------- //
-const colorFireOrange = "#ff7800"
+const colorFireOrange = "#ff7800";
 
 // Use this file to load geojson layers
 const territoryBoundsStyle = {
@@ -21,12 +21,21 @@ const territoryBoundsStyleFocus = {
   opacity: 1
 };
 
+const amazonLegalBoundsStyle = {
+  color: "#50e3eb",
+  weight: 4,
+  fillOpacity: 0,
+  strokeOpacity: 1,
+  dashArray: 40,
+  opacity: 1
+};
+
 const firePointsStyle = {
   radius: 1,
   fillColor: colorFireOrange,
   color: colorFireOrange,
   weight: 0,
-  opacity: .2,
+  opacity: 0.2,
   fillOpacity: 0.2,
   preferCanvas: true
   // renderer: L.Canvas
@@ -71,6 +80,11 @@ addTerritoryBounds(
   territoryBoundsStyleFocus
 );
 
+addTerritoryBounds(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Famazonlegalarea.geojson?v=1576094165990",
+  amazonLegalBoundsStyle
+);
+
 // POINTS POINTS POINTS POINTS POINTS POINTS
 // --------------------------------------------------------------- //
 
@@ -85,7 +99,6 @@ var maraiGeoJSON =
 
 // Adds geoJSON points/markers to leaflet
 // using leaflet features
-
 
 geoPointsArray = [];
 loadOrder = [];
@@ -162,15 +175,15 @@ const styleInactiveYear = {
 // grab name of area from vega event listener
 // return index in loadOrder
 // index in loadOrder should correspond to index in geoPointsArray
-const getAreaLoadIndex = (areaName) => {
+const getAreaLoadIndex = areaName => {
   return loadOrder.indexOf(areaName);
-}
+};
 
-var tempYear = new Date;
+var tempYear = new Date();
 const updateHighlightedYearPoints = (areaIndex, year) => {
   // console.log("updating index " + areaIndex);
   // console.log("passed thru update function: " + year);
-  
+
   geoPointsArray[areaIndex].eachLayer(layer => {
     tempYear = new Date(layer.feature.properties.ACQ_DATE);
     // console.log(tempYear);
