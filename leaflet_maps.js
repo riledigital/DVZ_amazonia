@@ -1,23 +1,35 @@
 // Use this file to load geojson layers
-const geojsonStyle = {
+const territoryBoundsStyle = {
   color: "#fff",
   weight: 1,
-  fillOpacity: 0.1,
+  fillOpacity: 0,
   strokeOpacity: 0.5,
   // dashArray: "10",
   opacity: 0.5
 };
 
-const geojsonFocusStyle = {
+const territoryBoundsStyleFocus = {
   color: "#50e3eb",
   weight: 2,
-  fillOpacity: 0.5,
+  fillOpacity: 0,
+  strokeOpacity: 1,
   // dashArray: "10",
   opacity: 1
 };
 
-// not named properly, but this adds borders
-const addGeoJSONToMap = (url, styleOptions) => {
+const firePointsStyle = {
+  radius: 1,
+  fillColor: "#f00",
+  color: "#f00",
+  weight: 0,
+  opacity: .25,
+  fillOpacity: 0.4,
+  preferCanvas: true
+  // renderer: L.Canvas
+};
+
+// Adds borders to indigenous lands
+const addTerritoryBounds = (url, styleOptions) => {
   // this is a helper function that adds the geojsons to the map
   try {
     fetch(url)
@@ -35,33 +47,25 @@ const addGeoJSONToMap = (url, styleOptions) => {
   }
 };
 
-addGeoJSONToMap(
+addTerritoryBounds(
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fbra_land_rights.json?v=1575993454246",
-  geojsonStyle
-);
-addGeoJSONToMap(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533",
-  geojsonFocusStyle
-);
-addGeoJSONToMap(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234",
-  geojsonFocusStyle
-);
-addGeoJSONToMap(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709",
-  geojsonFocusStyle
+  territoryBoundsStyle
 );
 
-const firePoints = {
-  radius: 1,
-  fillColor: "#f00",
-  color: "#f00",
-  weight: 0,
-  opacity: 1,
-  fillOpacity: 0.55,
-  preferCanvas: true
-  // renderer: L.Canvas
-};
+addTerritoryBounds(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533",
+  territoryBoundsStyleFocus
+);
+
+addTerritoryBounds(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234",
+  territoryBoundsStyleFocus
+);
+
+addTerritoryBounds(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709",
+  territoryBoundsStyleFocus
+);
 
 var layerGroupByDate = L.layerGroup([]);
 // adding points
@@ -86,7 +90,7 @@ const addPointsLayer = (url, startDateString, endDateString) => {
         },
         pointToLayer: function(feature, latlng) {
           // console.log(feature);
-          return L.circleMarker(latlng, firePoints);
+          return L.circleMarker(latlng, firePointsStyle);
         }
       }).addTo(layerGroupByDate);
     });
@@ -127,3 +131,20 @@ sliderControl.startSlider();
 // var express = require("express");
 // var app = express();
 // app.use("/assets", assets);
+
+
+// Enable zoom with hold 
+// interact('.tap-target')
+//   .on('tap', function (event) {
+//     event.currentTarget.classList.toggle('switch-bg')
+//     event.preventDefault()
+//   })
+//   .on('doubletap', function (event) {
+//     event.currentTarget.classList.toggle('large')
+//     event.currentTarget.classList.remove('rotate')
+//     event.preventDefault()
+//   })
+//   .on('hold', function (event) {
+//     event.currentTarget.classList.toggle('rotate')
+//     event.currentTarget.classList.remove('large')
+//   })
