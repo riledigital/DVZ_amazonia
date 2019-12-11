@@ -1,3 +1,6 @@
+// adding geoJSON layers through leaflet
+// --------------------------------------------------------------- //
+
 // Use this file to load geojson layers
 const territoryBoundsStyle = {
   color: "#fff",
@@ -67,63 +70,63 @@ addTerritoryBounds(
   territoryBoundsStyleFocus
 );
 
-var layerGroupByDate = L.layerGroup([]);
-// adding points
-const addPointsLayer = (url, startDateString, endDateString) => {
+// P
+// --------------------------------------------------------------- //
+var parqueGeoJSON =
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
+var araGeoJSON =
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
+var maraiGeoJSON =
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
+
+// Let's load the GEOJSON as a layer for Leaflet. No d3 in this try.
+
+// Adds geojsons to leaflet
+// using leaflet features
+const addGeoJSONPoints = url => {
   fetch(url)
     .then(function(response) {
       // Read data as JSON
       return response.json();
     })
     .then(function(data) {
-      // sorts geoJSON features by acquisition date, ascending order
-      // var sorted = data.features.sort((a, b) => a.properties.ACQ_DATE < b.properties.ACQ_DATE ? -1 : ((a.properties.ACQ_DATE > b.properties.ACQ_DATE) ? 1 : 0));
-      // Add data to the map
-      var myLayer = L.geoJSON(data, {
-        filter: function(feature, layer) {
-          // console.log(feature.properties.ACQ_DATE);
-          var f =
-            feature.properties.ACQ_DATE > startDateString &&
-            feature.properties.ACQ_DATE < endDateString; // testing the filter
-          // console.log(f);
-          return f;
-        },
+      var geojsonMarkerOptions = {
+        radius: 2,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 0,
+        opacity: 0.8,
+        fillOpacity: 0.8
+      };
+
+      firePointsLayer = L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
-          // console.log(feature);
-          return L.circleMarker(latlng, firePointsStyle);
+          return L.circleMarker(latlng, geojsonMarkerOptions);
         }
-      }).addTo(layerGroupByDate);
+      });
+      firePointsLayer.addTo(mymap);
+
+      console.log(JSON.stringify(nest, null));
     });
 };
 
-// addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
-// addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-addPointsLayer(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821",
-  "2001-01-01",
-  "2006-01-01"
-);
-addPointsLayer(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821",
-  "2006-01-01",
-  "2011-01-01"
-);
-// layerGroupByDate.addTo(mymap);
+addGeoJSONPoints(parqueGeoJSON);
+addGeoJSONPoints(araGeoJSON);
+addGeoJSONPoints(maraiGeoJSON);
 
-// console.log(layerGroupByDate);
-var sliderControl = L.control.sliderControl({
-  position: "bottomright",
-  layer: layerGroupByDate,
-  range: true,
-  timeAttribute: "ACQ_DATE",
-  follow: true
-});
+// just messing around with d3 nesting
+// fetch(parqueGeoJSON)
+//   .then(function(response) {
+//     // Read data as JSON
+//     return response.json();
+//   })
+//   .then(function(data) {
+//    var nest = d3.nest()
+//       .key(function(d) {return d.properties.ACQ_DATE})
+//       .entries(data.features);
 
-//add sliderControl to the map
-mymap.addControl(sliderControl);
-
-// initialize sliderControl
-sliderControl.startSlider();
+//    console.log(JSON.stringify(nest, null));
+// });
 
 // README Article on using assets lib
 // https://glitch.com/~assets-lib
@@ -133,7 +136,7 @@ sliderControl.startSlider();
 // app.use("/assets", assets);
 
 
-// Enable zoom with hold 
+// Enable zoom with hold?
 // interact('.tap-target')
 //   .on('tap', function (event) {
 //     event.currentTarget.classList.toggle('switch-bg')

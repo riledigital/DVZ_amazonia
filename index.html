@@ -72,24 +72,7 @@
                   <div class="col viz-col">
                     <figure class="viz-figure img-fluid">
                       <div id="observablehq-7a46ba7e"></div>
-                      <script type="module">
-                        import {
-                          Runtime,
-                          Inspector,
-                          Library
-                        } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-                        import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
-                        const inspect = Inspector.into("#observablehq-7a46ba7e");
-                        const runtime = new Runtime(
-                          Object.assign(new Library(), { width: 700 })
-                        );
-                        const main = runtime.module(
-                          define,
-                          name => name === "chart" && inspect()
-                        );
-  
-                        function go() {}
-                      </script>
+                      
   <!-- This style has been moved to style.css -->
                       <button
                         onclick="go()"
@@ -400,5 +383,25 @@
     <script src="script.js"></script>
     <script src="plots.js"></script>
     <script src="leaflet_maps.js"></script>
+
+    <!-- this is the observable script for the first linegraph -->
+    <script type="module">
+        import {
+          Runtime,
+          Inspector,
+          Library
+        } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
+        const inspect = Inspector.into("#observablehq-7a46ba7e");
+        const runtime = new Runtime(
+          Object.assign(new Library(), { width: 700 })
+        );
+        const main = runtime.module(
+          define,
+          name => name === "chart" && inspect()
+        );
+
+        function go() {}
+      </script>
   </body>
 </html>

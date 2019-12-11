@@ -31,7 +31,7 @@ var CartoDB_Positron = L.tileLayer(
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-var point_parque = L.latLng(-11.119117380425525, -50.28442382812499);
+var point_parque = L.latLng(-11.22959236688476, -50.1580810546875);
 var point_ara = L.latLng(-5.077265294455729, -46.454315185546875);
 var point_marai = L.latLng(-11.745025146562764, -51.6632080078125);
 
@@ -46,11 +46,11 @@ var zoomToLocation = (point, zoomLevel) => {
   // mymap.setZoom(zoom);
 };
 
-var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
+var make_waypoint = (selector, triggerpoint, offsety, zoomLevel = 8, callbacky = x => {}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 10);
+      zoomToLocation(triggerpoint, zoomLevel);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -62,72 +62,18 @@ var make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 };
 
 // make_waypoint("#introduction", point_home, -10);
-
+globalZoomLevel = 8;
 offsetValue = 400;
-make_waypoint("#parque", point_parque, (offsety = -100), x => {
+make_waypoint("#parque", point_parque, (offsety = -100), globalZoomLevel, x => {
   return console.log("we did parque");
 });
-make_waypoint("#ara", point_ara, offsetValue, x => {
+make_waypoint("#ara", point_ara, offsetValue,  x => {
   console.log("ara");
 });
-make_waypoint("#marai", point_marai, offsetValue);
-make_waypoint("#appendix", point_home, offsetValue);
+make_waypoint("#marai", point_marai, offsetValue, globalZoomLevel);
+make_waypoint("#appendix", point_home, offsetValue, globalZoomLevel);
 
-// mymap.panTo(point_1);
-var parqueGeoJSON =
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
-var araGeoJSON =
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
-var maraiGeoJSON =
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
 
-// Let's load the GEOJSON as a layer for Leaflet. No d3 in this try.
 
-// Adds geojsons to leaflet
-// using leaflet features
-const addGeoJSONPoints = url => {
-  fetch(url)
-    .then(function(response) {
-      // Read data as JSON
-      return response.json();
-    })
-    .then(function(data) {
-      var geojsonMarkerOptions = {
-        radius: 2,
-        fillColor: "#ff7800",
-        color: "#000",
-        weight: 0,
-        opacity: 0.8,
-        fillOpacity: 0.8
-      };
-
-      firePointsLayer = L.geoJSON(data, {
-        pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng, geojsonMarkerOptions);
-        }
-      });
-      firePointsLayer.addTo(mymap);
-
-      console.log(JSON.stringify(nest, null));
-    });
-};
-
-addGeoJSONPoints(parqueGeoJSON);
-addGeoJSONPoints(araGeoJSON);
-addGeoJSONPoints(maraiGeoJSON);
-
-// just messing around with d3 nesting
-// fetch(parqueGeoJSON)
-//   .then(function(response) {
-//     // Read data as JSON
-//     return response.json();
-//   })
-//   .then(function(data) {
-//    var nest = d3.nest()
-//       .key(function(d) {return d.properties.ACQ_DATE})
-//       .entries(data.features);
-
-//    console.log(JSON.stringify(nest, null));
-// });
 
 // LEAFLET STYLING
