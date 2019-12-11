@@ -82,6 +82,11 @@ h5 {
 
 } 
 
+
+.bibliography p {
+  font-size: .8em;
+  margin-bottom: 0.7em;
+}
 /* Layout */
 /* ---------------------------------------------------------------- */
 
@@ -164,7 +169,6 @@ h5 {
 }
 
 #appendix {
-  width: 100vw;
   /*   background: rgba(0, 0, 0, 0.8); */
   height: 50vh;
   display: -webkit-box;
@@ -176,9 +180,9 @@ h5 {
 }
 
 #appendix .container {
-  position: relative;
+  /* position: relative;
   height: auto;
-  bottom: 0;
+  bottom: 0; */
 }
 
 .intro-lead-container {
