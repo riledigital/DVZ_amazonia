@@ -98,21 +98,21 @@ const addGeoJSONPoints = url => {
       return response.json();
     })
     .then(function(data) {
-    
-    var geojsonMarkerOptions = {
+      var geojsonMarkerOptions = {
         radius: 2,
         fillColor: "#ff7800",
         color: "#000",
         weight: 0,
-        opacity: .8,
+        opacity: 0.8,
         fillOpacity: 0.8
       };
 
-      firePoints = L.geoJSON(data, {
+      firePointsLayer = L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng, geojsonMarkerOptions);
         }
-      }).addTo(mymap);
+      });
+      firePointsLayer.addTo(mymap);
 
       console.log(JSON.stringify(nest, null));
     });
@@ -121,8 +121,6 @@ const addGeoJSONPoints = url => {
 addGeoJSONPoints(parqueGeoJSON);
 addGeoJSONPoints(araGeoJSON);
 addGeoJSONPoints(maraiGeoJSON);
-
-
 
 // just messing around with d3 nesting
 // fetch(parqueGeoJSON)
@@ -137,6 +135,5 @@ addGeoJSONPoints(maraiGeoJSON);
 
 //    console.log(JSON.stringify(nest, null));
 // });
-
 
 // LEAFLET STYLING
