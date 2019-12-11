@@ -11,8 +11,22 @@
 
 // ;)
 
+const plotWidth = 400;
+const plotHeight = 400;
 
-
+  const globalPlotConfig = {
+    axis: {
+      labelFont: "monospace",
+      titleFont: "Source Serif Pro",
+    },
+    title: {
+      font: "Source Serif Pro"
+    },
+    background: "rgba(0,0,0,0)",
+    mark: {
+      fill: "#FF5A5F"
+    }
+  };
 
 var linegraph = function(data) {
   return {
