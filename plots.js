@@ -10,6 +10,13 @@
 // EG: parque_linegraph
 
 // ;)
+//
+//
+
+//
+
+var enableMouseovers = true;
+console.log("Toggle this to change it. Currently, enableMouseovers is: " + enableMouseovers);
 
 
   const globalPlotConfig = {
@@ -301,9 +308,6 @@ var top10_areagraph = areagraph(
 // --------------------------------------------------------------- //
 var date, areaName;
 
-var enableMouseovers = false;
-console.log("Toggle this to change it. Currently, enableMouseovers is: " + enableMouseovers);
-
 const enableMouseoversTrue = (x) => {
   console.log("Enabled linegraph mouseovers... be careful! Refresh page to restart. ")
   enableMouseovers = true;
@@ -323,7 +327,7 @@ vegaEmbed("#parque_linegraph", parque_linegraph)
           // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
           updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
         } catch (error) {
-          console.log("error opops");
+          // console.log("error opops");
         }
     })
   }
@@ -341,7 +345,7 @@ vegaEmbed("#ara_linegraph", ara_linegraph)
           // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
           updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
         } catch (error) {
-          console.log("error opops");
+          // console.log("error opops");
         }
     })
   }
@@ -362,7 +366,7 @@ vegaEmbed("#marai_linegraph", marai_linegraph)
           
           updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
         } catch (error) {
-          console.log("error opops");
+          // console.log("error opops");
         }
     })
   }

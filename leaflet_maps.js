@@ -16,7 +16,7 @@ const territoryBoundsStyleFocus = {
   color: "#50e3eb",
   weight: 2,
   fillOpacity: 0,
-  strokeOpacity: 1,
+  strokeOpacity: .8,
   dashArray: "10",
   opacity: 1
 };
@@ -25,7 +25,7 @@ const amazonLegalBoundsStyle = {
   color: "#50e3eb",
   weight: 4,
   fillOpacity: 0,
-  strokeOpacity: .8,
+  strokeOpacity: .7,
   opacity: 1
 };
 
@@ -34,8 +34,8 @@ const firePointsStyle = {
   fillColor: colorFireOrange,
   color: colorFireOrange,
   weight: 0,
-  opacity: 0.2,
-  fillOpacity: 0.2,
+  opacity: 0.45,
+  fillOpacity: 0.45,
   preferCanvas: true
   // renderer: L.Canvas
 };
@@ -45,7 +45,7 @@ const styleActiveYear = {
   fillColor: colorActiveBlue,
   color: colorActiveBlue,
   weight: 0,
-  opacity: 0.8,
+  opacity: 0.9,
   fillOpacity: 0.8,
   preferCanvas: true
   // renderer: L.Canvas
@@ -161,7 +161,7 @@ addGeoJSONPoints(parqueGeoJSON);
 addGeoJSONPoints(araGeoJSON);
 addGeoJSONPoints(maraiGeoJSON);
 
-console.log(loadOrder);
+// console.log(loadOrder);
 
 // just messing around with d3 nesting
 // fetch(parqueGeoJSON)
@@ -200,13 +200,13 @@ const updateHighlightedYearPoints = (areaIndex, year) => {
 
   geoPointsArray[areaIndex].eachLayer(layer => {
     tempYear = new Date(layer.feature.properties.ACQ_DATE);
-    console.log("Updating style: " + layer);
+    // console.log("Updating style: " + layer);
     if (year == tempYear.getFullYear()) {
       layer.setStyle(styleActiveYear);
     } else {
       layer.setStyle(styleInactiveYear);
     }
-    console.log("Successfully styled");
+    // console.log("Successfully styled");
   });
   // var i = 0;
   // while (i < geoPointsArray.length) {
