@@ -240,7 +240,9 @@ var areagraph = function(data) {
       },
        "tooltip": [{"field": "groupname", "type": "nominal", "title": "indigenous land"},
       
-      {"field": "count", "type": "quantitative", "title": "year total fire count"}
+      {"field": "count", "type": "quantitative", "title": "year total fire count"},
+                   
+            {"field": "total", "type": "quantitative", "title":"cumulative total fire count"}
     ],
       y: {
         aggregate: "sum",
@@ -267,7 +269,7 @@ var marai_linegraph = linegraph(
 );
 
 var top10_areagraph = areagraph(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Ftop_10_firecount.csv?v=1576012894766"
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Ftop_10_firecount_of_total.csv?v=1576026693381"
 );
 
 vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph);
