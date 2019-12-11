@@ -9,7 +9,7 @@ console.log("hi");
 // FIRST declare the options
 var mapOptions = {
   zoomControl: false,
-  // preferCanvas: true, // More issues
+  preferCanvas: true,
   // renderer: L.Canvas, // this causes serious problems??? im gonna file a bug report
   dragging: false
 };
@@ -80,9 +80,53 @@ make_waypoint("#marai", point_marai, offsetValue);
 make_waypoint("#appendix", point_home, offsetValue);
 
 // mymap.panTo(point_1);
-var parqueGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
-var araGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
-var maraiGeoJSON = "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
+var parqueGeoJSON =
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
+var araGeoJSON =
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
+var maraiGeoJSON =
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
+
+// Let's load the GEOJSON as a layer for Leaflet. No d3 in this try.
+
+// Adds geojsons to leaflet
+// using leaflet features
+const addGeoJSONPoints = url => {
+  fetch(parqueGeoJSON)
+    .then(function(response) {
+      // Read data as JSON
+      return response.json();
+    })
+    .then(function(data) {
+
+function picnicFilter(feature) {
+  if (feature.properties.Picnic === "Yes") return true
+}
+    
+    var geojsonMarkerOptions = {
+        radius: 2,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 0,
+        opacity: .8,
+        fillOpacity: 0.8
+      };
+
+      L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+          return L.circleMarker(latlng, geojsonMarkerOptions);
+        }
+      },.addTo(mymap);
+
+      console.log(JSON.stringify(nest, null));
+    });
+};
+
+addGeoJSONPoints(parqueGeoJSON);
+addGeoJSONPoints(araGeoJSON);
+addGeoJSONPoints(maraiGeoJSON);
+
+
 
 // just messing around with d3 nesting
 // fetch(parqueGeoJSON)

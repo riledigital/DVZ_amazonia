@@ -240,7 +240,7 @@ var areagraph = function(data) {
       },
        "tooltip": [{"field": "groupname", "type": "nominal", "title": "indigenous land"},
       
-      {"field": "count", "type": "quantitative", "title": "total fire count"}
+      {"field": "count", "type": "quantitative", "title": "year total fire count"}
     ],
       y: {
         aggregate: "sum",

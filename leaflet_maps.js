@@ -35,10 +35,22 @@ const addGeoJSONToMap = (url, styleOptions) => {
   }
 };
 
-addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fbra_land_rights.json?v=1575993454246", geojsonStyle);
-addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533", geojsonFocusStyle);
-addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234", geojsonFocusStyle);
-addGeoJSONToMap("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709", geojsonFocusStyle);
+addGeoJSONToMap(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fbra_land_rights.json?v=1575993454246",
+  geojsonStyle
+);
+addGeoJSONToMap(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533",
+  geojsonFocusStyle
+);
+addGeoJSONToMap(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234",
+  geojsonFocusStyle
+);
+addGeoJSONToMap(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709",
+  geojsonFocusStyle
+);
 
 const firePoints = {
   radius: 1,
@@ -46,7 +58,7 @@ const firePoints = {
   color: "#f00",
   weight: 0,
   opacity: 1,
-  fillOpacity: .55,
+  fillOpacity: 0.55,
   preferCanvas: true
   // renderer: L.Canvas
 };
@@ -66,7 +78,9 @@ const addPointsLayer = (url, startDateString, endDateString) => {
       var myLayer = L.geoJSON(data, {
         filter: function(feature, layer) {
           // console.log(feature.properties.ACQ_DATE);
-          var f = feature.properties.ACQ_DATE > startDateString && feature.properties.ACQ_DATE < endDateString; // testing the filter
+          var f =
+            feature.properties.ACQ_DATE > startDateString &&
+            feature.properties.ACQ_DATE < endDateString; // testing the filter
           // console.log(f);
           return f;
         },
@@ -75,12 +89,21 @@ const addPointsLayer = (url, startDateString, endDateString) => {
           return L.circleMarker(latlng, firePoints);
         }
       }).addTo(layerGroupByDate);
-})};
+    });
+};
 
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519");
 // addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609");
-addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821", "2001-01-01", "2006-01-01");
-addPointsLayer("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821", "2006-01-01", "2011-01-01");
+addPointsLayer(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821",
+  "2001-01-01",
+  "2006-01-01"
+);
+addPointsLayer(
+  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821",
+  "2006-01-01",
+  "2011-01-01"
+);
 // layerGroupByDate.addTo(mymap);
 
 // console.log(layerGroupByDate);
@@ -89,7 +112,7 @@ var sliderControl = L.control.sliderControl({
   layer: layerGroupByDate,
   range: true,
   timeAttribute: "ACQ_DATE",
-  follow: true,
+  follow: true
 });
 
 //add sliderControl to the map
