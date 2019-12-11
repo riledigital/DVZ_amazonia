@@ -172,6 +172,11 @@ h5 {
   bottom: 0;
 }
 
+.intro-lead-container {
+  max-width: 50em 
+}
+
+
 /* ui elements */
 
 .button {
