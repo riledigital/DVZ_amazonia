@@ -76,8 +76,7 @@
                 <button
                   onclick="resetLinePlot()"
                   class="button"
-                  style="vertical-align:middle"
-                >
+                  style="vertical-align:middle">
                   <span>Reset </span>
                 </button>
               </figure>
@@ -96,8 +95,8 @@
                 indigenous groups residing in the Amazon.
               </p>
               <p>
-                According to ScienceDaily, approximately 3,000 indigenous
-                regions have been identified within the Amazon [1]. With
+                approximately 6,345 indigenous
+                regions have been identified within the Amazon [1]. According to ScienceDaily, with
                 increasing plans for economic development and infrastructure, a
                 vast majority of indigenous lands alongside protected areas in
                 the Brazillian Amazon are at high risk of experiencing disaster.
@@ -306,7 +305,9 @@
       <section id="appendix">
         <article>
           <div class="container">
-            <h1>Appendix</h1>
+            <div class="row">
+              <div class="col">
+                <h1>Appendix</h1>
 
             <h2>
               What is Fire Radiative Power?
@@ -323,10 +324,9 @@
             <h2>
               Methodology
             </h2>
-
-            <h2>
-              Data Sources
-            </h2>
+<h2>
+  Bibliography
+                </h2>
             <p>
               1. “55 Percent of Carbon in Amazonian Indigenous Territories and
               Protected Lands May Be at Risk.” ScienceDaily,
@@ -339,6 +339,13 @@
               https://newsmaven.io/indiancountrytoday/archive/brazil-s-xavante-people-struggle-for-their-territory-maraiwatsede-X8x0Q3Kkxkijia9OhWXmOQ/.
             </p>
 
+            <h2>
+              Data Sources
+            </h2>
+                <div>
+                  PENDING RN
+                </div>
+                
             <h2>Credits</h2>
             <p>
               This data story was created by Ri Le, Emma Lu, Nishat Chowdhury,
@@ -351,6 +358,8 @@
               This web story was built on web technology: HTML/CSS/JS,
               Waypoints, Vega-Lite, D3, Leaflet, and Glitch.
             </p>
+              </div>
+            </div>
           </div>
         </article>
       </section>
@@ -389,6 +398,8 @@
     <script src="plots.js"></script>
     <script src="leaflet_maps.js"></script>
 
+    
+    
     <!-- this is the observable script for the first linegraph -->
     <script type="module">
       // OBSERVABLE EMBED
@@ -405,7 +416,10 @@
         name => name === "chart" && inspect()
       );
 
-      function go() {}
+      function resetLinePlot() {
+ 
+        
+      }
     </script>
   </body>
 </html>
