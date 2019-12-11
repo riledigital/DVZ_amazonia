@@ -177,6 +177,7 @@ h5 {
 
 .viz-figure {
   width: 100%;
+padding: 2em 0;
   min-height: 400px;
 }
 
@@ -216,7 +217,7 @@ h5 {
 
 .intro-lead-container {
   max-width: 50em;
-  margin-
+  margin: 1em auto;
 }
 
 .observablehq {
