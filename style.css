@@ -4,6 +4,23 @@ body {
   font-family: "Source Serif Pro";
 }
 
+/* Typography related rules */
+/* ---------------------------------------------------------------- */
+p {
+  font-family: "Source Serif Pro";
+  line-height: 1.35;
+}
+
+.lead {
+  line-height: 1.3;
+}
+
+
+.map-background-fixed {
+  font-size: 1rem;
+}
+
+/* Controlling headings */
 h1,
 h2,
 h3,
@@ -44,10 +61,22 @@ h5 {
   font-size: calc(1.2 * 1);
 }
 
+
+
+/* Layout */
+/* ---------------------------------------------------------------- */
 #introduction {
-  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px); 
+  background: rgb(247,255,243);
+  background: linear-gradient(180deg, rgba(247,255,243,1) 0%,
+  rgba(247,255,243,.95) 50%,
+   rgba(252,255,250,.87) 75%,
+    rgba(255,255,255,0) 100%); 
   margin: auto auto;
   padding: 5rem;
+}
+
+ {
 }
 
 #introduction > * {
@@ -59,7 +88,7 @@ h5 {
 
   scroll-snap-align: start;
   background: rgba(255, 255, 255, 0.95);
-  font-size: 1rem;
+  font-size: 1em;
   margin: 200vh 0;
 }
 
@@ -67,22 +96,8 @@ h5 {
   line-height: 1.3;
 }
 
-.story {
-  /*   color: white; */
-}
-
-p {
-  font-family: "Source Serif Pro";
-  line-height: 1.4;
-}
-
-.lead {
-  line-height: 1.3;
-}
-
-.map-background-fixed {
-  font-size: 1rem;
-}
+/* Typography related rules */
+/* ---------------------------------------------------------------- */
 
 #mapid {
   /*   background: none; */

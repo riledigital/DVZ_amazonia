@@ -1,9 +1,17 @@
 @font-face {
-  font-family: "Wremena";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FSourceSerifPro-Reg.woff2")
+  font-family: "Source Serif Pro";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FSourceSerifPro-Regular.woff2")
       format("woff2");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FSourceSerifPro-It.woff2")
+      format("woff2");
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
@@ -15,11 +23,25 @@
 }
 
 @font-face {
-  font-family: "Wremena";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Light.woff2?v=1576081804643")
-      format("woff2"),
-    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Light.woff?v=1576081804643")
-      format("woff");
+  font-family: "Source Serif Pro";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FSourceSerifPro-BoldIt.woff2")
+      format("woff2");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+    src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FSourceSerifPro-Light.woff2")
+      format("woff2");
   font-weight: 300;
   font-style: normal;
 }
+@font-face {
+  font-family: "Source Serif Pro";
+    src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FSourceSerifPro-LightIt.woff2")
+      format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
