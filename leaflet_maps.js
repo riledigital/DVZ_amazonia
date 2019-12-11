@@ -25,8 +25,7 @@ const amazonLegalBoundsStyle = {
   color: "#50e3eb",
   weight: 4,
   fillOpacity: 0,
-  strokeOpacity: 1,
-  dashArray: 40,
+  strokeOpacity: .8,
   opacity: 1
 };
 
