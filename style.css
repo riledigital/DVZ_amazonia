@@ -1,37 +1,7 @@
-@font-face {
-  font-family: "Wremena";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena.woff2")
-      format("woff2"),
-    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena.woff")
-      format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Wremena";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Bold.woff2")
-      format("woff2"),
-    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Bold.woff")
-      format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Wremena";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Light.woff2?v=1576081804643")
-      format("woff2"),
-    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Light.woff?v=1576081804643")
-      format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
 body {
   /*   background: black; */
   /*   color: white; */
-  font-family: "Wremena";
+  font-family: "Source Serif Pro";
 }
 
 h1,
@@ -39,7 +9,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Wremena";
+  font-family: "Source Serif Pro";
   letter-spacing: -0.5px;
 }
 
@@ -60,12 +30,12 @@ h2 {
 
 h3 {
   font-size: calc(1.4 * 1rem);
-  font-family: "Wremena";
+  font-family: "Source Serif Pro";
 }
 
 h4 {
   font-size: calc(1.5 * 1rem);
-  font-family: "Wremena";
+  font-family: "Source Serif Pro";
   font-style: bold;
   margin-bottom: 0rem;
 }
@@ -102,7 +72,7 @@ h5 {
 }
 
 p {
-  font-family: "Wremena";
+  font-family: "Source Serif Pro";
   line-height: 1.4;
 }
 
