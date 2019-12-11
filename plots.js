@@ -18,10 +18,12 @@
       titleFont: "Source Serif Pro",
     },
     legend: {
+      titleFont: "Source Serif Pro",
       labelFont: "Source Serif Pro",
     },
     title: {
-      font: "Source Serif Pro"
+      font: "Source Serif Pro",
+      fontSize: 24
     },
     background: "rgba(0,0,0,0)",
   };
@@ -29,8 +31,8 @@
 var linegraph = function(data) {
   return {
     config: globalPlotConfig,
-    width: 960,
-    height: 540,
+    width: "container",
+    height: 640,
     data: {
       url: data,
       format: {
