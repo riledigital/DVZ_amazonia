@@ -116,7 +116,7 @@ function picnicFilter(feature) {
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng, geojsonMarkerOptions);
         }
-      },.addTo(mymap);
+      }, {filter: picnicFilter}).addTo(mymap);
 
       console.log(JSON.stringify(nest, null));
     });
