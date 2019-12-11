@@ -1,25 +1,32 @@
 /* CSS files add styling rules to your content */
 
 @font-face {
-  font-family: "WremenaLight";
-  src: url("https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FWremenaLight.woff?v=1575511924210")
+  font-family: "Libertinus Serif Bold";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-Bold.woff")
     format("woff");
 }
+
 @font-face {
-  font-family: "WremenaRegular";
-  src: url("https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FWremenaRegular.woff?v=1575512085516")
+  font-family: "Libertinus Serif Bold Italic";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-BoldItalic.woff")
     format("woff");
 }
+
 @font-face {
-  font-family: "WremenaBold";
-  src: url("https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FWremenaBold.woff?v=1575512085516")
+  font-family: "Libertinus Serif";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-Regular.otf")
+    format("otf");
+}
+@font-face {
+  font-family: "Libertinus Serif Italic";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Flibertinusserif-italic-webfont.woff")
     format("woff");
 }
 
 body {
   /*   background: black; */
   /*   color: white; */
-  font-family: "Georgia";
+  font-family: "Libertinus Serif Regular";
 }
 
 h1,
@@ -27,7 +34,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Georgia";
+  font-family: "Libertinus Serif Display Regular";
   letter-spacing: -0.5px;
 }
 
@@ -48,12 +55,12 @@ h2 {
 
 h3 {
   font-size: calc(1.4 * 1rem);
-  font-family: "Georgia";
+  font-family: "Libertinus Serif Display Regular";
 }
 
 h4 {
   font-size: calc(1.5 * 1rem);
-  font-family: "Georgia";
+  font-family: "Libertinus Serif Display Regular";
   font-style: bold;
   margin-bottom: 0rem;
 }
@@ -90,7 +97,7 @@ h5 {
 }
 
 p {
-  font-family: "Georgia";
+  font-family: "Libertinus Serif";
   line-height: 1.4;
 }
 
