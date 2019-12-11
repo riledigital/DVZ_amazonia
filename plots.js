@@ -209,6 +209,7 @@ var multi_linegraph = function(data) {
 var areagraph = function(data) {
   return {
     config: { view: { width: 700, height: 600 } },
+    title: "Indigenous Region Fire Count (2001–2019)",
     data: {
       url:
         data,
