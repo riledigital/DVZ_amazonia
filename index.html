@@ -81,13 +81,15 @@
           
             <div id="observablehq-7a46ba7e"></div>
             <script type="module">
-            function go(){
+            
             import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
             import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
             const inspect = Inspector.into("#observablehq-7a46ba7e");
             const runtime = new Runtime(Object.assign(new Library, {width: 700}));
             const main = runtime.module(define, name => (name === "chart") && inspect());
-            }
+            
+              function go(){}
+              
             </script>
               
               <style>
@@ -136,6 +138,7 @@
 
 <button onclick="go()" class="button" style="vertical-align:middle"><span>Reset </span></button>
               
+             
       </figure>
           </div>
         
