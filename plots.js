@@ -18,7 +18,7 @@
       titleFont: "Source Serif Pro",
     },
     legend: {
-      
+      labelFont: "Source Serif Pro",
     },
     title: {
       font: "Source Serif Pro"
@@ -228,7 +228,7 @@ var multi_linegraph = function(data) {
 var areagraph = function(data) {
   return {
     config: globalPlotConfig,
-    width: 700,
+    width: "container",
     height: 500,
     title: "Indigenous Region Fire Count (2001–2019)",
     data: {
