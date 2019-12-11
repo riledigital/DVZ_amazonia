@@ -118,6 +118,11 @@ h5 {
   max-width: 35em;
 }
 
+.landmark-story {
+
+  margin: 50vh 0;
+}
+
 .landmark p {
   line-height: 1.3;
 }

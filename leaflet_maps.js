@@ -156,11 +156,13 @@ console.log(loadOrder);
 // });
 
 const styleActiveYear = {
-  fillColor: "blue"
+  fillColor: "blue",
+  fillOpacity: 1
 };
 
 const styleInactiveYear = {
-  fillColor: "yellow"
+  fillColor: "yellow",
+  fillOpacity: 0.2
 };
 
 // we probably don't need this anymore, i guess it costs a lot of memory
@@ -188,6 +190,8 @@ const updateHighlightedYearPoints = (areaIndex, year) => {
     // console.log(tempYear);
     if (year == tempYear.getFullYear()) {
       layer.setStyle(styleActiveYear);
+    } else {
+      layer.setStyle(styleInactiveYear);
     }
     console.log("please don't break");
   });

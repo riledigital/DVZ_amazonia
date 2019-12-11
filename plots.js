@@ -301,25 +301,54 @@ var top10_areagraph = areagraph(
 // --------------------------------------------------------------- //
 var date, areaName;
 
-vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph)
-//   .then(({spec, view}) => {
-//     view.addEventListener('mouseover', function (event, item) {
-//       // timestamp = Number(new Date(item.datum.datum.acq_year));
-//         try {
-//           date =  new Date(Number(new Date(item.datum.datum.acq_year)));
-//           name = item.datum.datum.Name;
-//           // console.log(name);
-//           // console.log(date.getFullYear());
-//           // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-//           updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
-//         } catch (error) {
-//           console.log("error opops");
-//         }
-//     })
-// })
-;
-vegaEmbed("#parque_linegraph", parque_linegraph);
-vegaEmbed("#ara_linegraph", ara_linegraph);
-vegaEmbed("#marai_linegraph", marai_linegraph);
+vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph);
+vegaEmbed("#parque_linegraph", parque_linegraph)
+  .then(({spec, view}) => {
+    view.addEventListener('mouseover', function (event, item) {
+      // timestamp = Number(new Date(item.datum.datum.acq_year));
+        try {
+          date =  new Date(Number(new Date(item.datum.datum.acq_year)));
+          name = item.datum.datum.Name;
+          // console.log(name);
+          // console.log(date.getFullYear());
+          // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
+          updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
+        } catch (error) {
+          console.log("error opops");
+        }
+    })
+});
+vegaEmbed("#ara_linegraph", ara_linegraph)
+  .then(({spec, view}) => {
+    view.addEventListener('mouseover', function (event, item) {
+      // timestamp = Number(new Date(item.datum.datum.acq_year));
+        try {
+          date =  new Date(Number(new Date(item.datum.datum.acq_year)));
+          name = item.datum.datum.Name;
+          // console.log(name);
+          // console.log(date.getFullYear());
+          // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
+          updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
+        } catch (error) {
+          console.log("error opops");
+        }
+    })
+});
+vegaEmbed("#marai_linegraph", marai_linegraph)
+  .then(({spec, view}) => {
+    view.addEventListener('mouseover', function (event, item) {
+      // timestamp = Number(new Date(item.datum.datum.acq_year));
+        try {
+          date =  new Date(Number(new Date(item.datum.datum.acq_year)));
+          name = item.datum.datum.Name;
+          // console.log(name);
+          // console.log(date.getFullYear());
+          // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
+          updateHighlightedYearPoints(getAreaLoadIndex(name), date.getFullYear());
+        } catch (error) {
+          console.log("error opops");
+        }
+    })
+});
 vegaEmbed("#top10_areagraph", top10_areagraph);
 
