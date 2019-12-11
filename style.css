@@ -1,32 +1,37 @@
-/* CSS files add styling rules to your content */
-
 @font-face {
-  font-family: "Libertinus Serif Bold";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-Bold.woff")
-    format("woff");
+  font-family: "Wremena";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena.woff2")
+      format("woff2"),
+    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Libertinus Serif Bold Italic";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-BoldItalic.woff")
-    format("woff");
+  font-family: "Wremena";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Bold.woff")
+      format("woff");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Libertinus";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FLibertinusSerif-Regular.woff")
-    format("woff");
-}
-@font-face {
-  font-family: "Libertinus Serif Italic";
-  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Flibertinusserif-italic-webfont.woff")
-    format("woff");
+  font-family: "Wremena";
+  src: url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Light.woff2?v=1576081804643")
+      format("woff2"),
+    url("https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fsubset-Wremena-Light.woff?v=1576081804643")
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 
 body {
   /*   background: black; */
   /*   color: white; */
-  font-family: "Libertinus Serif Regular";
+  font-family: "Wremena";
 }
 
 h1,
@@ -34,7 +39,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Libertinus Serif Display Regular";
+  font-family: "Wremena";
   letter-spacing: -0.5px;
 }
 
@@ -55,12 +60,12 @@ h2 {
 
 h3 {
   font-size: calc(1.4 * 1rem);
-  font-family: "Libertinus Serif Display Regular";
+  font-family: "Wremena";
 }
 
 h4 {
   font-size: calc(1.5 * 1rem);
-  font-family: "Libertinus Serif Display Regular";
+  font-family: "Wremena";
   font-style: bold;
   margin-bottom: 0rem;
 }
@@ -97,7 +102,7 @@ h5 {
 }
 
 p {
-  font-family: "Libertinus Serif";
+  font-family: "Wremena";
   line-height: 1.4;
 }
 
