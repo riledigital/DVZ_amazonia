@@ -56,8 +56,8 @@ const styleInactiveYear = {
   fillColor: colorFireOrange,
   color: colorFireOrange,
   weight: 0,
-  opacity: .45,
-  fillOpacity: .45,
+  opacity: 0.3,
+  fillOpacity: 0.3,
   preferCanvas: true
   // renderer: L.Canvas
 };

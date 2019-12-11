@@ -146,7 +146,7 @@ var multi_linegraph = function(data) {
         type: "csv"
       }
     },
-    "title": "Top 3 Indigenous Region Highest Fire Count (2001–2019)",
+    "title": "Focus Regions Fire Count (2001–2019)",
     layer: [
       {
         encoding: {
