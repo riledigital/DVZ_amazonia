@@ -92,16 +92,12 @@ var maraiGeoJSON =
 // Adds geojsons to leaflet
 // using leaflet features
 const addGeoJSONPoints = url => {
-  fetch(parqueGeoJSON)
+  fetch(url)
     .then(function(response) {
       // Read data as JSON
       return response.json();
     })
     .then(function(data) {
-
-function picnicFilter(feature) {
-  if (feature.properties.Picnic === "Yes") return true
-}
     
     var geojsonMarkerOptions = {
         radius: 2,
@@ -112,11 +108,11 @@ function picnicFilter(feature) {
         fillOpacity: 0.8
       };
 
-      L.geoJSON(data, {
+      firePoints = L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng, geojsonMarkerOptions);
         }
-      }, {filter: picnicFilter}).addTo(mymap);
+      }).addTo(mymap);
 
       console.log(JSON.stringify(nest, null));
     });
@@ -141,3 +137,6 @@ addGeoJSONPoints(maraiGeoJSON);
 
 //    console.log(JSON.stringify(nest, null));
 // });
+
+
+// LEAFLET STYLING
