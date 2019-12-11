@@ -239,7 +239,7 @@ var areagraph = function(data) {
         // timeUnit: "year"
       },
        "tooltip": [{"field": "groupname", "type": "nominal", "title": "indigenous land"},
-      {"title": "year", "timeUnit": "year", "field": "acq_year", "type": "temporal"},
+      
       {"field": "count", "type": "quantitative", "title": "total fire count"}
     ],
       y: {
