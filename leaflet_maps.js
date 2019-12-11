@@ -223,3 +223,5 @@ const updateHighlightedYearPoints = (areaIndex, year) => {
   //   }
   // }
 };
+
+// we want to throttle
