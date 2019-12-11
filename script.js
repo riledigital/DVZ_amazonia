@@ -97,6 +97,3 @@ make_waypoint("#appendix", point_home, globalOffsetValue, 7);
 
 
 // LEAFLET STYLING
-
-
-

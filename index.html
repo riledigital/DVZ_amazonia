@@ -84,7 +84,7 @@
 
                 <!-- This style has been moved to style.css -->
                 <button
-                  onclick="resetLinePlot()"
+                  onclick="go()"
                   class="button"
                   style="vertical-align:middle"
                 >
@@ -521,8 +521,12 @@
         define,
         name => name === "chart" && inspect()
       );
+      
 
-      function resetLinePlot() {}
+      // This at least centers the SVG
+      // document.querySelector(".observablehq>svg").setAttribute("width", "100%");
+
+      function go() {}
     </script>
   </body>
 </html>

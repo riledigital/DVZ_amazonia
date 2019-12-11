@@ -301,9 +301,18 @@ var top10_areagraph = areagraph(
 // --------------------------------------------------------------- //
 var date, areaName;
 
+var enableMouseovers = false;
+console.log("Toggle this to change it. Currently, enableMouseovers is: " + enableMouseovers);
+
+const enableMouseoversTrue = (x) => {
+  console.log("Enabled linegraph mouseovers... be careful! Refresh page to restart. ")
+  enableMouseovers = true;
+}
+
 vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph);
 vegaEmbed("#parque_linegraph", parque_linegraph)
   .then(({spec, view}) => {
+    if (enableMouseovers) { 
     view.addEventListener('mouseover', function (event, item) {
       // timestamp = Number(new Date(item.datum.datum.acq_year));
         try {
@@ -317,9 +326,11 @@ vegaEmbed("#parque_linegraph", parque_linegraph)
           console.log("error opops");
         }
     })
+  }
 });
 vegaEmbed("#ara_linegraph", ara_linegraph)
   .then(({spec, view}) => {
+    if (enableMouseovers) { 
     view.addEventListener('mouseover', function (event, item) {
       // timestamp = Number(new Date(item.datum.datum.acq_year));
         try {
@@ -333,9 +344,13 @@ vegaEmbed("#ara_linegraph", ara_linegraph)
           console.log("error opops");
         }
     })
+  }
 });
+
 vegaEmbed("#marai_linegraph", marai_linegraph)
   .then(({spec, view}) => {
+    if (enableMouseovers) { 
+
     view.addEventListener('mouseover', function (event, item) {
       // timestamp = Number(new Date(item.datum.datum.acq_year));
         try {
@@ -350,6 +365,7 @@ vegaEmbed("#marai_linegraph", marai_linegraph)
           console.log("error opops");
         }
     })
+  }
 });
 vegaEmbed("#top10_areagraph", top10_areagraph);
 
