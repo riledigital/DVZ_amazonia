@@ -53,7 +53,7 @@
 
           <div class="row">
             <div class="col">
-              <p class="lead">
+              <p class="lead intro-lead">
                 The Amazon plays a massive role in the Earth’s ecosystem and is
                 a symbol of environmental vulnerability, indigeneity, and
                 international cooperation. Though fires in the Amazon are
@@ -75,7 +75,7 @@
                       
   <!-- This style has been moved to style.css -->
                       <button
-                        onclick="go()"
+                        onclick="resetLinePlot()"
                         class="button"
                         style="vertical-align:middle"
                       >
@@ -386,22 +386,25 @@
 
     <!-- this is the observable script for the first linegraph -->
     <script type="module">
-        import {
-          Runtime,
-          Inspector,
-          Library
-        } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-        import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
-        const inspect = Inspector.into("#observablehq-7a46ba7e");
-        const runtime = new Runtime(
-          Object.assign(new Library(), { width: 700 })
-        );
-        const main = runtime.module(
-          define,
-          name => name === "chart" && inspect()
-        );
+      
+// OBSERVABLE EMBED
+import {
+  Runtime,
+  Inspector,
+  Library
+} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
+const inspect = Inspector.into("#observablehq-7a46ba7e");
+const runtime = new Runtime(
+  Object.assign(new Library(), { width: 700 })
+);
+const main = runtime.module(
+  define,
+  name => name === "chart" && inspect()
+);
 
-        function go() {}
+const resetLinePlot = () => {};
+
       </script>
   </body>
 </html>

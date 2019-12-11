@@ -70,9 +70,13 @@ var make_waypoint =
   });
 };
 
-// make_waypoint("#introduction", point_home, -10);
 
-make_waypoint("#parque", point_parque, (offsety = -100), globalZoomLevel, x => {
+make_waypoint("#introduction", point_home, (-800), 7, x => {
+  console.log('Resetting the lineplot...')
+  resetLinePlot();
+});
+
+make_waypoint("#parque", point_parque, (offsety = -100), 9.25, x => {
   return console.log("we did parque");
 });
 make_waypoint("#marai", point_marai, globalOffsetValue, 11);
@@ -80,9 +84,13 @@ make_waypoint("#marai", point_marai, globalOffsetValue, 11);
 make_waypoint("#ara", point_ara, globalOffsetValue, 10.5,  x => {
   console.log("ara");
 });
-make_waypoint("#appendix", point_home, globalOffsetValue, globalZoomLevel);
+
+make_waypoint("#appendix", point_home, globalOffsetValue, 7);
 
 
 
 
 // LEAFLET STYLING
+
+
+

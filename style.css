@@ -17,7 +17,7 @@ p {
 
 
 .map-background-fixed {
-  font-size: 1rem;
+  font-size: 2em;
 }
 
 /* Controlling headings */
@@ -41,8 +41,8 @@ h1 {
 }
 
 h2 {
-  font-weight: bold;
-  font-size: calc(1.7 * 1rem);
+	font-weight: 300;
+	font-size: calc(1.7 * 1rem);
 }
 
 h3 {
@@ -61,7 +61,10 @@ h5 {
   font-size: calc(1.2 * 1);
 }
 
-
+.intro-lead {
+	font-size: 2em;
+	line-height: 1.15;
+}
 
 /* Layout */
 /* ---------------------------------------------------------------- */
@@ -151,7 +154,7 @@ h5 {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 15px;
+  font-size: 1em;
   padding: 10px;
   width: 100px;
   transition: all 0.5s;
