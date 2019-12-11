@@ -87,8 +87,7 @@ h5 {
 
 .landmark {
   padding: 2rem;
-  scroll-snap-align: start;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.1);
   margin: 200vh 0; /* this is how we control spacing of the story landmarks. */ 
 }
 
@@ -99,7 +98,7 @@ h5 {
 .scrollstory {
   /*   border: 100px solid red; */
   /*   z-index: 1000; */
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 .scrollstory > * {
@@ -107,7 +106,7 @@ h5 {
 }
 
 .viz-figure {
-  width: 400px;
+  width: 100%;
   min-height: 400px;
 }
 

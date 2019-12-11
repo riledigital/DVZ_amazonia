@@ -1,10 +1,4 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
-// require('waypoints');
-// prints "hi" in the browser's dev tools console
-console.log("hi");
-
-// Leaflet maps //
+// Setup the first leaflet map
 // --------------------------------------------------------------- //
 // FIRST declare the options
 var mapOptions = {

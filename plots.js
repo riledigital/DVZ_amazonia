@@ -11,8 +11,6 @@
 
 // ;)
 
-const plotWidth = 400;
-const plotHeight = 400;
 
   const globalPlotConfig = {
     axis: {
@@ -230,6 +228,8 @@ var multi_linegraph = function(data) {
 var areagraph = function(data) {
   return {
     config: globalPlotConfig,
+    width: 700,
+    height: 500,
     title: "Indigenous Region Fire Count (2001–2019)",
     data: {
       url:
@@ -258,7 +258,7 @@ var areagraph = function(data) {
         type: "temporal",
         axis: { title: "acquisition year" },
         field: "acq_year"
-        // timeUnit: "year"
+        
       },
        "tooltip": [{"field": "groupname", "type": "nominal", "title": "indigenous land"},
       
