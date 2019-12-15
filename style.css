@@ -107,30 +107,14 @@ h5 {
 }
 
 #introduction {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   background: rgb(247, 255, 243);
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 1)),
-    color-stop(50%, rgba(247, 255, 243, 0.95)),
-    color-stop(80%, rgba(252, 255, 250, 0.87)),
-    to(rgba(255, 255, 255, 0))
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(247, 255, 243, 0.95) 50%,
-    rgba(252, 255, 250, 0.87) 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(247, 255, 243, 0.95) 50%,
-    rgba(252, 255, 250, 0.87) 80%,
+    rgba(0, 0, 0, .7) 0%,
+    rgba(247, 255, 243, 0.75) 50%,
+    rgba(252, 255, 250, 0.6) 80%,
     rgba(255, 255, 255, 0) 100%
   );
   margin: auto auto;
@@ -149,7 +133,7 @@ h5 {
 .landmark {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.1);
-  margin: 100vh 0; /* this is how we control spacing of the story landmarks. */
+  margin: 75vh 0; /* this is how we control spacing of the story landmarks. */
 }
 
 .landmark-intro {
