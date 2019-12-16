@@ -46,8 +46,8 @@ var point_marai = L.latLng(-11.745025146562764, -51.6632080078125);
 var zoomToLocation = (point, zoomLevel) => {
   mymap.flyTo(point, zoomLevel, {
     animate: true,
-    duration: 1,
-    easeLinearity: 0.1
+    duration: 4,
+    easeLinearity: 0.05
   });
   // mymap.setZoom(zoom);
 };
