@@ -362,10 +362,11 @@ Boundary of indigenous land            </div>
           </div>
         </header>
 
-        <p class="lead">
+        
+        <div class="container-fluid">
+          <p class="lead">
             Hover over each year in the line chart to highlight where fires happened in that year.
           </p>
-        <div class="container-fluid">
           <figure class="viz-figure img-fluid">
             <div id="ara_linegraph"></div>
           </figure>
@@ -420,7 +421,7 @@ Boundary of indigenous land            </div>
       </article>
 
       <section id="appendix">
-        <article>
+        <article class="landmark landmark-story box-shadow">
           <div class="container">
             <div class="row">
               <div class="col">
@@ -440,24 +441,12 @@ Boundary of indigenous land            </div>
                   (http://cedadocs.ceda.ac.uk/770/1/SEVIRI_FRP_documentdesc.pdf)
                 </blockquote> -->
 
-                <h2>
-                  Methodology
-                </h2>
-
-                <p>
-                  We joined data from NASA FIRMS (MODIS M6) with the FUNAI
-                  recognized indigenous land data from Global Forest Watch using
-                  QGIS. All data was converted to Geopackage and transformed to
-                  EPSG:4674 before executing a spaital join operation. We used
-                  Tidyverse R to group, summarize, and export summary tables for
-                  areas, using Tableau to conduct EDA. Our visualizations were
-                  designed with Vega-Lite.
-                </p>
+                
 
                 <section class="bibliography">
-                  <h2>
+                  <h3>
                     Bibliography
-                  </h2>
+                  </h3>
                   <p>
                     1. Calma, Justine. “Everything You Need to Know about the
                     Fires in the Amazon.” The Verge, 28 Aug. 2019,
@@ -522,9 +511,10 @@ Boundary of indigenous land            </div>
                   </p>
                   
                 </section>
-                <h2>
+                <br>
+                <h3>
                   Data Sources
-                </h2>
+                </h3>
 
                 <p>
                   Point data on fires was gathered from the NASA FIRMS project,
@@ -540,8 +530,21 @@ Boundary of indigenous land            </div>
                   <a href="https://globalforestwatch.org">Global Forest Watch</a
                   >.
                 </p>
+                <h3>
+                  Methodology
+                </h3>
 
-                <h2>Credits</h2>
+                <p>
+                  We joined data from NASA FIRMS (MODIS M6) with the FUNAI
+                  recognized indigenous land data from Global Forest Watch using
+                  QGIS. All data was converted to Geopackage and transformed to
+                  EPSG:4674 before executing a spaital join operation. We used
+                  Tidyverse R to group, summarize, and export summary tables for
+                  areas, using Tableau to conduct EDA. Our visualizations were
+                  designed with Vega-Lite.
+                </p>
+
+                <h3>Credits</h3>
                 <p>
                   This data story was created by
                   <a href="https://riledigital.com/">Ri Le</a>,
