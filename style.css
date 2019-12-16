@@ -114,10 +114,10 @@ h5 {
   font-size: 0.75rem;
 }
 
-svg {
+.map-legend svg {
   overflow: visible;
-  height: 1em;
-  width: 1em;
+  height: .8em;
+  width: .8em;
   display: inline;
   
 }
