@@ -56,7 +56,7 @@ var linegraph = function(data) {
           x: {
             field: "acq_year",
             type: "temporal",
-            axis: { title: "Acquisition year" }
+            axis: { title: "Acquisition year" }  
           },
           y: {
             field: "count",
