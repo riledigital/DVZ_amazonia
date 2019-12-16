@@ -105,6 +105,36 @@ h5 {
 /* Layout */
 /* ---------------------------------------------------------------- */
 
+.map-legend {
+  position: sticky;
+  top: 1vh;
+  right: 1vh;
+  margin: 0 0 auto auto;
+  max-width: 20vw;
+  font-size: 0.75rem;
+}
+
+.legend-item:before {
+  position: absolute;
+  left: 0.5em;
+  top: 1.5rem;
+  content: "•";
+  color: #ff7800;
+  font-size: 2rem;
+  vertical-align: sub;
+  padding-right: 0.35rem;
+}
+
+.legend-fire-2:before {
+  color: blue;
+  left: 0.5em;
+  top: calc(2 * 1.5rem);
+}
+.map-legend h2 {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
 .container {
   max-width: 40em;
 }
@@ -137,7 +167,7 @@ h5 {
   max-width: 35em;
 }
 
-.landmark-story {  
+.landmark-story {
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   padding: auto 2rem;
