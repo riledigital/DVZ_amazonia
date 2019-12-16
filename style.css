@@ -110,7 +110,7 @@ h5 {
   top: 1vh;
   right: 1vh;
   margin: 0 0 auto auto;
-  max-width: 20vw;
+  max-width: 15rem;
   font-size: 0.75rem;
 }
 
@@ -124,6 +124,7 @@ h5 {
 
 .map-legend h2 {
   font-size: 1em;
+  font-weight: bold;
   text-transform: uppercase;
 }
 

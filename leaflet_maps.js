@@ -22,7 +22,7 @@ const territoryBoundsStyleFocus = {
 };
 
 const amazonLegalBoundsStyle = {
-  color: "#50e3eb",
+  color: "#FFE000",
   weight: 4,
   fillOpacity: 0,
   strokeOpacity: 1,
