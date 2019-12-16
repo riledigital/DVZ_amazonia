@@ -43,7 +43,7 @@ var linegraph = function(data) {
   return {
     config: globalPlotConfig,
     width: "container",
-    height: 640,
+    height: "container",
     data: {
       url: data,
       format: {
@@ -56,12 +56,12 @@ var linegraph = function(data) {
           x: {
             field: "acq_year",
             type: "temporal",
-            axis: { title: "acquisition year" }
+            axis: { title: "Acquisition year" }
           },
           y: {
             field: "count",
             type: "quantitative",
-            axis: { title: "total fire count" },
+            axis: { title: "Total fire count" },
             scale: { domain: [0, 8000] }
           }
         },
@@ -142,7 +142,6 @@ var linegraph = function(data) {
 var multi_linegraph = function(data) {
   return {
     config: globalPlotConfig,
-    autosize: "fit",
     width: "container",
     height: "container",
     data: {
