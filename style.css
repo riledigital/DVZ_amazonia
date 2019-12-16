@@ -114,22 +114,14 @@ h5 {
   font-size: 0.75rem;
 }
 
-.legend-item:before {
-  position: absolute;
-  left: 0.5em;
-  top: 1.5rem;
-  content: "•";
-  color: #ff7800;
-  font-size: 2rem;
-  vertical-align: sub;
-  padding-right: 0.35rem;
+svg {
+  overflow: visible;
+  height: 1em;
+  width: 1em;
+  display: inline;
+  
 }
 
-.legend-fire-2:before {
-  color: blue;
-  left: 0.5em;
-  top: calc(2 * 1.5rem);
-}
 .map-legend h2 {
   font-size: 1em;
   text-transform: uppercase;
