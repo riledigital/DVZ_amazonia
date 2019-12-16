@@ -197,12 +197,15 @@ h5 {
 
 .vega-embed {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 100%;
+  height: 25vh;
 }
 
 .landmark .vega-embed {
-  max-height: 25vh;
+  height: 25vh;
+  width: 100%;
+
 }
 
 #mapid {

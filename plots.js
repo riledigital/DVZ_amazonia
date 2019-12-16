@@ -142,9 +142,9 @@ var linegraph = function(data) {
 var multi_linegraph = function(data) {
   return {
     config: globalPlotConfig,
-    autofit: "fit",
+    autosize: "fit",
     width: "container",
-    height: 300,
+    height: "container",
     data: {
       url: data,
       format: {
