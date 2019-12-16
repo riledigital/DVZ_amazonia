@@ -24,6 +24,7 @@ console.log(
 const globalPlotConfig = {
   axis: {
     labelFont: "Source Serif Pro Bold",
+    labelFontSize: 13,
     titleFont: "Source Serif Pro"
   },
   legend: {
@@ -32,7 +33,7 @@ const globalPlotConfig = {
   },
   title: {
     font: "Source Serif Pro",
-    fontSize: 24
+    fontSize: 20
   },
   background: "rgba(0,0,0,0)"
 };
@@ -143,7 +144,7 @@ var multi_linegraph = function(data) {
     config: globalPlotConfig,
     autofit: "fit",
     width: "container",
-    height: 540,
+    height: 300,
     data: {
       url: data,
       format: {

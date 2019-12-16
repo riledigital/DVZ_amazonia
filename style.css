@@ -201,10 +201,14 @@ h5 {
   width: 100%;
 }
 
+.landmark .vega-embed {
+  max-height: 25vh;
+}
+
 #mapid {
   /*   background: none; */
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   z-index: -1;
   position: fixed;
   top: 0;
