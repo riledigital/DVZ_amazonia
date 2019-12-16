@@ -98,11 +98,11 @@ addTerritoryBounds(
 // POINTS POINTS POINTS POINTS POINTS POINTS
 // --------------------------------------------------------------- //
 
-var parqueGeoJSON =
+const parqueGeoJSON =
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
-var araGeoJSON =
+const araGeoJSON =
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
-var maraiGeoJSON =
+const maraiGeoJSON =
   "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
 
 // Let's load the GEOJSON as a layer for Leaflet. No d3 in this try.
