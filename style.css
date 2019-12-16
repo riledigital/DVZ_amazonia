@@ -137,7 +137,10 @@ h5 {
   max-width: 35em;
 }
 
-.landmark-story {
+.landmark-story {  
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: auto 2rem;
   margin: 25vh 0;
 }
 

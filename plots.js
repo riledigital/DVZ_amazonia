@@ -16,25 +16,28 @@
 //
 
 var enableMouseovers = true;
-console.log("Toggle this to change it. Currently, enableMouseovers is: " + enableMouseovers);
+console.log(
+  "Toggle this to change it. Currently, enableMouseovers is: " +
+    enableMouseovers
+);
 
+const globalPlotConfig = {
+  axis: {
+    labelFont: "Source Serif Pro Bold",
+    titleFont: "Source Serif Pro"
+  },
+  legend: {
+    titleFont: "Source Serif Pro",
+    labelFont: "Source Serif Pro"
+  },
+  title: {
+    font: "Source Serif Pro",
+    fontSize: 24
+  },
+  background: "rgba(0,0,0,0)"
+};
 
-  const globalPlotConfig = {
-    axis: {
-      labelFont: "Source Serif Pro Bold",
-      titleFont: "Source Serif Pro",
-    },
-    legend: {
-      titleFont: "Source Serif Pro",
-      labelFont: "Source Serif Pro",
-    },
-    title: {
-      font: "Source Serif Pro",
-      fontSize: 24
-    },
-    background: "rgba(0,0,0,0)",
-  };
-
+// These are the line graphs for each area
 var linegraph = function(data) {
   return {
     config: globalPlotConfig,
@@ -57,7 +60,8 @@ var linegraph = function(data) {
           y: {
             field: "count",
             type: "quantitative",
-            axis: { title: "total fire count" }
+            axis: { title: "total fire count" },
+            scale: { domain: [0, 8000] }
           }
         },
         layer: [
@@ -137,7 +141,7 @@ var linegraph = function(data) {
 var multi_linegraph = function(data) {
   return {
     config: globalPlotConfig,
-    autofit: "fit", 
+    autofit: "fit",
     width: "container",
     height: 540,
     data: {
@@ -146,7 +150,7 @@ var multi_linegraph = function(data) {
         type: "csv"
       }
     },
-    "title": "Focus Regions Fire Count (2001–2019)",
+    title: "Focus Regions Fire Count (2001–2019)",
     layer: [
       {
         encoding: {
@@ -242,8 +246,7 @@ var areagraph = function(data) {
     height: 500,
     title: "Indigenous Region Fire Count (2001–2019)",
     data: {
-      url:
-        data,
+      url: data,
       format: { type: "csv" }
     },
     mark: { type: "area", tooltip: true },
@@ -268,14 +271,22 @@ var areagraph = function(data) {
         type: "temporal",
         axis: { title: "acquisition year" },
         field: "acq_year"
-        
       },
-       "tooltip": [{"field": "groupname", "type": "nominal", "title": "indigenous land"},
-      
-      {"field": "count", "type": "quantitative", "title": "year total fire count"},
-                   
-            {"field": "total", "type": "quantitative", "title":"cumulative total fire count"}
-    ],
+      tooltip: [
+        { field: "groupname", type: "nominal", title: "indigenous land" },
+
+        {
+          field: "count",
+          type: "quantitative",
+          title: "year total fire count"
+        },
+
+        {
+          field: "total",
+          type: "quantitative",
+          title: "cumulative total fire count"
+        }
+      ],
       y: {
         aggregate: "sum",
         field: "count",
@@ -308,68 +319,74 @@ var top10_areagraph = areagraph(
 // --------------------------------------------------------------- //
 var date, areaName;
 
-const enableMouseoversTrue = (x) => {
-  console.log("Enabled linegraph mouseovers... be careful! Refresh page to restart. ")
+const enableMouseoversTrue = x => {
+  console.log(
+    "Enabled linegraph mouseovers... be careful! Refresh page to restart. "
+  );
   enableMouseovers = true;
-}
+};
 
 vegaEmbed("#focus_regions_linegraph", focus_regions_linegraph);
-vegaEmbed("#parque_linegraph", parque_linegraph)
-  .then(({spec, view}) => {
-    if (enableMouseovers) { 
-    view.addEventListener('mouseover', function (event, item) {
+vegaEmbed("#parque_linegraph", parque_linegraph).then(({ spec, view }) => {
+  if (enableMouseovers) {
+    view.addEventListener("mouseover", function(event, item) {
       // timestamp = Number(new Date(item.datum.datum.acq_year));
-        try {
-          date =  new Date(Number(new Date(item.datum.datum.acq_year)));
-          name = item.datum.datum.Name;
-          // console.log(name);
-          // console.log(date.getFullYear());
-          // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-          updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
-        } catch (error) {
-          // console.log("error opops");
-        }
-    })
+      try {
+        date = new Date(Number(new Date(item.datum.datum.acq_year)));
+        name = item.datum.datum.Name;
+        // console.log(name);
+        // console.log(date.getFullYear());
+        // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
+        updateHighlightedYearPoints(
+          getAreaLoadIndex(name),
+          date.getFullYear() + 1
+        );
+      } catch (error) {
+        // console.log("error opops");
+      }
+    });
   }
 });
-vegaEmbed("#ara_linegraph", ara_linegraph)
-  .then(({spec, view}) => {
-    if (enableMouseovers) { 
-    view.addEventListener('mouseover', function (event, item) {
+vegaEmbed("#ara_linegraph", ara_linegraph).then(({ spec, view }) => {
+  if (enableMouseovers) {
+    view.addEventListener("mouseover", function(event, item) {
       // timestamp = Number(new Date(item.datum.datum.acq_year));
-        try {
-          date =  new Date(Number(new Date(item.datum.datum.acq_year)));
-          name = item.datum.datum.Name;
-          // console.log(name);
-          // console.log(date.getFullYear());
-          // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-          updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
-        } catch (error) {
-          // console.log("error opops");
-        }
-    })
+      try {
+        date = new Date(Number(new Date(item.datum.datum.acq_year)));
+        name = item.datum.datum.Name;
+        // console.log(name);
+        // console.log(date.getFullYear());
+        // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
+        updateHighlightedYearPoints(
+          getAreaLoadIndex(name),
+          date.getFullYear() + 1
+        );
+      } catch (error) {
+        // console.log("error opops");
+      }
+    });
   }
 });
 
-vegaEmbed("#marai_linegraph", marai_linegraph)
-  .then(({spec, view}) => {
-    if (enableMouseovers) { 
-
-    view.addEventListener('mouseover', function (event, item) {
+vegaEmbed("#marai_linegraph", marai_linegraph).then(({ spec, view }) => {
+  if (enableMouseovers) {
+    view.addEventListener("mouseover", function(event, item) {
       // timestamp = Number(new Date(item.datum.datum.acq_year));
-        try {
-          date =  new Date(Number(new Date(item.datum.datum.acq_year)));
-          name = item.datum.datum.Name;
-          // console.log(name);
-          // console.log(date.getFullYear());
-          // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
-          
-          updateHighlightedYearPoints(getAreaLoadIndex(name), (date.getFullYear() + 1));
-        } catch (error) {
-          // console.log("error opops");
-        }
-    })
+      try {
+        date = new Date(Number(new Date(item.datum.datum.acq_year)));
+        name = item.datum.datum.Name;
+        // console.log(name);
+        // console.log(date.getFullYear());
+        // console.log("for " + name + " it loaded into index " + getAreaLoadIndex(name));
+
+        updateHighlightedYearPoints(
+          getAreaLoadIndex(name),
+          date.getFullYear() + 1
+        );
+      } catch (error) {
+        // console.log("error opops");
+      }
+    });
   }
 });
 vegaEmbed("#top10_areagraph", top10_areagraph);
-

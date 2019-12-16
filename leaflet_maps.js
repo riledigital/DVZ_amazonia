@@ -25,39 +25,28 @@ const amazonLegalBoundsStyle = {
   color: "#50e3eb",
   weight: 4,
   fillOpacity: 0,
-  strokeOpacity: .7,
+  strokeOpacity: 1,
   opacity: 1
 };
 
-const firePointsStyle = {
-  radius: 1,
-  fillColor: colorFireOrange,
-  color: colorFireOrange,
-  weight: 0,
-  opacity: 0.45,
-  fillOpacity: 0.45,
-  preferCanvas: true
-  // renderer: L.Canvas
-};
-
 const styleActiveYear = {
-  radius: 1,
+  radius: 2,
   fillColor: colorActiveBlue,
   color: colorActiveBlue,
   weight: 0,
-  opacity: 0.9,
-  fillOpacity: 0.8,
+  opacity: 1,
+  fillOpacity: 1,
   preferCanvas: true
   // renderer: L.Canvas
 };
 
 const styleInactiveYear = {
-  radius: 1,
+  radius: 2,
   fillColor: colorFireOrange,
   color: colorFireOrange,
   weight: 0,
-  opacity: 0.3,
-  fillOpacity: 0.3,
+  opacity: 0.5,
+  fillOpacity: 0.5,
   preferCanvas: true
   // renderer: L.Canvas
 };
@@ -147,7 +136,7 @@ const addGeoJSONPoints = url => {
         //   feature.set("ACQ_YEAR", tempYear);
         // },
         pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng, firePointsStyle);
+          return L.circleMarker(latlng, styleInactiveYear);
         }
       });
 
