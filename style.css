@@ -133,11 +133,7 @@ h5 {
 }
 
 .donate {
-  position: fixed;
-  padding: 10px 20px;
-  width: 100vw;
-  background: rgb(245, 236, 66);
-  z-index: 100;
+  font-size: .5rem;
 }
 
 #introduction {
