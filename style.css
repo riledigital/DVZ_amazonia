@@ -134,9 +134,10 @@ h5 {
 
 .donate {
   position: fixed;
-  padding: 5 auto;
+  padding: 10px 20px;
   width: 100vw;
   background: rgb(245, 236, 66);
+  z-index: 100;
 }
 
 #introduction {
@@ -198,6 +199,7 @@ h5 {
 @media (min-width: 600px) {
   #introduction {
     padding: 3rem;
+    padding-top: 6rem;
   }
 }
 
