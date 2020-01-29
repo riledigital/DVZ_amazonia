@@ -1,10 +1,8 @@
 Data Viz Amazonia
 ==================
 
-[See the Notion board for to-do and progress](https://www.notion.so/riledigital/DVZ-Final-AMAZONIA-09fd57d1b9334b6f9c947bdf2bb3df92)
+See the project live at [https://rl2999.github.io/DVZ_amazonia](https://rl2999.github.io/DVZ_amazonia)
 
-Mix of Bootstrap + custom css stuff
+This data story was created by Ri Le, Emma Lu, Nishat Chowdhury, and Anavi Lohia for the course Introduction to Data Visualization during 2019 Fall taught by Professor Anges Chang at Columbia University.
 
-- use CDN's to pull in libraries—we can use a proper NPM package.json later
-
-- it is possible to embed Observable notebooks! [Yes you can here is a working ex](https://observablehq.com/@observablehq/downloading-and-embedding-notebooks)
+This web story was built with web technology: HTML/CSS/JS, Waypoints, Bootstrap, Vega-Lite, D3, Leaflet, some ES6, ObservableHQ, and hosted with Glitch.
