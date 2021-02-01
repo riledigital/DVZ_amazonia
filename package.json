@@ -3,13 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/riledigital/DVZ_amazonia",
-  "author": "Ri <ri.le@upstatement.com>",
+  "author": "Ri <r.le@columbia.edu>",
   "license": "MIT",
   "scripts": {
     "dev": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html"
   },
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "eslint": "7.19.0",
+    "eslint-config-prettier": "7.2.0",
+    "parcel": "^1.12.4",
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "cssremedy": "^0.1.0-beta.2",
+    "leaflet": "^1.7.1",
+    "vega-embed": "^6.15.1",
+    "waypoints": "^4.0.1"
   }
 }

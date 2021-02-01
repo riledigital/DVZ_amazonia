@@ -1,216 +1,206 @@
-// adding geoJSON layers through leaflet
-// --------------------------------------------------------------- //
-const colorFireOrange = "#ff7800";
-const colorActiveBlue = "blue";
+import L from 'leaflet';
+import { territoryBoundsStyle, territoryBoundsStyleFocus, styleActiveYear, styleInactiveYear, amazonLegalBoundsStyle} from './mapStyles';
 
-const territoryBoundsStyle = {
-  color: "#fff",
-  weight: 2,
-  fillOpacity: 0,
-  strokeOpacity: 0.5,
-  dashArray: "10",
-  opacity: 0.5
+const point_home = L.latLng(-10.250059987303004, -49.46044921875);
+
+const mapOptions = {
+  center: point_home,
+  maxBounds: L.latLngBounds(L.latLng( 0.21972602392080884, -65.126953125), L.latLng(-31.203404950917385, -35.15625)),
+  minZoom: 5,
+  zoomControl: false,
+  preferCanvas: true,
+  dragging: true,
+  scrollWheelZoom: false
 };
 
-const territoryBoundsStyleFocus = {
-  color: "#50e3eb",
-  weight: 2,
-  fillOpacity: 0,
-  strokeOpacity: .8,
-  dashArray: "10",
-  opacity: 1
-};
+export const setupMap = () => {
+  // make the map
+  const mymap = L.map('mapid', mapOptions).setView(point_home, 5);
 
-const amazonLegalBoundsStyle = {
-  color: "#FFE000",
-  weight: 4,
-  fillOpacity: 0,
-  strokeOpacity: 1,
-  opacity: 1
-};
+  function setupSources(map) {
 
-const styleActiveYear = {
-  radius: 2,
-  fillColor: colorActiveBlue,
-  color: colorActiveBlue,
-  weight: 0,
-  opacity: 1,
-  fillOpacity: 1,
-  preferCanvas: true
-  // renderer: L.Canvas
-};
+    // Adds borders to indigenous lands
+    const addTerritoryBounds = (url, styleOptions) => {
+      // this is a helper function that adds the geojsons to the map
+      try {
+        fetch(url)
+          .then(function (response) {
+            // Read data as JSON
+            return response.json();
+          })
+          .then(function (data) {
+            // Add data to the map
+            const myLayer = L.geoJSON(data, styleOptions).addTo(map);
+            // console.log(data);
+          });
+      } catch {
+        // # nothing
+      }
+    };
 
-const styleInactiveYear = {
-  radius: 2,
-  fillColor: colorFireOrange,
-  color: colorFireOrange,
-  weight: 0,
-  opacity: 0.5,
-  fillOpacity: 0.5,
-  preferCanvas: true
-  // renderer: L.Canvas
-};
+    const layers = [
+      ['https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fbra_land_rights.json?v=1575993454246',
+        territoryBoundsStyle],
+      ['https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533',
+        territoryBoundsStyleFocus],
+      ['https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234',
+        territoryBoundsStyleFocus],
+      ['https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709',
+        territoryBoundsStyleFocus],
+      ['https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Famazonlegalarea.geojson?v=1576094165990',
+        amazonLegalBoundsStyle]];
 
-// Adds borders to indigenous lands
-const addTerritoryBounds = (url, styleOptions) => {
-  // this is a helper function that adds the geojsons to the map
-  try {
-    fetch(url)
-      .then(function(response) {
-        // Read data as JSON
-        return response.json();
-      })
-      .then(function(data) {
-        // Add data to the map
-        var myLayer = L.geoJSON(data, styleOptions).addTo(mymap);
-        // console.log(data);
-      });
-  } catch {
-    // # nothing
-  }
-};
-
-addTerritoryBounds(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fbra_land_rights.json?v=1575993454246",
-  territoryBoundsStyle
-);
-
-addTerritoryBounds(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque-borders.geojson?v=1575833062533",
-  territoryBoundsStyleFocus
-);
-
-addTerritoryBounds(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fmaraiwatsede-borders.geojson?v=1575833062234",
-  territoryBoundsStyleFocus
-);
-
-addTerritoryBounds(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Faraboia_borders.geojson?v=1575833062709",
-  territoryBoundsStyleFocus
-);
-
-addTerritoryBounds(
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Famazonlegalarea.geojson?v=1576094165990",
-  amazonLegalBoundsStyle
-);
-
-// POINTS POINTS POINTS POINTS POINTS POINTS
-// --------------------------------------------------------------- //
-
-const parqueGeoJSON =
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519";
-const araGeoJSON =
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609";
-const maraiGeoJSON =
-  "https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821";
-
-// Let's load the GEOJSON as a layer for Leaflet. No d3 in this try.
-
-// Adds geoJSON points/markers to leaflet
-// using leaflet features
-
-geoPointsArray = [];
-loadOrder = [];
-const addGeoJSONPoints = url => {
-  fetch(url)
-    .then(function(response) {
-      // Read data as JSON
-      return response.json();
-    })
-    .then(function(data) {
-      // var geojsonMarkerOptions = {
-      //   radius: 2,
-      //   fillColor: colorFireOrange,
-      //   color: "#000",
-      //   weight: 0,
-      //   opacity: 0.8,
-      //   fillOpacity: 0.8
-      // };
-
-      loadOrder.push(data.features[0].properties.Name);
-      firePointsLayer = L.geoJSON(data, {
-        // onEachFeature: function(feature, layer) {
-        //   var tempYear = new Date(feature.properties.ACQ_DATE).getFullYear();
-        //   console.log(tempYear);
-        //   feature.set("ACQ_YEAR", tempYear);
-        // },
-        pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng, styleInactiveYear);
-        }
-      });
-
-      firePointsLayer.addTo(mymap);
-      geoPointsArray.push(firePointsLayer);
-      // console.log(JSON.stringify(nest, null));
+    layers.forEach((d) => {
+      addTerritoryBounds(d[0], d[1]);
     });
+
+    const parqueGeoJSON =
+            'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519';
+    const araGeoJSON =
+            'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609';
+    const maraiGeoJSON =
+            'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821';
+
+    const geojsonDataUrls = ['https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fparque_geom.geojson?v=1575833062519',
+      'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson?v=1575833062609',
+      'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson?v=1575833062821'];
+
+    const geoPointsArray = [];
+    const loadOrder = [];
+    Promise.allSettled(geojsonDataUrls.forEach(d => fetch(d).then(resp => resp.json())))
+      .then((values) => {
+        values.map(data => {
+          console.log('Make sure that we are getting values rather than promises');
+          debugger;
+          // copy data to loadOrder
+          loadOrder.push(data.features[0].properties.Name);
+
+          const firePointsLayer = L.geoJSON(data, {
+            pointToLayer: function(feature, latlng) {
+              return L.circleMarker(latlng, styleInactiveYear);
+            }
+          });
+
+          firePointsLayer.addTo(map);
+          geoPointsArray.push(firePointsLayer);
+        });
+
+      });
+
+
+    const CartoDB_Positron = L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+      {
+        attribution:
+                                        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 15
+      }
+    ).addTo(mymap);
+  }
+
+  setupSources();
+  return mymap;
 };
 
-addGeoJSONPoints(parqueGeoJSON);
-addGeoJSONPoints(araGeoJSON);
-addGeoJSONPoints(maraiGeoJSON);
 
-// console.log(loadOrder);
-
-// just messing around with d3 nesting
-// fetch(parqueGeoJSON)
-//   .then(function(response) {
-//     // Read data as JSON
-//     return response.json();
-//   })
-//   .then(function(data) {
-//    var nest = d3.nest()
-//       .key(function(d) {return d.properties.ACQ_DATE})
-//       .entries(data.features);
-
-//    console.log(JSON.stringify(nest, null));
-// });
-
-
-// we probably don't need this anymore, i guess it costs a lot of memory
-// const layerIsName = (testIndex, areaName) => {
-//   // figures out if we're selecting the right thing
-//   var dicty = geoPointsArray[testIndex]._layers;
-//   var thisKey = Object.keys(dicty)[0]; // get the key of the first thing
-//   return dicty[thisKey].feature.properties.Name == areaName;
-// };
-
-// grab name of area from vega event listener
+const getAreaLoadIndex = (areaName, loadOrder) => {
+  // grab name of area from vega event listener
 // return index in loadOrder
 // index in loadOrder should correspond to index in geoPointsArray
-const getAreaLoadIndex = areaName => {
   return loadOrder.indexOf(areaName);
 };
 
-var tempYear = new Date();
-const updateHighlightedYearPoints = (areaIndex, year) => {
-  // console.log("updating index " + areaIndex);
-  // console.log("passed thru update function: " + year);
+export function setupInteractiveMap(map, loadOrder, geoPointsArray) {
+  var tempYear = new Date();
+  const updateMapStyle = (areaIndex, year) => {
+    // console.log("updating index " + areaIndex);
+    // console.log("passed thru update function: " + year);
 
-  geoPointsArray[areaIndex].eachLayer(layer => {
-    tempYear = new Date(layer.feature.properties.ACQ_DATE);
-    // console.log("Updating style: " + layer);
-    if (year == tempYear.getFullYear()) {
-      layer.setStyle(styleActiveYear);
-    } else {
-      layer.setStyle(styleInactiveYear);
-    }
-    // console.log("Successfully styled");
+    geoPointsArray[areaIndex].eachLayer(layer => {
+      tempYear = new Date(layer.feature.properties.ACQ_DATE);
+      if (year == tempYear.getFullYear()) {
+        layer.setStyle(styleActiveYear);
+      } else {
+        layer.setStyle(styleInactiveYear);
+      }
+    });
+  };
+
+  return {
+    getAreaLoadIndex,
+    updateMapStyle
+  };
+}
+
+export function setupWaypoints() {
+  const globalZoomLevel = 8.5;
+  const globalOffsetValue = 450;
+
+  const observerTriggers = [
+    {
+      parentNode: null,
+      targetNode: '#introduction',
+      map: mainMap,
+      point: point_home,
+      offset: -800,
+      zoom: 7
+    },
+    {
+      parentNode: null,
+      targetNode: '#parque',
+      map: mainMap,
+      point: L.latLng(-11.6388, -50.4877),
+      offset: -100,
+      zoom: 9.25
+    },
+    {
+      parentNode: null,
+      targetNode: '#marai',
+      map: mainMap,
+      point: L.latLng(-11.745025146562764, -51.6632080078125),
+      offset: globalOffsetValue,
+      zoom: 11.5
+    },
+    {
+      parentNode: null,
+      targetNode: '#ara',
+      map: mainMap,
+      point: L.latLng(-5.077265294455729, -46.454315185546875),
+      offset: globalOffsetValue,
+      zoom: 7
+    },
+    {
+      parentNode: null,
+      targetNode: '#appendix',
+      map: mainMap,
+      point: point_home,
+      offset: globalOffsetValue,
+      zoom: 7
+    },
+  ];
+
+  function makeObserver(parentNode=document.querySelector('.scroll-container'), targetNode, map, point, offset = 1.0, zoom = 9) {
+    const options = {
+      root: parentNode,
+      rootMargin: offset + 'px',
+      threshold: 1.0
+    };
+
+    const callback = (entries, observer) => {
+      map.flyTo(point, zoom, {
+        animate: true,
+        duration: 4,
+        easeLinearity: 0.05
+      });
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+    return observer.observe(document.querySelector(targetNode));
+  }
+
+  observerTriggers.forEach(d => {
+    makeObserver(...d);
   });
-  // var i = 0;
-  // while (i < geoPointsArray.length) {
-  //   console.log("i value: " + i);
-  //   if (layerIsName(i, area)) {
-  //     console.log("cond is TRUE on " + i + ", " + area);
-  //     //do stuff
-  //     geoPointsArray[i].onEachFeature(layer => {
-  //        console.log("Changing the layer style woo");
-  //       layer.setStyle(styleActiveYear);
-  //     });
-  //   } else {
-  //     i++;
-  //   }
-  // }
-};
+}
 
-// we want to throttle
