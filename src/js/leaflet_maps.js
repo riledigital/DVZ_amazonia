@@ -1,4 +1,5 @@
 import L from 'leaflet';
+import {throttle} from 'lodash-es';
 import { territoryBoundsStyle, territoryBoundsStyleFocus, styleActiveYear, styleInactiveYear, amazonLegalBoundsStyle} from './mapStyles';
 
 const point_home = L.latLng(-10.250059987303004, -49.46044921875);
@@ -67,9 +68,9 @@ export const setupMap = () => {
 
     const geoPointsArray = [];
     const loadOrder = [];
-    Promise.allSettled(geojsonDataUrls.forEach(d => fetch(d).then(resp => resp.json())))
+    const results = Promise.allSettled(geojsonDataUrls.map(d => fetch(d).then(resp => resp.json())))
       .then((values) => {
-        values.map(data => {
+        values.map(({value: data}) => {
           console.log('Make sure that we are getting values rather than promises');
           debugger;
           // copy data to loadOrder
@@ -99,7 +100,8 @@ export const setupMap = () => {
     ).addTo(mymap);
   }
 
-  setupSources();
+  setupSources(mymap);
+  setupWaypoints(mymap);
   return mymap;
 };
 
@@ -133,7 +135,7 @@ export function setupInteractiveMap(map, loadOrder, geoPointsArray) {
   };
 }
 
-export function setupWaypoints() {
+export function setupWaypoints(mymap) {
   const globalZoomLevel = 8.5;
   const globalOffsetValue = 450;
 
@@ -141,7 +143,7 @@ export function setupWaypoints() {
     {
       parentNode: null,
       targetNode: '#introduction',
-      map: mainMap,
+      map: mymap,
       point: point_home,
       offset: -800,
       zoom: 7
@@ -149,7 +151,7 @@ export function setupWaypoints() {
     {
       parentNode: null,
       targetNode: '#parque',
-      map: mainMap,
+      map: mymap,
       point: L.latLng(-11.6388, -50.4877),
       offset: -100,
       zoom: 9.25
@@ -157,7 +159,7 @@ export function setupWaypoints() {
     {
       parentNode: null,
       targetNode: '#marai',
-      map: mainMap,
+      map: mymap,
       point: L.latLng(-11.745025146562764, -51.6632080078125),
       offset: globalOffsetValue,
       zoom: 11.5
@@ -165,42 +167,54 @@ export function setupWaypoints() {
     {
       parentNode: null,
       targetNode: '#ara',
-      map: mainMap,
+      map: mymap,
       point: L.latLng(-5.077265294455729, -46.454315185546875),
       offset: globalOffsetValue,
-      zoom: 7
+      zoom: 10
     },
     {
       parentNode: null,
       targetNode: '#appendix',
-      map: mainMap,
+      map: mymap,
       point: point_home,
       offset: globalOffsetValue,
       zoom: 7
     },
   ];
 
-  function makeObserver(parentNode=document.querySelector('.scroll-container'), targetNode, map, point, offset = 1.0, zoom = 9) {
-    const options = {
-      root: parentNode,
-      rootMargin: offset + 'px',
-      threshold: 1.0
-    };
 
-    const callback = (entries, observer) => {
+
+  function makeObserver(parentNode = document.querySelector('body'), targetNode, map, point, offset = 1.0, zoom = 9) {
+    const flyMapTo = (map, point, zoom) => {
       map.flyTo(point, zoom, {
         animate: true,
-        duration: 4,
+        duration: 2,
         easeLinearity: 0.05
       });
     };
+    const throttled = throttle(() => {
+      flyMapTo(map, point, zoom);
+    }, 8000);
 
-    let observer = new IntersectionObserver(callback, options);
+
+    const options = {
+      root: parentNode,
+      rootMargin: '1px',
+      threshold: 1.0
+    };
+
+    const callback = (entries, obs) => {
+      console.info(entries);
+      console.info('you scrolled to ' + entries[0].target.id);
+      throttled();
+    };
+
+    const observer = new IntersectionObserver(callback, options);
     return observer.observe(document.querySelector(targetNode));
   }
 
-  observerTriggers.forEach(d => {
-    makeObserver(...d);
+  const allObservers = observerTriggers.map(d => {
+    makeObserver(d.parentNode, d.targetNode, mymap, d.point, d.offset, d.zoom);
   });
 }
 
