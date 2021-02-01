@@ -13,13 +13,14 @@
       crossorigin="anonymous"
     />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./webfonts.css" crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="./styles/webfonts.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles/style.css" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="./style.css" crossorigin="anonymous"/>
-
-    <title>
-      Flames of Amazonia
-    </title>
+    <title>Flames of Amazonia</title>
 
     <link
       rel="stylesheet"
@@ -40,9 +41,7 @@
         <div class="container-fluid intro-lead-container">
           <div class="row">
             <div class="col">
-              <h1 class="title">
-                Flames of Amazonia
-              </h1>
+              <h1 class="title">Flames of Amazonia</h1>
               <p class="lead subtitle text-white">
                 Mapping fires within indigenous lands of the Amazon rainforest.
               </p>
@@ -85,7 +84,7 @@
                 <button
                   onclick="go()"
                   class="button invisible"
-                  style="vertical-align:middle"
+                  style="vertical-align: middle"
                 >
                   <span>Reset </span>
                 </button>
@@ -97,9 +96,7 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h2>
-                The Amazon is home to indigenous communities
-              </h2>
+              <h2>The Amazon is home to indigenous communities</h2>
               <br />
               <p>
                 Mainstream media coverage tends to focus on the environmental
@@ -123,9 +120,7 @@
 
               <br />
 
-              <h2>
-                Our research focus
-              </h2>
+              <h2>Our research focus</h2>
               <br />
 
               <p class="lead">
@@ -223,9 +218,7 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h2>
-                Map Legend
-              </h2>
+              <h2>Map Legend</h2>
 
               <div class="legend-item legend-fire">
                 <svg overflow="visible" viewbox="0 0 10 10" fill="#ff7800">
@@ -280,9 +273,7 @@
         <header class="landmark-intro">
           <div class="row">
             <div class="col">
-              <h1>
-                Parque do Araguaia
-              </h1>
+              <h1>Parque do Araguaia</h1>
               <br />
               <p>
                 Parque Estadual do Araguaia (English: The Araguaia State Park)
@@ -320,9 +311,7 @@
         <header class="landmark-intro">
           <div class="row">
             <div class="col">
-              <h1>
-                Marãiwatséde
-              </h1>
+              <h1>Marãiwatséde</h1>
               <br />
               <p>
                 Marãiwatséde is a traditional territory located in the state of
@@ -356,9 +345,7 @@
         <header class="landmark-intro">
           <div class="row">
             <div class="col">
-              <h1>
-                Araribóia
-              </h1>
+              <h1>Araribóia</h1>
               <br />
               <p>
                 Araribóia is an indigenous territory sizing at 1,600 square
@@ -453,9 +440,7 @@
                 </blockquote> -->
 
                 <section class="bibliography">
-                  <h3>
-                    Bibliography
-                  </h3>
+                  <h3>Bibliography</h3>
                   <p>
                     1. Calma, Justine. “Everything You Need to Know about the
                     Fires in the Amazon.” The Verge, 28 Aug. 2019,
@@ -523,9 +508,7 @@
                   </p>
                 </section>
                 <br />
-                <h3>
-                  Data Sources
-                </h3>
+                <h3>Data Sources</h3>
 
                 <p>
                   Point data on fires was gathered from the NASA FIRMS project,
@@ -541,9 +524,7 @@
                   <a href="https://globalforestwatch.org">Global Forest Watch</a
                   >.
                 </p>
-                <h3>
-                  Methodology
-                </h3>
+                <h3>Methodology</h3>
 
                 <p>
                   We joined data from NASA FIRMS (MODIS M6) with the FUNAI
@@ -621,9 +602,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
     <!-- BEHOLD for these are our custom scripts  -->
-    <script src="script.js"></script>
-    <script src="plots.js"></script>
-    <script src="leaflet_maps.js"></script>
+    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/plots.js"></script>
+    <script type="module" src="./js/leaflet_maps.js"></script>
 
     <!-- this is the observable script for the first linegraph -->
     <script type="module">
@@ -631,20 +612,15 @@
       import {
         Runtime,
         Inspector,
-        Library
+        Library,
       } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
       import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
       const inspect = Inspector.into("#observablehq-7a46ba7e");
       const runtime = new Runtime(Object.assign(new Library(), { width: 700 }));
       const main = runtime.module(
         define,
-        name => name === "chart" && inspect()
+        (name) => name === "chart" && inspect()
       );
-
-      // This at least centers the SVG
-      // document.querySelector(".observablehq>svg").setAttribute("width", "100%");
-
-      function go() {}
     </script>
   </body>
 </html>
