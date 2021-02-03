@@ -17,7 +17,7 @@ const globalPlotConfig = {
 };
 
 // These are the line graphs for each area
-export const linegraph = function(data) {
+export const makeLineGraph = function(data) {
   return {
     config: globalPlotConfig,
     width: 'container',
@@ -34,18 +34,26 @@ export const linegraph = function(data) {
           x: {
             field: 'acq_year',
             type: 'temporal',
-            axis: { title: 'Acquisition year' }
+            axis: {
+              title: 'Acquisition year'
+            }
           },
           y: {
             field: 'count',
             type: 'quantitative',
-            axis: { title: 'Total fire count' },
-            scale: { domain: [0,
-              8000] }
+            axis: {
+              title: 'Total fire count'
+            },
+            scale: {
+              domain: [0,
+                8000]
+            }
           }
         },
         layer: [
-          { mark: 'line' },
+          {
+            mark: 'line'
+          },
           {
             selection: {
               label: {
@@ -59,8 +67,10 @@ export const linegraph = function(data) {
             mark: 'point',
             encoding: {
               opacity: {
-                condition: { selection: 'label',
-                  value: 1 },
+                condition: {
+                  selection: 'label',
+                  value: 1
+                },
                 value: 0
               }
             }
@@ -68,24 +78,38 @@ export const linegraph = function(data) {
         ]
       },
       {
-        transform: [{ filter: { selection: 'label' } }],
+        transform: [{
+          filter: {
+            selection: 'label'
+          }
+        }],
         layer: [
           {
-            mark: { type: 'rule',
-              color: 'gray' },
+            mark: {
+              type: 'rule',
+              color: 'gray'
+            },
             encoding: {
-              x: { type: 'temporal',
-                field: 'acq_year' }
+              x: {
+                type: 'temporal',
+                field: 'acq_year'
+              }
             }
           },
           {
             encoding: {
-              text: { type: 'quantitative',
-                field: 'count' },
-              x: { type: 'temporal',
-                field: 'acq_year' },
-              y: { type: 'quantitative',
-                field: 'count' }
+              text: {
+                type: 'quantitative',
+                field: 'count'
+              },
+              x: {
+                type: 'temporal',
+                field: 'acq_year'
+              },
+              y: {
+                type: 'quantitative',
+                field: 'count'
+              }
             },
             layer: [
               {
@@ -124,7 +148,7 @@ export const linegraph = function(data) {
   };
 };
 
-export const multi_linegraph = function(data) {
+export const makeMultiLine = function(data) {
   return {
     config: globalPlotConfig,
     width: 'container',
@@ -142,12 +166,16 @@ export const multi_linegraph = function(data) {
           x: {
             field: 'acq_year',
             type: 'temporal',
-            axis: { title: 'acquisition year' }
+            axis: {
+              title: 'acquisition year'
+            }
           },
           y: {
             field: 'count',
             type: 'quantitative',
-            axis: { title: 'total fire count' }
+            axis: {
+              title: 'total fire count'
+            }
           },
           color: {
             field: 'groupname',
@@ -156,7 +184,9 @@ export const multi_linegraph = function(data) {
           }
         },
         layer: [
-          { mark: 'line' },
+          {
+            mark: 'line'
+          },
           {
             selection: {
               label: {
@@ -170,8 +200,10 @@ export const multi_linegraph = function(data) {
             mark: 'point',
             encoding: {
               opacity: {
-                condition: { selection: 'label',
-                  value: 1 },
+                condition: {
+                  selection: 'label',
+                  value: 1
+                },
                 value: 0
               }
             }
@@ -179,24 +211,38 @@ export const multi_linegraph = function(data) {
         ]
       },
       {
-        transform: [{ filter: { selection: 'label' } }],
+        transform: [{
+          filter: {
+            selection: 'label'
+          }
+        }],
         layer: [
           {
-            mark: { type: 'rule',
-              color: 'gray' },
+            mark: {
+              type: 'rule',
+              color: 'gray'
+            },
             encoding: {
-              x: { type: 'temporal',
-                field: 'acq_year' }
+              x: {
+                type: 'temporal',
+                field: 'acq_year'
+              }
             }
           },
           {
             encoding: {
-              text: { type: 'quantitative',
-                field: 'count' },
-              x: { type: 'temporal',
-                field: 'acq_year' },
-              y: { type: 'quantitative',
-                field: 'count' }
+              text: {
+                type: 'quantitative',
+                field: 'count'
+              },
+              x: {
+                type: 'temporal',
+                field: 'acq_year'
+              },
+              y: {
+                type: 'quantitative',
+                field: 'count'
+              }
             },
             layer: [
               {
@@ -219,9 +265,11 @@ export const multi_linegraph = function(data) {
                   dy: 2
                 },
                 encoding: {
-                  color: { type: 'nominal',
+                  color: {
+                    type: 'nominal',
                     field: 'symbol',
-                    legend: null }
+                    legend: null
+                  }
                 }
               }
             ]
@@ -232,7 +280,7 @@ export const multi_linegraph = function(data) {
   };
 };
 
-export const areagraph = function (data) {
+export const makeAreaGraph = function (data) {
   return {
     config: globalPlotConfig,
     width: 'container',
@@ -240,14 +288,20 @@ export const areagraph = function (data) {
     title: 'Indigenous Region Fire Count (2001–2019)',
     data: {
       url: data,
-      format: { type: 'csv' }
+      format: {
+        type: 'csv'
+      }
     },
-    mark: { type: 'area',
-      tooltip: true },
+    mark: {
+      type: 'area',
+      tooltip: true
+    },
 
     selection: {
-      area: { type: 'single',
-        on: 'mouseover' }
+      area: {
+        type: 'single',
+        on: 'mouseover'
+      }
     },
 
     encoding: {
@@ -257,21 +311,27 @@ export const areagraph = function (data) {
           field: 'groupname',
           title: 'indigenous land',
           type: 'nominal',
-          scale: { scheme: 'plasma',
-            reverse: true }
+          scale: {
+            scheme: 'plasma',
+            reverse: true
+          }
         },
         value: 'black'
       },
 
       x: {
         type: 'temporal',
-        axis: { title: 'acquisition year' },
+        axis: {
+          title: 'acquisition year'
+        },
         field: 'acq_year'
       },
       tooltip: [
-        { field: 'groupname',
+        {
+          field: 'groupname',
           type: 'nominal',
-          title: 'indigenous land' },
+          title: 'indigenous land'
+        },
 
         {
           field: 'count',
@@ -289,7 +349,9 @@ export const areagraph = function (data) {
         aggregate: 'sum',
         field: 'count',
         type: 'quantitative',
-        axis: { title: 'total fire count' }
+        axis: {
+          title: 'total fire count'
+        }
       }
     }
   };

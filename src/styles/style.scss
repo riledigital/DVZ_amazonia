@@ -1,9 +1,12 @@
-/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.23, autoprefixer: v9.7.3) */
+@use '~cssremedy/css/remedy';
+@use 'fonts';
 
 body {
   /*   background: black; */
   /*   color: white; */
   font-family: "Source Serif Pro";
+  font-size: 26px;
+  line-height: 1.45;
 }
 
 /* Typography related rules */

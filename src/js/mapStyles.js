@@ -11,7 +11,7 @@ export const territoryBoundsStyle = {
   opacity: 0.5
 };
 
-export const  territoryBoundsStyleFocus = {
+export const territoryBoundsStyleFocus = {
   color: '#50e3eb',
   weight: 2,
   fillOpacity: 0,
@@ -20,7 +20,7 @@ export const  territoryBoundsStyleFocus = {
   opacity: 1
 };
 
-export const  amazonLegalBoundsStyle = {
+export const amazonLegalBoundsStyle = {
   color: '#FFE000',
   weight: 4,
   fillOpacity: 0,
@@ -28,7 +28,7 @@ export const  amazonLegalBoundsStyle = {
   opacity: 1
 };
 
-export const  styleActiveYear = {
+export const styleActiveYear = {
   radius: 2,
   fillColor: colorActiveBlue,
   color: colorActiveBlue,
@@ -39,7 +39,7 @@ export const  styleActiveYear = {
   // renderer: L.Canvas
 };
 
-export const  styleInactiveYear = {
+export const styleInactiveYear = {
   radius: 2,
   fillColor: colorFireOrange,
   color: colorFireOrange,

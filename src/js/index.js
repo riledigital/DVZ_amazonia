@@ -1,3 +1,16 @@
-import { setupMap, setupWaypoints } from './leaflet_maps';
 import './../styles/style.scss';
-setupMap();
+import {
+  setupMap
+} from './maps';
+
+import {
+  makeAllGraphs,
+  setupVegaPlotInteractivity
+} from './plots.js';
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  setupMap(document.querySelector('#mapid'));
+});
+
+makeAllGraphs();
+// setupVegaPlotInteractivity();

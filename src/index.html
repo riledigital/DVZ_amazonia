@@ -7,27 +7,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      crossorigin="anonymous"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="./styles/webfonts.css"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./styles/style.css" crossorigin="anonymous" />
 
     <title>Flames of Amazonia</title>
-
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
   </head>
   <body>
     <div class="map-background-fixed position-fixed">
@@ -573,20 +560,9 @@
       </section>
     </div>
     <!-- Optional JavaScript -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <!--     Imports for Vega Lite -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.0"></script> -->
 
-    <!-- BEHOLD for these are our custom scripts  -->
-    <script type="module" src="./js/index.js"></script>
-
-    <!-- this is the observable script for the first linegraph -->
+    <script src="./js/index.js"></script>
+    <!--
     <script type="module">
       // OBSERVABLE EMBED
       import {
@@ -601,6 +577,6 @@
         define,
         (name) => name === "chart" && inspect()
       );
-    </script>
+    </script> -->
   </body>
 </html>
