@@ -19,7 +19,8 @@ import {
 
 const L = window.L;
 let mapLayers;
-export const setupMap = (mapContainer) => {
+
+export const setupMap = async (mapContainer) => {
   // make the map
   console.log('making map at '+ mapContainer);
   const mymap = L.map(mapContainer, {
@@ -34,22 +35,17 @@ export const setupMap = (mapContainer) => {
   mymap.setView(point_home, 5);
 
   mapLayers = setupSources(mymap);
-  debugger;
   setupWaypoints(mymap);
   return mymap;
 };
 
-function setupSources(map) {
+async function setupSources(map) {
   // Adds borders to indigenous lands
-  const addTerritoryBounds = (url, styleOptions) => {
+  const addTerritoryBounds = async (url, styleOptions) => {
     try {
-      fetch(url)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          const myLayer = L.geoJSON(data, styleOptions).addTo(map);
-        });
+      const response = await fetch(url);
+      const data = await response.json();
+      const myLayer = L.geoJSON(data, styleOptions).addTo(map);
     } catch (err) {
       console.error(err);
     }
@@ -60,24 +56,27 @@ function setupSources(map) {
   });
 
   const mapLayers = new Map();
-  const results = Promise.allSettled(Array.from(geojsonDataUrls.entries()).map(d => fetch(d[1]).then(resp => resp.json())))
-    .then((values) => {
-      values.map(({
-        value: data
-      }) => {
-        console.log('Make sure that we are getting values rather than promises');
 
-        const firePointsLayer = L.geoJSON(data, {
-          pointToLayer: function(feature, latlng) {
-            return L.circleMarker(latlng, styleInactiveYear);
-          }
-        });
-
-        firePointsLayer.addTo(map);
-        debugger;
-        mapLayers.set(data.name, firePointsLayer);
-      });
+  const dataEntriesPromises = await Array.from(geojsonDataUrls.entries()).map(
+    async (d) => {
+      const response = await fetch(d[1]);
+      const data = await response.json();
+      return data;
     });
+
+  const dataEntries = await Promise.allSettled(dataEntriesPromises);
+  // Make layer
+  debugger;
+  dataEntries.forEach((data) => {
+    const firePointsLayer = L.geoJSON(data, {
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, styleInactiveYear);
+      }
+    });
+
+    firePointsLayer.addTo(map);
+    mapLayers.set(data.name, firePointsLayer);
+  });
 
   const CartoDB_Positron = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',

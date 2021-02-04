@@ -8,8 +8,8 @@ import {
   setupVegaPlotInteractivity
 } from './plots.js';
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  setupMap(document.querySelector('#mapid'));
+window.addEventListener('DOMContentLoaded', async (event) => {
+  await setupMap(document.querySelector('#mapid'));
 });
 
 makeAllGraphs();

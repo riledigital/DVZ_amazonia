@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "ara_geom",
+"name": "ara",
 "features": [
 { "type": "Feature", "properties": { "fid": 24051, "ACQ_DATE": "2002-10-20", "Name": "Arariboia", "Nat_Leg_Te": "Indigenous Territory" }, "geometry": { "type": "Point", "coordinates": [ -46.0671, -4.9146 ] } },
 { "type": "Feature", "properties": { "fid": 24052, "ACQ_DATE": "2006-11-18", "Name": "Arariboia", "Nat_Leg_Te": "Indigenous Territory" }, "geometry": { "type": "Point", "coordinates": [ -46.0668, -4.913 ] } },

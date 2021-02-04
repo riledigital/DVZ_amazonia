@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "Maraiwatsede_geom",
+"name": "marai",
 "features": [
 { "type": "Feature", "properties": { "fid": 166419, "ACQ_DATE": "2008-10-01", "Name": "Maraiwatsede", "Nat_Leg_Te": "Indigenous Territory" }, "geometry": { "type": "Point", "coordinates": [ -51.7132, -11.6025 ] } },
 { "type": "Feature", "properties": { "fid": 166420, "ACQ_DATE": "2008-10-14", "Name": "Maraiwatsede", "Nat_Leg_Te": "Indigenous Territory" }, "geometry": { "type": "Point", "coordinates": [ -51.7118, -11.64 ] } },
