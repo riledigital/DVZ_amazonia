@@ -1,5 +1,4 @@
 import 'leaflet';
-// import './node_modules/leaflet/dist/leaflet.css';
 
 import {
   point_home
@@ -17,35 +16,45 @@ import {
   mapLayerSources, geojsonDataUrls, observerTriggers
 } from './data.js';
 
-const L = window.L;
 let mapLayers;
 
 export const setupMap = async (mapContainer) => {
   // make the map
-  console.log('making map at '+ mapContainer);
+  console.info('making map at '+ mapContainer);
   const mymap = L.map(mapContainer, {
     center: point_home,
-    // maxBounds: L.latLngBounds(L.latLng( 0.21972602392080884, -65.126953125), L.latLng(-31.203404950917385, -35.15625)),
+    maxBounds: L.latLngBounds(L.latLng( 0.21972602392080884, -65.126953125), L.latLng(-31.203404950917385, -35.15625)),
     minZoom: 5,
     zoomControl: false,
     preferCanvas: true,
     dragging: true,
     scrollWheelZoom: false
   });
+
   mymap.setView(point_home, 5);
 
-  mapLayers = setupSources(mymap);
+  const CartoDB_Positron = L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 15
+    }
+  ).addTo(mymap);
+
+  mapLayers = await setupSources(mymap);
   setupWaypoints(mymap);
   return mymap;
 };
 
-async function setupSources(map) {
+async function setupSources(theMap) {
   // Adds borders to indigenous lands
   const addTerritoryBounds = async (url, styleOptions) => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      const myLayer = L.geoJSON(data, styleOptions).addTo(map);
+      const myLayer = L.geoJSON(data, styleOptions).addTo(theMap);
     } catch (err) {
       console.error(err);
     }
@@ -61,32 +70,18 @@ async function setupSources(map) {
     async (d) => {
       const response = await fetch(d[1]);
       const data = await response.json();
-      return data;
+
+      const firePointsLayer = L.geoJSON(data, {
+        pointToLayer: (feature, latlng) => {
+          return L.circleMarker(latlng, styleInactiveYear);
+        }
+      });
+      firePointsLayer.addTo(theMap);
+      debugger;
+      console.info('Saved: ' + data.name);
+      mapLayers.set(data.name, firePointsLayer);
     });
 
-  const dataEntries = await Promise.allSettled(dataEntriesPromises);
-  // Make layer
-  debugger;
-  dataEntries.forEach((data) => {
-    const firePointsLayer = L.geoJSON(data, {
-      pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng, styleInactiveYear);
-      }
-    });
-
-    firePointsLayer.addTo(map);
-    mapLayers.set(data.name, firePointsLayer);
-  });
-
-  const CartoDB_Positron = L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 15
-    }
-  ).addTo(map);
 
   // return the loadOrder that we can access for interactivity later;
   // use indexOf to get these
@@ -95,9 +90,9 @@ async function setupSources(map) {
 
 export const updateMapStyle = (areaName, year) => {
   // TODO Check areaname
-  console.log(arguments);
-  console.log(mapLayers);
-  debugger;
+  // console.log(arguments);
+  // console.log(mapLayers);
+  // debugger;
   const features = mapLayers.get('areaName');
   features.forEach(layer => {
     let tempYear = new Date(layer.feature.properties.ACQ_DATE);

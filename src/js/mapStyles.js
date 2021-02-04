@@ -35,17 +35,13 @@ export const styleActiveYear = {
   weight: 0,
   opacity: 1,
   fillOpacity: 1,
-  preferCanvas: true
-  // renderer: L.Canvas
 };
 
 export const styleInactiveYear = {
-  radius: 2,
+  radius: 20,
   fillColor: colorFireOrange,
   color: colorFireOrange,
   weight: 0,
   opacity: 0.5,
-  fillOpacity: 0.5,
-  preferCanvas: true
-  // renderer: L.Canvas
+  fillOpacity: 0.5
 };

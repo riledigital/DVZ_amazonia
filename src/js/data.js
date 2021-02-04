@@ -22,13 +22,13 @@ export const mapLayerSources = [
 
 export const geojsonDataUrls = new Map([
   [
-    'parque', '/data/parque.geojson'
+    'parque', 'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fgeom_parque.geojson'
   ],
   [
-    'ara', '/data/ara.geojson'
+    'ara', 'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fara_geom.geojson'
   ],
   [
-    'marai', '/data/marai.geojson'
+    'marai', 'https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2FMaraiwatsede_geom.geojson'
   ]
 ]);
 

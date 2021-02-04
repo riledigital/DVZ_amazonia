@@ -10,7 +10,7 @@ import {
 
 window.addEventListener('DOMContentLoaded', async (event) => {
   await setupMap(document.querySelector('#mapid'));
+  makeAllGraphs();
 });
 
-makeAllGraphs();
 // setupVegaPlotInteractivity();
