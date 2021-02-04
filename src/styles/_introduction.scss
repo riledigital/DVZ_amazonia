@@ -42,10 +42,12 @@
 
 .byline {
   color: var(--c-white);
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .intro__h2 {
+  margin-top: 2rem;
   margin-left: var(--margin-base);
   margin-right: var(--margin-base);
   margin-bottom: 1rem;
@@ -119,4 +121,14 @@
 
   font-size: 1rem;
   font-family: inherit;
+}
+
+.intro_plot-title {
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  margin-left: var(--margin-base);
+  margin-right: var(--margin-base);
 }

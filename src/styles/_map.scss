@@ -6,3 +6,26 @@
   top: 0;
   left: 0;
 }
+
+.map-legend {
+  position: sticky;
+  top: 10vh;
+  right: 1vh;
+  margin: 0 0 auto auto;
+  max-width: 15rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.2px;
+}
+
+.map-legend svg {
+  overflow: visible;
+  height: 0.8em;
+  width: 0.8em;
+  display: inline;
+}
+
+.map-legend h2 {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}

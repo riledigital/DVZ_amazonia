@@ -81,10 +81,7 @@ async function setupSources(theMap) {
 }
 
 export const updateMapStyle = (areaName, year) => {
-  // TODO Check areaname
-  // console.log(arguments);
-  // console.log(mapLayers);
-  debugger;
+
   let features = mapLayers.get({
     Arariboia: 'ara_geom',
     'Parque do Araguaia': 'geom_parque',
@@ -126,8 +123,10 @@ export function setupWaypoints(theMap) {
     root: null,
     rootMargin: '0px'
   });
+
   const triggers = Array.from(observerTriggers.values());
   const allObserving = triggers.forEach(d => {
+    debugger;
     observer.observe(document.querySelector(d.targetNode));
   });
 }

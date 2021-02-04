@@ -1,0 +1,25 @@
+.landmark {
+  margin-left: var(--margin-base);
+  margin-right: var(--margin-base);
+  margin-bottom: 100vh;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .vega-embed {
+    margin-bottom: 1rem;
+  }
+}
+
+.landmark-intro {
+  margin-bottom: 1rem;
+}

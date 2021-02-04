@@ -1,7 +1,7 @@
 // Spec generator functions
 const globalPlotConfig = {
   axis: {
-    labelFont: 'Source Serif Pro Bold',
+    labelFont: 'Source Serif Pro',
     labelFontSize: 13,
     titleFont: 'Source Serif Pro'
   },
@@ -159,7 +159,6 @@ export const makeMultiLine = function(data) {
         type: 'csv'
       }
     },
-    title: 'Focus Regions Fire Count (2001–2019)',
     layer: [
       {
         encoding: {
@@ -285,7 +284,6 @@ export const makeAreaGraph = function (data) {
     config: globalPlotConfig,
     width: 'container',
     height: 500,
-    title: 'Indigenous Region Fire Count (2001–2019)',
     data: {
       url: data,
       format: {
@@ -303,9 +301,11 @@ export const makeAreaGraph = function (data) {
         on: 'mouseover'
       }
     },
-
     encoding: {
       color: {
+        legend: {
+          orient: 'bottom-left'
+        },
         condition: {
           selection: 'area',
           field: 'groupname',

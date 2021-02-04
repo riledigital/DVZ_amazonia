@@ -94,29 +94,6 @@ h5 {
 /* Layout */
 /* ---------------------------------------------------------------- */
 
-.map-legend {
-  position: sticky;
-  top: 10vh;
-  right: 1vh;
-  margin: 0 0 auto auto;
-  max-width: 15rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.2px;
-}
-
-.map-legend svg {
-  overflow: visible;
-  height: 0.8em;
-  width: 0.8em;
-  display: inline;
-}
-
-.map-legend h2 {
-  font-size: 1em;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 .container {
   max-width: 40em;
 }
@@ -160,18 +137,6 @@ h5 {
     padding: 3rem;
     padding-top: 6rem;
   }
-}
-
-.vega-embed {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 50vh;
-}
-
-.landmark .vega-embed {
-  height: 50vh;
-  width: 100%;
 }
 
 #appendix {
