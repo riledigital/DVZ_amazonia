@@ -43,30 +43,27 @@ export const setupMap = async (mapContainer) => {
     }
   ).addTo(mymap);
 
-  mapLayers = await setupSources(mymap);
+  setupSources(mymap);
   setupWaypoints(mymap);
+  window.myMap = mymap;
   return mymap;
 };
 
 async function setupSources(theMap) {
   // Adds borders to indigenous lands
   const addTerritoryBounds = async (url, styleOptions) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const myLayer = L.geoJSON(data, styleOptions).addTo(theMap);
-    } catch (err) {
-      console.error(err);
-    }
+    const response = await fetch(url);
+    const data = await response.json();
+    const myLayer = L.geoJSON(data, styleOptions).addTo(theMap);
   };
 
   mapLayerSources.forEach((d) => {
     addTerritoryBounds(d[0], d[1]);
   });
 
-  const mapLayers = new Map();
+  mapLayers = new Map();
 
-  const dataEntriesPromises = await Array.from(geojsonDataUrls.entries()).map(
+  Array.from(geojsonDataUrls.entries()).map(
     async (d) => {
       const response = await fetch(d[1]);
       const data = await response.json();
@@ -77,14 +74,9 @@ async function setupSources(theMap) {
         }
       });
       firePointsLayer.addTo(theMap);
-      debugger;
       console.info('Saved: ' + data.name);
       mapLayers.set(data.name, firePointsLayer);
     });
-
-
-  // return the loadOrder that we can access for interactivity later;
-  // use indexOf to get these
   return mapLayers;
 }
 
@@ -92,9 +84,14 @@ export const updateMapStyle = (areaName, year) => {
   // TODO Check areaname
   // console.log(arguments);
   // console.log(mapLayers);
-  // debugger;
-  const features = mapLayers.get('areaName');
-  features.forEach(layer => {
+  debugger;
+  let features = mapLayers.get({
+    Arariboia: 'ara_geom',
+    'Parque do Araguaia': 'geom_parque',
+    Maraiwatsede: 'Maraiwatsede_geom'
+  }[areaName]);
+
+  features.eachLayer(layer => {
     let tempYear = new Date(layer.feature.properties.ACQ_DATE);
     if (year == tempYear.getFullYear()) {
       layer.setStyle(styleActiveYear);

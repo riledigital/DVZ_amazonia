@@ -1,0 +1,263 @@
+/* Typography related rules */
+/* ---------------------------------------------------------------- */
+
+.intro-leaf {
+  margin: 2em 0;
+}
+
+@media (min-width: 600px) {
+  .title {
+    font-size: 4em !important;
+  }
+}
+
+p {
+  font-family: "Source Serif Pro";
+}
+
+.lead {
+}
+
+.map-background-fixed {
+  font-size: 2em;
+}
+
+/* Controlling headings */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Source Serif Pro";
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  /*   font-family: "WremenaLight"; */
+
+  font-weight: bold;
+  /*   color: white; */
+  font-size: calc(2.56 * 1rem);
+  line-height: 0.95;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: calc(1.7 * 1rem);
+}
+
+h3 {
+  font-size: calc(1.4 * 1rem);
+  font-family: "Source Serif Pro";
+}
+
+h4 {
+  font-size: calc(1.5 * 1rem);
+  font-family: "Source Serif Pro";
+  font-style: bold;
+  margin-bottom: 0rem;
+}
+
+h5 {
+  font-size: calc(1.2 * 1);
+}
+
+.intro-lead {
+  color: white;
+  font-size: 1em;
+}
+
+@media (min-width: 600px) {
+  .intro-lead {
+    font-size: 1.5em;
+    margin: 3rem auto;
+  }
+}
+
+.intro-leaf {
+  color: white;
+}
+
+.subtitle {
+  color: white;
+}
+
+.intro-dark {
+  color: white;
+}
+
+.bibliography p {
+  font-size: 0.8em;
+  margin-bottom: 0.7em;
+}
+/* Layout */
+/* ---------------------------------------------------------------- */
+
+.map-legend {
+  position: sticky;
+  top: 10vh;
+  right: 1vh;
+  margin: 0 0 auto auto;
+  max-width: 15rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2px;
+}
+
+.map-legend svg {
+  overflow: visible;
+  height: 0.8em;
+  width: 0.8em;
+  display: inline;
+}
+
+.map-legend h2 {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 40em;
+}
+
+.donate {
+  font-size: 0.5rem;
+}
+
+.landmark-intro {
+  max-width: 35em;
+}
+
+.landmark {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 35vh 0; /* this is how we control spacing of the story landmarks. */
+}
+
+.landmark-intro {
+  max-width: 35em;
+}
+
+.landmark-story {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: auto 2rem;
+  margin: 25vh 0;
+}
+
+.landmark p {
+}
+
+.viz-figure {
+  width: 100%;
+  padding: 2em 0;
+  min-height: 400px;
+}
+
+@media (min-width: 600px) {
+  #introduction {
+    padding: 3rem;
+    padding-top: 6rem;
+  }
+}
+
+.vega-embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50vh;
+}
+
+.landmark .vega-embed {
+  height: 50vh;
+  width: 100%;
+}
+
+#appendix {
+  /*   background: rgba(0, 0, 0, 0.8); */
+  /* height: 50vh; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  padding: 0 2em;
+}
+
+#appendix .container {
+  /* position: relative;
+  height: auto;
+  bottom: 0; */
+}
+
+.intro-lead-container {
+  max-width: 50em;
+  margin: 1em auto;
+}
+
+.observablehq {
+  text-align: center;
+}
+
+/* ui elements */
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #ff7f10;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1em;
+  padding: 10px;
+  width: 100px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* SFX
+ */
+.title {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange,
+    4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
+  -webkit-animation: 2s Blazing infinite alternate linear;
+  animation: 2s Blazing infinite alternate linear;
+}

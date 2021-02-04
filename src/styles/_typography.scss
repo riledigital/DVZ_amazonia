@@ -1,0 +1,15 @@
+:root {
+  color: var(--c-fg);
+  font-family: "Source Serif Pro";
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--c-link);
+  font-weight: bold;
+  text-decoration: none;
+  :hover {
+    color: var(--c-link-hover);
+  }
+}

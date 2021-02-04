@@ -38,7 +38,7 @@ export const styleActiveYear = {
 };
 
 export const styleInactiveYear = {
-  radius: 20,
+  radius: 2,
   fillColor: colorFireOrange,
   color: colorFireOrange,
   weight: 0,

@@ -23,183 +23,127 @@
 
     <!--     This is where the leaflet goes -->
     <div id="mapid"></div>
+
     <div class="scrollstory" id="scrollstory">
-      <article id="introduction" class="box-shadow">
-        <div class="container-fluid intro-lead-container">
-          <div class="row">
-            <div class="col">
-              <h1 class="title">Flames of Amazonia</h1>
-              <p class="lead subtitle text-white">
-                Mapping fires within indigenous lands of the Amazon rainforest.
-              </p>
-              <p class="text-white">
-                A data story by Nishat Chowdhury, Ri Le, Emma Lu, and Anavi
-                Lohia.
-              </p>
-            </div>
-          </div>
+      <section id="introduction" class="introduction">
+        <div class="intro__title-card">
+          <h1 class="title">Flames of Amazonia</h1>
+          <p class="subhead">
+            Mapping fires within indigenous lands of the Amazon rainforest.
+          </p>
+          <p class="byline">
+            A data story by Nishat Chowdhury, Ri Le, Emma Lu, and Anavi Lohia.
+          </p>
+        </div>
+        <h2 class="intro__h2">Fires in the Amazon</h2>
+        <p class="intro__p">
+          The Amazon plays a massive role in the Earth’s ecosystem and is also
+          an iconic symbol of environmental vulnerability, indigeneity, and
+          international cooperation.
+        </p>
+        <p class="intro__p">
+          Fires in the Amazon are seasonal, but fire intensity since 2001 has
+          spiked this past summer, correlating with a relatively recent increase
+          in deforestation efforts. In August 2019 alone, the Amazon is said to
+          have had 80,000 fires—the highest ever recorded in a month. [1]
+        </p>
+        <p class="intro__p">
+          We identified fires in indigenous territories recognized by Fundación
+          Nacional del Indio (FUNAI) using data on all fire events detected
+          through MODIS from 2000 to 2019 from NASA's FIRMS project.
+        </p>
 
-          <div class="row">
-            <div class="col">
-              <p class="intro-lead">
-                The Amazon plays a massive role in the Earth’s ecosystem and is
-                also an iconic symbol of environmental vulnerability,
-                indigeneity, and international cooperation. Fires in the Amazon
-                are seasonal, but fire intensity since 2001 has spiked this past
-                summer, correlating with a relatively recent increase in
-                deforestation efforts. In August 2019 alone, the Amazon is said
-                to have had 80,000 fires—the highest ever recorded in a month.
-                [1]
-              </p>
-              <p class="intro-lead">
-                We identified fires in indigenous territories recognized by
-                Fundación Nacional del Indio (FUNAI) using data on all fire
-                events detected through MODIS from 2000 to 2019 from NASA's
-                FIRMS project.
-              </p>
-            </div>
-          </div>
+        <div class="intro-viz">
+          <div id="observablehq-7a46ba7e"></div>
+          <button
+            onclick="go()"
+            class="button invisible"
+            style="vertical-align: middle"
+          >
+            <span>Reset</span>
+          </button>
         </div>
 
-        <div class="container-fluid">
-          <div class="row viz-row">
-            <div class="col viz-col">
-              <figure class="viz-figure img-fluid">
-                <div id="observablehq-7a46ba7e"></div>
+        <h2 class="intro__h2">The Amazon is home to indigenous communities</h2>
+        <p class="intro__p">
+          Mainstream media coverage tends to focus on the environmental damage
+          of the Amazon forest fires (eg: loss of wildlife and biodiversity,
+          emissions into the atmosphere, local air pollution etc.) much more so
+          than the consequential displacement of indigenous groups residing in
+          the Amazon.
+        </p>
 
-                <!-- This style has been moved to style.css -->
-                <button
-                  onclick="go()"
-                  class="button invisible"
-                  style="vertical-align: middle"
-                >
-                  <span>Reset </span>
-                </button>
-              </figure>
-            </div>
-          </div>
+        <p class="intro__p">
+          Approximately 6,345 indigenous territories or regions have been
+          identified within the Amazon. [2] According to ScienceDaily, with
+          increasing plans for economic development and infrastructure, a vast
+          majority of indigenous lands alongside protected areas in the
+          Brazillian Amazon are at high risk of experiencing disaster. [3]
+          Despite this, indigenous groups are currently at the forefront of the
+          movement to protect the rainforest against further deforestation,
+          illegal logging, and other human invested harmful environmental
+          activities.
+        </p>
+
+        <h2>Our research focus</h2>
+
+        <p class="intro__p">
+          To what extent are indigenous lands affected by deforestation-related
+          fires?
+        </p>
+
+        <p class="intro__p">
+          Indigenous land stewardship is proven to be vital to the preservation
+          of the Amazon rainforest: demarcated indigenous lands are protected
+          both by the law and by residing tribes against incursions by loggers
+          and cattle ranchers. As such, statistics show that rates of
+          deforestation drop significantly within indigenous borders. [4]
+        </p>
+        <p class="intro__p">
+          However, the protections nominally offered by the Brazilian government
+          are precarious at best. The demarcation process that protects
+          ancestral lands is often slow to complete or altogether paralyzed,
+          subject to shifting political agendas and bureaucratic fine print.
+          Moreover, protections to already demarcated lands are often unenforced
+          by local government agencies, frequently leaving vulnerable indigenous
+          communities to fend for themselves against illegal invasions and land
+          disputes. [5]
+        </p>
+
+        <p class="intro__p">
+          Since the start of his term in January, President Bolsonaro has made
+          attempts to defang the two government agencies responsible for the
+          protection of the Amazon and its indigenous residents, IBAMA and
+          FUNAI. Additionally, Bolsonaro's pro-agribusiness campaign has
+          emboldened both private land owners and illegal land grabbers
+          (<em>grileiros</em>) residing in the Amazon to claim and deforest
+          land, especially that which lies at or past the borders of indigenous
+          lands. [6]
+        </p>
+
+        <div id="top10_areagraph"></div>
+
+        <p>
+          We narrowed down the thousands of indigenous territories located
+          within the countries of the Brazillian Amazon to ten specific regions.
+          These regions demonstrating the highest cumulative fire counts over
+          the past two decades from 2000 to September 2019.
+        </p>
+
+        <div class="viz-figure img-fluid">
+          <div id="focus_regions_linegraph"></div>
         </div>
+        <p class="lead">
+          We further condensed the data down to three focus regions — these
+          three territories presented relatively greater fire count in
+          comparison to other indigenous lands. We wanted to investigate the
+          historical and political context of these lands to identify potential
+          causative factors. Size of the land did not appear to be a relatively
+          indicative factor.
+        </p>
 
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <h2>The Amazon is home to indigenous communities</h2>
-              <br />
-              <p>
-                Mainstream media coverage tends to focus on the environmental
-                damage of the Amazon forest fires (eg: loss of wildlife and
-                biodiversity, emissions into the atmosphere, local air pollution
-                etc.) much more so than the consequential displacement of
-                indigenous groups residing in the Amazon.
-              </p>
-
-              <p>
-                Approximately 6,345 indigenous territories or regions have been
-                identified within the Amazon. [2] According to ScienceDaily,
-                with increasing plans for economic development and
-                infrastructure, a vast majority of indigenous lands alongside
-                protected areas in the Brazillian Amazon are at high risk of
-                experiencing disaster. [3] Despite this, indigenous groups are
-                currently at the forefront of the movement to protect the
-                rainforest against further deforestation, illegal logging, and
-                other human invested harmful environmental activities.
-              </p>
-
-              <br />
-
-              <h2>Our research focus</h2>
-              <br />
-
-              <p class="lead">
-                To what extent are indigenous lands affected by
-                deforestation-related fires?
-              </p>
-
-              <p>
-                Indigenous land stewardship is proven to be vital to the
-                preservation of the Amazon rainforest: demarcated indigenous
-                lands are protected both by the law and by residing tribes
-                against incursions by loggers and cattle ranchers. As such,
-                statistics show that rates of deforestation drop significantly
-                within indigenous borders. [4]
-              </p>
-              <p>
-                However, the protections nominally offered by the Brazilian
-                government are precarious at best. The demarcation process that
-                protects ancestral lands is often slow to complete or altogether
-                paralyzed, subject to shifting political agendas and
-                bureaucratic fine print. Moreover, protections to already
-                demarcated lands are often unenforced by local government
-                agencies, frequently leaving vulnerable indigenous communities
-                to fend for themselves against illegal invasions and land
-                disputes. [5]
-              </p>
-
-              <p>
-                Since the start of his term in January, President Bolsonaro has
-                made attempts to defang the two government agencies responsible
-                for the protection of the Amazon and its indigenous residents,
-                IBAMA and FUNAI. Additionally, Bolsonaro's pro-agribusiness
-                campaign has emboldened both private land owners and illegal
-                land grabbers (<em>grileiros</em>) residing in the Amazon to
-                claim and deforest land, especially that which lies at or past
-                the borders of indigenous lands. [6]
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row viz-row">
-          <div class="col viz-col">
-            <figure class="viz-figure img-fluid">
-              <div id="top10_areagraph"></div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <p class="lead">
-                We narrowed down the thousands of indigenous territories located
-                within the countries of the Brazillian Amazon to ten specific
-                regions. These regions demonstrating the highest cumulative fire
-                counts over the past two decades from 2000 to September 2019.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row viz-row">
-          <div class="col viz-col">
-            <figure class="viz-figure img-fluid">
-              <div id="focus_regions_linegraph"></div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <p class="lead">
-                We further condensed the data down to three focus regions —
-                these three territories presented relatively greater fire count
-                in comparison to other indigenous lands. We wanted to
-                investigate the historical and political context of these lands
-                to identify potential causative factors. Size of the land did
-                not appear to be a relatively indicative factor.
-              </p>
-
-              <p class="lead">
-                Continue scrolling to follow our story.
-                <!--                 <object class="down-arrow" type="image/svg+xml" data="https://cdn.glitch.com/e0876ad4-2883-4d2f-bf08-a90e9d4b0b1e%2Fdown.svg?v=1576512129884">
-                  Down arrow
-                </object> -->
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
+        <p class="lead">Continue scrolling to follow our story.</p>
+      </section>
 
       <section class="map-legend">
         <div class="container">
