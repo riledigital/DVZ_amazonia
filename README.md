@@ -1,8 +1,9 @@
 # Data Viz Amazonia
 
-See the project live at [https://rl2999.github.io/DVZ_amazonia](https://rl2999.github.io/DVZ_amazonia)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e300290b-04f5-4b23-b6aa-c1ac490e09a3/deploy-status)](https://app.netlify.com/sites/flamesofamazonia/deploys)
+See this project live at [https://flamesofamazonia.netlify.app/](https://flamesofamazonia.netlify.app/)
 
-This data story was created by Ri Le, Emma Lu, Nishat Chowdhury, and Anavi Lohia for the course Introduction to Data Visualization during 2019 Fall taught by Professor Agnes Chang at Columbia University.
+This data story was created by Ri Le, [Emma Lu](https://github.com/tarobao), Nishat Chowdhury, and Anavi Lohia for the course Introduction to Data Visualization during 2019 Fall taught by Professor Agnes Chang at Columbia University.
 
 # Instructions
 
