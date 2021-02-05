@@ -1,0 +1,35 @@
+:root {
+  --font-body: "Source Serif Pro";
+  --font-heading: "Source Serif Pro";
+  --font-size-base: 18px;
+
+  @media screen and (min-width: 600px) {
+    --font-size-base: 20px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    --font-size-base: 24px;
+  }
+}
+
+:root {
+  --c-white: #fefefe;
+}
+
+:root {
+  --c-fg: black;
+  --c-bg: rgb(206, 206, 206);
+  --c-link: rgb(170, 7, 7);
+  --c-link-hover: rgb(206, 206, 206);
+}
+
+:root {
+  --margin-base: 1rem;
+
+  @media screen and (min-width: 600px) {
+    --margin-base: 1.5rem;
+  }
+  @media screen and (min-width: 1000px) {
+    --margin-base: 2rem;
+  }
+}

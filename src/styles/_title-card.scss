@@ -1,0 +1,77 @@
+.intro__title-card {
+  background: linear-gradient(
+    180deg,
+    rgba(75, 75, 75, 0.8),
+    rgba(75, 75, 75, 0.8) 80%,
+    rgba(75, 75, 75, 0) 100%
+  );
+
+  margin-bottom: 15vh;
+  padding: 2rem;
+  min-height: 95vh;
+  text-align: center;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 700px) {
+  }
+}
+
+.title {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.2;
+
+  margin-bottom: 0.5rem;
+
+  text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange,
+    4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
+  animation: 2s Blazing infinite alternate linear;
+
+  @media screen and (min-width: 700px) {
+    font-size: 4rem;
+  }
+}
+
+.subhead {
+  color: var(--c-white);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.byline {
+  color: var(--c-white);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Blazing anim by Brian Purgert */
+/* Lifted from https://codepen.io/BrianPurgert/pen/VwYvgJe */
+@keyframes Blazing {
+  0% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
+      0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+  25% {
+    text-shadow: 0 3px 20px red, 0 0 30px red, 0 0 20px orange, 0 0 5px yellow,
+      -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow;
+  }
+  50% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange,
+      -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow,
+      2px -20px 30px rgba(255, 255, 0, 0.5);
+  }
+  75% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange,
+      3px -5px 5px yellow, -4px -10px 10px yellow,
+      2px -20px 30px rgba(255, 255, 0, 0.5), 0px -25px 40px rgba(255, 255, 0, 0);
+  }
+  100% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
+      0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+}

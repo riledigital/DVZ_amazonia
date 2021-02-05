@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Flames of Amazonia</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <div class="map-background-fixed position-fixed">
+      <p></p>
+    </div>
+
+    <!--     This is where the leaflet goes -->
+    <div id="mapid"></div>
+
+    <div class="scrollstory" id="scrollstory">
+      <section id="introduction" class="introduction">
+        <div class="intro__title-card">
+          <h1 class="title">Flames of Amazonia</h1>
+          <p class="subhead">
+            Mapping fires within indigenous lands of the Amazon rainforest.
+          </p>
+          <p class="byline">
+            A data story by <br />
+            Nishat Chowdhury, Ri Le, <br />Emma Lu, and Anavi Lohia.
+          </p>
+        </div>
+        <h2 class="intro__h2">Fires in the Amazon</h2>
+        <p class="intro__p">
+          The Amazon plays a massive role in the Earth’s ecosystem and is also
+          an iconic symbol of environmental vulnerability, indigeneity, and
+          international cooperation.
+        </p>
+        <p class="intro__p">
+          Fires in the Amazon are seasonal, but fire intensity since 2001 has
+          spiked this past summer, correlating with a relatively recent increase
+          in deforestation efforts. In August 2019 alone, the Amazon is said to
+          have had 80,000 fires—the highest ever recorded in a month. [1]
+        </p>
+        <p class="intro__p">
+          We identified fires in indigenous territories recognized by Fundación
+          Nacional del Indio (FUNAI) using data on all fire events detected
+          through MODIS from 2000 to 2019 from NASA's FIRMS project.
+        </p>
+
+        <div class="intro-viz">
+          <div id="observablehq-7a46ba7e"></div>
+          <button
+            onclick="go()"
+            class="button invisible"
+            style="vertical-align: middle"
+          >
+            <span>Reset</span>
+          </button>
+        </div>
+
+        <h2 class="intro__h2">The Amazon is home to indigenous communities</h2>
+        <p class="intro__p">
+          Mainstream media coverage tends to focus on the environmental damage
+          of the Amazon forest fires (eg: loss of wildlife and biodiversity,
+          emissions into the atmosphere, local air pollution etc.) much more so
+          than the consequential displacement of indigenous groups residing in
+          the Amazon.
+        </p>
+
+        <p class="intro__p">
+          Approximately 6,345 indigenous territories or regions have been
+          identified within the Amazon. [2] According to ScienceDaily, with
+          increasing plans for economic development and infrastructure, a vast
+          majority of indigenous lands alongside protected areas in the
+          Brazillian Amazon are at high risk of experiencing disaster. [3]
+          Despite this, indigenous groups are currently at the forefront of the
+          movement to protect the rainforest against further deforestation,
+          illegal logging, and other human invested harmful environmental
+          activities.
+        </p>
+
+        <h2 class="intro__h2">Our research focus</h2>
+
+        <p class="intro__p">
+          To what extent are indigenous lands affected by deforestation-related
+          fires?
+        </p>
+
+        <p class="intro__p">
+          Indigenous land stewardship is proven to be vital to the preservation
+          of the Amazon rainforest: demarcated indigenous lands are protected
+          both by the law and by residing tribes against incursions by loggers
+          and cattle ranchers. As such, statistics show that rates of
+          deforestation drop significantly within indigenous borders. [4]
+        </p>
+        <p class="intro__p">
+          However, the protections nominally offered by the Brazilian government
+          are precarious at best. The demarcation process that protects
+          ancestral lands is often slow to complete or altogether paralyzed,
+          subject to shifting political agendas and bureaucratic fine print.
+          Moreover, protections to already demarcated lands are often unenforced
+          by local government agencies, frequently leaving vulnerable indigenous
+          communities to fend for themselves against illegal invasions and land
+          disputes. [5]
+        </p>
+
+        <p class="intro__p">
+          Since the start of his term in January, President Bolsonaro has made
+          attempts to defang the two government agencies responsible for the
+          protection of the Amazon and its indigenous residents, IBAMA and
+          FUNAI. Additionally, Bolsonaro's pro-agribusiness campaign has
+          emboldened both private land owners and illegal land grabbers
+          (<em>grileiros</em>) residing in the Amazon to claim and deforest
+          land, especially that which lies at or past the borders of indigenous
+          lands. [6]
+        </p>
+
+        <h3 class="intro_plot-title">Focus Regions Fire Count (2001–2019)</h3>
+        <div id="top10_areagraph"></div>
+
+        <p class="intro__p interlude">
+          We narrowed down the thousands of indigenous territories located
+          within the countries of the Brazillian Amazon to ten specific regions.
+          These regions demonstrate the highest cumulative fire counts over the
+          past two decades from 2000 to September 2019.
+        </p>
+
+        <h3 class="intro_plot-title">
+          Indigenous Region Fire Count (2001–2019)
+        </h3>
+        <div class="viz-figure img-fluid">
+          <div id="focus_regions_linegraph"></div>
+        </div>
+
+        <p class="intro__p interlude">
+          We further condensed the data down to three focus regions — these
+          three territories presented relatively greater fire count in
+          comparison to other indigenous lands. We wanted to investigate the
+          historical and political context of these lands to identify potential
+          causative factors. Size of the land did not appear to be a relatively
+          indicative factor. <br />
+          This story examines some patterns in our three focus regions.
+        </p>
+      </section>
+
+      <section class="map-legend">
+        <h2>Map Legend</h2>
+
+        <div class="legend-item legend-fire">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="#ff7800">
+            <circle cx="5" cy="5" r="5"></circle>
+          </svg>
+          Fire event
+        </div>
+        <div class="legend-item legend-fire-2">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+            <circle cx="5" cy="5" r="5"></circle>
+          </svg>
+          Fire event (highlighted year)
+        </div>
+
+        <div class="legend-item legend-fire-2">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+            <line
+              x1="0"
+              y1="0"
+              x2="10"
+              y2="10"
+              stroke="#50e3eb"
+              stroke-width="4"
+            />
+          </svg>
+          Boundary of indigenous land
+        </div>
+
+        <div class="legend-item legend-fire-2">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+            <line
+              x1="0"
+              y1="0"
+              x2="10"
+              y2="10"
+              stroke="#FFE000"
+              stroke-width="4"
+            />
+          </svg>
+          Amazon rainforest boundary
+        </div>
+      </section>
+
+      <!-- START ARTICLE -->
+      <article id="parque" class="landmark">
+        <header class="landmark-intro">
+          <h2>
+            <div class="focus-region">Focus region</div>
+            Parque do Araguaia
+          </h2>
+          <p>
+            Parque Estadual do Araguaia (English: The Araguaia State Park) is a
+            highly biodiverse state park located in the state of Mato Grosso,
+            Brazil. It protects an area of the annually flooded, tropical
+            savanna ecoregion known as the <em>Cerrado</em>.
+          </p>
+          <p>
+            On 27 June 2011 the state government published a law authorizing an
+            "exchange" with the Fundação Nacional do Índio (Funai) that would
+            bring the Xavante people of the Maraiwatsede Indigenous Territory
+            (TI) into the park, and regularize ownership by squatters in the TI.
+            Funai responded that it had no interest in the exchange, which was
+            unconstitutional since indigenous territory is inalienable. [7]
+          </p>
+        </header>
+
+        <h3>Instructions</h3>
+        <p class="lead">
+          Hover over each year in the line chart to highlight where fires
+          happened in that year.
+        </p>
+        <figure class="viz-figure img-fluid">
+          <div id="parque_linegraph"></div>
+        </figure>
+      </article>
+
+      <article id="marai" class="landmark">
+        <header class="landmark-intro">
+          <h2>
+            <div class="focus-region">Focus region</div>
+            Marãiwatséde
+          </h2>
+          <p>
+            Marãiwatséde is a traditional territory located in the state of Mato
+            Grosso, Brazil. It was recognized as land belonging to the Xavante
+            people of the southern Amazon in 1998, but continued to be illegally
+            invaded by external parties. The name of the region means "high
+            forest" or "dangerous forest" in the native language of the Xavante.
+            [8] Xavante title to the Marãiwatséde territory was recognized in an
+            act signed by the Brazilian president, Fernando Henrique Cardoso, in
+            1998. However, less than 10 percent of the territory is occupied by
+            the Indian tribe and 85 percent of the land has been deforested or
+            degraded[8]
+          </p>
+        </header>
+        <h3>Instructions</h3>
+        <p class="lead">
+          Hover over each year in the line chart to highlight where fires
+          happened in that year.
+        </p>
+        <figure class="viz-figure">
+          <div id="marai_linegraph"></div>
+        </figure>
+      </article>
+
+      <article id="ara" class="landmark">
+        <header class="landmark-intro">
+          <h2>
+            <div class="focus-region">Focus region</div>
+            Araribóia
+          </h2>
+          <p>
+            Araribóia is an indigenous territory sizing at 1,600 square miles.
+            The vast, humid region is located in northeast Brazil in the
+            Maranhao state. It is home to Guajajara and Awá tribes. The Awá
+            people belong to one of the rare uncontacted tribes of the world
+            making them highly vulnerable to deforestation, fires and
+            encroachment efforts. [9]
+          </p>
+        </header>
+
+        <h3>Instructions</h3>
+        <p class="lead">
+          Hover over each year in the line chart to highlight where fires
+          happened in that year.
+        </p>
+        <figure class="viz-figure img-fluid">
+          <div id="ara_linegraph"></div>
+        </figure>
+      </article>
+      <!-- END ARTICLE -->
+
+      <!-- Environ policy -->
+      <article class="outro">
+        <h2>Brazil's environmental policies affect the future of the Amazon</h2>
+
+        <p class="lead">
+          The Amazon's ecosystem still suffers from environmental policy dating
+          back to the sixties.
+        </p>
+        <p>
+          Although the Amazon had been the site of the rubber tapping industry
+          for decades prior, mass deforestation for the settlement and
+          development of the Amazon only began after the relocation of the
+          Brazilian capital in 1960. Mass migration, infrastructural
+          development, and agricultural expansion into the forest accelerates
+          for the next several decades, facilitated by the construction of the
+          Brasília-Belém and Trans-Amazonian Highways as well as
+          government-sponsored settlement programs. [10]
+        </p>
+        <p>
+          In 1988, the Brazilian government began to take a stronger stance on
+          environmental preservation in its new (and current) constitution. In
+          addition to implementing a new framework for environmental policy, the
+          new constitution institutes explicit measures to preserve indigenous
+          land rights, legalizing the process for demarcating indigenous lands.
+          [11]
+        </p>
+        <p>
+          In the 20th century, the problem of deforestation in the Amazon lies
+          at the nexus of the conflicting agendas of indigenous communities,
+          private land owners (cattle ranchers, farmers), the Brazilian
+          government, and international powers. The rise of current right-wing
+          Brazilian president Jair Bolsonaro threatens to tip the scales heavily
+          in favor of accelerated development of the Amazon rainforest,
+          primarily at the violent expense of the indigenous people living
+          within.
+        </p>
+      </article>
+
+      <section class="appendix" id="appendix">
+        <h2>Appendix</h2>
+        <section class="bibliography">
+          <details>
+            <summary>
+              <h3>Bibliography</h3>
+            </summary>
+
+            <p>
+              1. Calma, Justine. “Everything You Need to Know about the Fires in
+              the Amazon.” The Verge, 28 Aug. 2019,<
+              https://www.theverge.com/2019/8/28/20836891/amazon-fires-brazil-bolsonaro-rainforest-deforestation-analysis-effects.
+            </p>
+            <p>
+              2. “Amazon Infrastructure Puts 68% of Indigenous Lands / Protected
+              Areas at Risk: Report.” Mongabay Environmental News, 28 June 2019,
+              https://news.mongabay.com/2019/06/amazon-infrastructure-puts-68-of-indigenous-lands-protected-areas-at-risk-report/.
+            </p>
+            <p>
+              3. “55 Percent of Carbon in Amazonian Indigenous Territories and
+              Protected Lands May Be at Risk.” ScienceDaily,
+              https://www.sciencedaily.com/releases/2014/12/141202144829.htm.
+            </p>
+
+            <p>
+              4. New Analysis Says Indigenous Peoples Living in Intact Forests
+              Are Key to Climate Fight Newsroom.
+              https://newsroom.wcs.org/News-Releases/articleType/ArticleView/articleId/11596/New-Analysis-Says-Indigenous-Peoples-Living-in-Intact-Forests-Are-Key-to-Climate-Fight.aspx.
+            </p>
+
+            <p>
+              5. Sims, Shannon. “The Land Battle Behind the Fires in the
+              Amazon.” The Atlantic, 27 Aug. 2019,
+              https://www.theatlantic.com/science/archive/2019/08/amazon-fires-indigenous-lands/596908/.
+            </p>
+
+            <p>
+              6. Cowie, Sam. “Jair Bolsonaro Praised the Genocide of Indigenous
+              People. Now He’s Emboldening Attackers of Brazil’s Amazonian
+              Communities.” The Intercept, 16 Feb. 2019,
+              https://theintercept.com/2019/02/16/brazil-bolsonaro-indigenous-land/..
+            </p>
+
+            <p>
+              7. “Araguaia State Park" Wikipedia,
+              https://en.wikipedia.org/wiki/Araguaia_State_Park#History
+            </p>
+
+            <p>
+              8. “Brazil’s Xavante People Struggle for Their Territory –
+              Maraiwatsede.” IndianCountryToday.Com,
+              https://newsmaven.io/indiancountrytoday/archive/brazil-s-xavante-people-struggle-for-their-territory-maraiwatsede-X8x0Q3Kkxkijia9OhWXmOQ/.
+            </p>
+
+            <p>
+              9. "Giving a platform to the tribal guardians of the natural
+              world” Survival International,
+              https://www.survivalinternational.org/articles/3425-giving-a-platform-to-the-tribal-guardians-of-the-natural-world.
+            </p>
+
+            <p>
+              10. "Deforestation in the Amazon: A CFR InfoGuide Presentation,”
+              Council on Foreign Relations,
+              https://www.cfr.org/interactives/amazon-deforestation/#/en/section5.
+            </p>
+
+            <p>
+              11. "Indigenous Rights in Brazil: Stagnation to Political
+              Impasse,” The South and Meso American Indian Rights Center,
+              https://saiic.nativeweb.org/brazil.html.
+            </p>
+          </details>
+        </section>
+
+        <h3>Data Sources</h3>
+
+        <p>
+          Point data on fires was gathered from the NASA FIRMS project, we used
+          data from MODIS M6, selected from 2000-2010 within the national
+          boundaries of Brazil. Geography for indigenous lands of Brazil is from
+          <a
+            href="http://data.globalforestwatch.org/datasets/brazil-indigenous-lands"
+          >
+            Fundação Nacional do Índio (FUNAI)</a
+          >
+          and indexed by the
+          <a href="https://globalforestwatch.org">Global Forest Watch</a>.
+        </p>
+
+        <h3>Methodology</h3>
+        <p>
+          We joined data from NASA FIRMS (MODIS M6) with the FUNAI recognized
+          indigenous land data from Global Forest Watch using QGIS. All data was
+          converted to Geopackage and transformed to EPSG:4674 before executing
+          a spaital join operation. We used Tidyverse R to group, summarize, and
+          export summary tables for areas, using Tableau to conduct EDA. Our
+          visualizations were designed with Vega-Lite.
+        </p>
+
+        <h3>Credits</h3>
+        <p>
+          This data story was created by
+          <a href="https://riledigital.com/">Ri Le</a>,
+          <a href="https://tarobao.github.io">Emma Lu</a>,
+          <a href="https://www.linkedin.com/in/ntasnim/">Nishat Chowdhury</a>,
+          and
+          <a href="https://www.linkedin.com/in/anavi-lohia/">Anavi Lohia</a>
+          for the course Introduction to Data Visualization during 2019 Fall
+          taught by Professor Agnes Chang at Columbia University.
+        </p>
+
+        <div class="donate">
+          Thanks for checking out our work! While you're here, please
+          <a href="http://vaka.me/514858">consider donating directly</a> to the
+          indigenous activists fighting against the continued deforestation of
+          the Amazon.
+        </div>
+      </section>
+    </div>
+
+    <script src="./js/index.js"></script>
+
+    <script type="module">
+      import {
+        Runtime,
+        Inspector,
+        Library,
+      } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+      import define from "https://api.observablehq.com/@nshay13/a5.js?v=3";
+      const inspect = Inspector.into("#observablehq-7a46ba7e");
+      const runtime = new Runtime(Object.assign(new Library(), { width: 700 }));
+      const main = runtime.module(
+        define,
+        (name) => name === "chart" && inspect()
+      );
+    </script>
+  </body>
+</html>
