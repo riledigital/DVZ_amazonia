@@ -44,7 +44,7 @@ export const observerTriggers = new Map([
     targetNode: '#introduction',
     point: point_home,
     offset: -800,
-    zoom: 7
+    zoom: 4
   }],
   ['parque', {
     targetNode: '#parque',
