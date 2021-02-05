@@ -6,7 +6,8 @@ See this project live at [https://flamesofamazonia.netlify.app/](https://flameso
 This data story was created by Ri Le, [Emma Lu](https://github.com/tarobao), Nishat Chowdhury, and Anavi Lohia for the course Introduction to Data Visualization during 2019 Fall taught by Professor Agnes Chang at Columbia University.
 
 # Instructions
-
+- Install `nvm` and `node`
+- `nvm use` to switch Node version
 - `npm install` to install dependencies
 - `npm run dev` to start Parcel dev server
 - `npm run build` to start static Parcel build
