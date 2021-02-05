@@ -31,6 +31,10 @@
   text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange,
     4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
   animation: 2s Blazing infinite alternate linear;
+
+  @media screen and (min-width: 700px) {
+    font-size: 4rem;
+  }
 }
 
 .subhead {
