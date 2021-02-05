@@ -20,6 +20,7 @@
   "dependencies": {
     "cssremedy": "0.1.0-beta.2",
     "data": "^0.6.1",
+    "embed": "0.0.1",
     "leaflet": "^1.7.1",
     "lodash-es": "^4.17.20",
     "regenerator-runtime": "^0.13.7",

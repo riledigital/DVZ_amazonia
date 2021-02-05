@@ -11,6 +11,8 @@ import {
   setupVegaPlotInteractivity
 } from './plots.js';
 
+import './embed';
+
 window.addEventListener('DOMContentLoaded', async (event) => {
   await setupMap(document.querySelector('#mapid'));
   makeAllGraphs();
