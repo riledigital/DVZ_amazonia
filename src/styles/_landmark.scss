@@ -4,15 +4,43 @@
   margin-bottom: 100vh;
 
   h2 {
-    font-size: 2rem;
-    font-weight: 300;
-    font-style: italic;
+    // TODO reuse this block treatment
+    background-color: orange;
+    width: 100%;
+    display: inline-block;
+    padding: 1ch 0.5ch;
     margin-bottom: 1rem;
+
+    color: var(--c-white);
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+
+    .focus-region {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-style: normal;
+      letter-spacing: 1px;
+    }
+    @media screen and (min-width: 700px) {
+      padding: 0.5ch 2ch;
+      width: auto;
+      text-align: left;
+    }
   }
 
   h3 {
     font-size: 1rem;
     font-weight: bold;
+  }
+
+  p {
+    transition: background-color 200ms ease;
+  }
+  p:hover {
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
   .vega-embed {
@@ -22,4 +50,8 @@
 
 .landmark-intro {
   margin-bottom: 1rem;
+}
+
+.lead {
+  margin-bottom: var(--margin-base);
 }

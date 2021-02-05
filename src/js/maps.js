@@ -18,6 +18,7 @@ import {
 
 let mapLayers;
 
+
 export const setupMap = async (mapContainer) => {
   // make the map
   console.info('making map at '+ mapContainer);

@@ -6,6 +6,9 @@ import {
   makeMultiLine, makeLineGraph, makeAreaGraph
 } from './plotStyles.js';
 
+import 'leaflet';
+
+let L = window.L;
 export const point_home = L.latLng(-10.250059987303004, -49.46044921875);
 
 export const mapLayerSources = [

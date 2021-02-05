@@ -17,3 +17,8 @@ a {
 p {
   max-width: 70ch;
 }
+
+*::selection {
+  background: orange;
+  color: black;
+}

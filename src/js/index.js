@@ -1,5 +1,8 @@
 import './../styles/style.scss';
 import {
+  observerTriggers
+} from './data';
+import {
   setupMap
 } from './maps';
 
@@ -14,3 +17,20 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 });
 
 // setupVegaPlotInteractivity();
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log('intersecting');
+      document.querySelector('.map-legend').classList.add('hidden');
+    } else {
+      document.querySelector('.map-legend').classList.remove('hidden');
+    }
+  });
+}, {
+  threshold: 0.1,
+  root: null,
+  rootMargin: '0px'
+});
+
+observer.observe(document.querySelector('.donate'));
